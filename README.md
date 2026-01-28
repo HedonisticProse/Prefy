@@ -2,6 +2,37 @@
 
 A customizable, portable web-based tool for curating and sharing your preferences in a visual, categorical format.
 
+Hosted on GitHub Pages: [https://hedonisticprose.github.io/Prefy/](https://hedonisticprose.github.io/Prefy/)
+
+**Disclaimer**: *Prefy is currently in Open Beta for evaluation. If you encounter any issues or have features you would like to request, please use the Issues Page here to communicate them to me.*
+
+## Table of Contents
+- [Prefy - Your Preferences Organized](#prefy---your-preferences-organized)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Getting Started](#getting-started)
+  - [Using the Template Generator](#using-the-template-generator)
+    - [Format](#format)
+    - [Example](#example)
+    - [Generate JSON Template](#generate-json-template)
+    - [Comments](#comments)
+    - [Using Your Generated Template](#using-your-generated-template)
+  - [File Structure](#file-structure)
+  - [Data Storage](#data-storage)
+  - [Settings](#settings)
+    - [Username](#username)
+    - [Load Configuration](#load-configuration)
+    - [Adding New Configurations](#adding-new-configurations)
+  - [Customization](#customization)
+    - [Levels](#levels)
+    - [Categories](#categories)
+    - [Entries](#entries)
+  - [Export Options](#export-options)
+    - [Image Export](#image-export)
+    - [JSON Export/Import](#json-exportimport)
+  - [Privacy](#privacy)
+  - [License](#license)
+
 ## Features
 
 - **Customizable Levels**: Define your own preference levels with custom names and colors
