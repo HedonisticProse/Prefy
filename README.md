@@ -9,6 +9,8 @@ Hosted on GitHub Pages: [https://hedonisticprose.github.io/Prefy/](https://hedon
 ## Table of Contents
 - [Prefy - Your Preferences Organized](#prefy---your-preferences-organized)
   - [Table of Contents](#table-of-contents)
+  - [Background](#background)
+  - [AI Disclosure](#ai-disclosure)
   - [Features](#features)
   - [Getting Started](#getting-started)
   - [Using the Template Generator](#using-the-template-generator)
@@ -32,6 +34,22 @@ Hosted on GitHub Pages: [https://hedonisticprose.github.io/Prefy/](https://hedon
     - [JSON Export/Import](#json-exportimport)
   - [Privacy](#privacy)
   - [License](#license)
+
+## Background
+
+This tool is inspired by [Goctionni's](https://github.com/Goctionni) [kinklistv2](https://github.com/Goctionni/kinklist-v2) which is a Vue.js web-app for categorizing kinks and sexual interests visually while communicating your personal preferences.
+
+The original tool exported configurations using images which meant that you could not save the overall state of the app in such a way that if you made modifications you could recall them later. Additionally, features like "comments" did not display on the final image export which made them useless in practice.
+
+I decided to take my won crack at this exercise and created Prefy.
+
+Prefy is non-sexual by default, can be used for any type of preference communication, and is more publicly usable. However, for those still looking for the kinklistv2 functionality, a kinklistv2 configuration can be loaded through the settings (see the ["Load Configuration"](#load-configuration) section).
+
+## AI Disclosure
+
+Prefy was created using Claude Code. The project currently stands as a "scaffold" of AI-generated code I will be trimming, refactoring, and editing once I am finished with the Open Beta.
+
+If you have any strong personal feelings about AI generated content and tools, please go support [kinklistv2](https://goctionni.github.io/kinklist-v2/). I will certainly not take it personally!
 
 ## Features
 
