@@ -146,9 +146,14 @@ Click the **Settings** button in the header to access:
 
 ### Username
 
-Set your username (optional). This is used for naming exported files:
-- Image exports: `Prefy_YourUsername_2026-01-27_12-30-45.png`
-- Config exports: `Prefy_Config_YourUsername_2026-01-27_12-30-45.json`
+Set your username (optional). This is used for:
+
+- Naming exported files: `Prefy_YourUsername_2026-01-27_12-30-45.png`
+- The subtitle on exported images: "Created by YourUsername at 12:30 PM on January 27, 2026"
+
+### Export Title
+
+Set a custom title for your exported images. This appears at the top of the exported image instead of the default "My Prefy List".
 
 ### Load Configuration
 
@@ -195,6 +200,14 @@ Click "Manage Levels" to:
 ### Image Export
 
 Click "Export Image" to generate a PNG snapshot of your entire preferences list. Perfect for sharing on social media or with friends.
+
+The exported image includes:
+
+- **Title**: Your custom export title (set in Settings), or "My Prefy List" by default
+- **Subtitle**: "Created by [Username] at [time] on [date]" (or just "Created at [time] on [date]" if no username is set)
+- **Levels Legend**: Color-coded legend showing what each level means
+- **All Categories**: Your complete preferences list
+- **Footer**: Prefy branding with a link back to the project
 
 ### JSON Export/Import
 

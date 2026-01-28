@@ -1,6 +1,7 @@
 // Global App State
 let appData = {
     username: '',
+    exportTitle: 'My Prefy List',
     levels: [
         { id: 'none', name: 'None', color: '#ffffff' },
         { id: 'favorite', name: 'Favorite', color: '#90cdf4' },
@@ -46,6 +47,12 @@ function initializeEventListeners() {
     const usernameInput = document.getElementById('usernameInput');
     usernameInput.addEventListener('input', (e) => {
         appData.username = e.target.value;
+    });
+
+    // Export title input
+    const exportTitleInput = document.getElementById('exportTitleInput');
+    exportTitleInput.addEventListener('input', (e) => {
+        appData.exportTitle = e.target.value;
     });
 
     // Header buttons
@@ -951,6 +958,21 @@ async function exportToImage() {
     content.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
     exportContentDiv.style.width = `${baseWidth}px`;
 
+    // Set export title
+    const exportTitle = document.getElementById('exportTitle');
+    exportTitle.textContent = appData.exportTitle || 'My Prefy List';
+
+    // Set export subtitle with date/time
+    const exportSubtitle = document.getElementById('exportSubtitle');
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const dateStr = now.toLocaleDateString([], { year: 'numeric', month: 'long', day: 'numeric' });
+    if (appData.username && appData.username.trim()) {
+        exportSubtitle.textContent = `Created by ${appData.username} at ${timeStr} on ${dateStr}`;
+    } else {
+        exportSubtitle.textContent = `Created at ${timeStr} on ${dateStr}`;
+    }
+
     // Prepare export levels legend
     const exportLegend = document.getElementById('exportLevelsLegend');
     exportLegend.innerHTML = appData.levels.map(level => `
@@ -1042,9 +1064,12 @@ function loadConfig(event) {
                 throw new Error('Invalid configuration file');
             }
 
-            // Ensure username field exists for backward compatibility
+            // Ensure fields exist for backward compatibility
             if (!data.username) {
                 data.username = '';
+            }
+            if (!data.exportTitle) {
+                data.exportTitle = 'My Prefy List';
             }
 
             if (confirm('Load this configuration? This will replace your current data.')) {
@@ -1077,9 +1102,12 @@ async function loadTemplate() {
         }
         const templateData = await response.json();
 
-        // Ensure username field exists for backward compatibility
+        // Ensure fields exist for backward compatibility
         if (!templateData.username) {
             templateData.username = '';
+        }
+        if (!templateData.exportTitle) {
+            templateData.exportTitle = 'My Prefy List';
         }
 
         appData = templateData;
@@ -1094,10 +1122,12 @@ async function loadTemplate() {
 async function openSettingsModal() {
     const modal = document.getElementById('settingsModal');
     const usernameInput = document.getElementById('usernameInput');
+    const exportTitleInput = document.getElementById('exportTitleInput');
     const configSelect = document.getElementById('configSelect');
 
-    // Set current username
+    // Set current values
     usernameInput.value = appData.username || '';
+    exportTitleInput.value = appData.exportTitle || 'My Prefy List';
 
     // Load available configs
     await loadAvailableConfigs();
@@ -1195,9 +1225,12 @@ async function loadConfigFromFile(filename) {
             throw new Error('Invalid configuration file');
         }
 
-        // Ensure username field exists for backward compatibility
+        // Ensure fields exist for backward compatibility
         if (!data.username) {
             data.username = '';
+        }
+        if (!data.exportTitle) {
+            data.exportTitle = 'My Prefy List';
         }
 
         appData = data;
