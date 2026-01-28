@@ -1,0 +1,18 @@
+# Example Prefy Configuration
+# This demonstrates the format for creating templates
+# Format: Category Name (Property 1, Property 2, ...): Entry 1, Entry 2, ...
+
+# Social activities and entertainment
+Social Activities (Interest, Frequency): Movies, Concerts, Museums, Theater, Comedy Shows, Art Galleries
+
+# Food and dining preferences
+Food Preferences (Like, Dislike): Italian, Japanese, Mexican, Thai, Indian, Mediterranean
+
+# Hobbies and interests
+Hobbies (Skill Level, Interest): Photography, Cooking, Gaming, Reading, Drawing, Woodworking
+
+# Travel and adventure
+Travel (Interest, Experience): Beach Vacations, Mountain Hiking, City Tours, Road Trips, Camping
+
+# Sports and fitness
+Physical Activities (Participation, Watching): Running, Yoga, Swimming, Cycling, Basketball, Tennis

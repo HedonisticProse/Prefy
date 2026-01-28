@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prefy - Your Preferences Organized</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <div class="header-branding">
+                    <h1>Prefy</h1>
+                    <p class="tagline">Your Preferences Organized</p>
+                </div>
+                <input type="text" id="usernameInput" class="username-input" placeholder="Username (optional)" maxlength="30">
+            </div>
+            <div class="header-actions">
+                <button id="manageLevelsBtn" class="btn btn-secondary">Manage Levels</button>
+                <button id="addCategoryBtn" class="btn btn-primary">+ Add Category</button>
+                <button id="exportImageBtn" class="btn btn-accent">Export Image</button>
+                <button id="saveConfigBtn" class="btn btn-success">Save Config</button>
+                <button id="loadConfigBtn" class="btn btn-info">Load Config</button>
+            </div>
+        </header>
+
+        <!-- Levels Legend -->
+        <div class="levels-legend-container">
+            <div id="levelsLegend" class="levels-legend"></div>
+        </div>
+
+        <!-- Main Content Area -->
+        <main id="categoriesContainer" class="categories-container">
+            <!-- Categories will be dynamically inserted here -->
+        </main>
+
+        <!-- Export Preview Area (hidden) -->
+        <div id="exportPreview" class="export-preview" style="display: none;">
+            <div class="export-content">
+                <h1>My Prefy List</h1>
+                <div id="exportCategoriesContainer" class="export-categories-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Managing Levels -->
+    <div id="levelsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Manage Levels</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="levelsContainer"></div>
+                <button id="addLevelBtn" class="btn btn-primary">+ Add Level</button>
+            </div>
+            <div class="modal-footer">
+                <button id="saveLevelsBtn" class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Adding/Editing Category -->
+    <div id="categoryModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="categoryModalTitle">Add Category</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="categoryName">Category Name:</label>
+                    <input type="text" id="categoryName" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label>Properties:</label>
+                    <div id="propertiesContainer"></div>
+                    <button id="addPropertyBtn" class="btn btn-small">+ Add Property</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="deleteCategoryBtn" class="btn btn-accent" style="margin-right: auto;">Delete</button>
+                <button id="saveCategoryBtn" class="btn btn-success">Save</button>
+                <button id="cancelCategoryBtn" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Adding/Editing Entry -->
+    <div id="entryModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="entryModalTitle">Add Entry</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="entryName">Entry Name:</label>
+                    <input type="text" id="entryName" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="entryComment">Comment (optional):</label>
+                    <textarea id="entryComment" class="form-input" rows="2" placeholder="Add a note or comment..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Levels:</label>
+                    <div id="entryLevelsContainer"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="saveEntryBtn" class="btn btn-success">Save</button>
+                <button id="cancelEntryBtn" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden file input for loading config -->
+    <input type="file" id="fileInput" accept=".json" style="display: none;">
+
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- Main App Script -->
+    <script src="app.js"></script>
+</body>
+</html>

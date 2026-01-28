@@ -1,0 +1,1147 @@
+{
+  "username": "",
+  "levels": [
+    {
+      "id": "none",
+      "name": "None",
+      "color": "#ffffff"
+    },
+    {
+      "id": "favorite",
+      "name": "Favorite",
+      "color": "#90cdf4"
+    },
+    {
+      "id": "liked",
+      "name": "Liked",
+      "color": "#48bb78"
+    },
+    {
+      "id": "neutral",
+      "name": "Neutral",
+      "color": "#fbd38d"
+    },
+    {
+      "id": "will-try",
+      "name": "Will Try",
+      "color": "#f6ad55"
+    },
+    {
+      "id": "disliked",
+      "name": "Disliked",
+      "color": "#fc8181"
+    },
+    {
+      "id": "hard-limit",
+      "name": "Hard Limit",
+      "color": "#f56565"
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat_bodies_0",
+      "name": "Bodies",
+      "properties": [
+        "Preference"
+      ],
+      "entries": [
+        {
+          "id": "entry_skinny_0",
+          "name": "Skinny",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_chubby_1",
+          "name": "Chubby",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_small_breasts_2",
+          "name": "Small breasts",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_large_breasts_3",
+          "name": "Large breasts",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_small_cocks_4",
+          "name": "Small cocks",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_large_cocks_5",
+          "name": "Large cocks",
+          "levels": {
+            "Preference": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_clothing_1",
+      "name": "Clothing",
+      "properties": [
+        "Preference"
+      ],
+      "entries": [
+        {
+          "id": "entry_clothed_sex_0",
+          "name": "Clothed sex",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_lingerie_1",
+          "name": "Lingerie",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_stockings_2",
+          "name": "Stockings",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_heels_3",
+          "name": "Heels",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_leather_4",
+          "name": "Leather",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_latex_5",
+          "name": "Latex",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_uniform_costume_6",
+          "name": "Uniform/costume",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_cross_dressing_7",
+          "name": "Cross-dressing",
+          "levels": {
+            "Preference": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_groupings_2",
+      "name": "Groupings",
+      "properties": [
+        "Preference"
+      ],
+      "entries": [
+        {
+          "id": "entry_1_female_0",
+          "name": "1 female",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_trans_female_1",
+          "name": "Trans-female",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_trans_male_2",
+          "name": "Trans-male",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_1_female_and_1_male_3",
+          "name": "1 female and 1 male",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_2_females_4",
+          "name": "2 females",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_orgy_5",
+          "name": "Orgy",
+          "levels": {
+            "Preference": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_general_3",
+      "name": "General",
+      "properties": [
+        "Giving",
+        "Receiving"
+      ],
+      "entries": [
+        {
+          "id": "entry_romance_affection_0",
+          "name": "Romance/affection",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_handjob_fingering_1",
+          "name": "Handjob/fingering",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_blowjob_2",
+          "name": "Blowjob",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_deep_throat_3",
+          "name": "Deep-throat",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_swallowing_4",
+          "name": "Swallowing",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_facials_5",
+          "name": "Facials",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_cunnilingus_6",
+          "name": "Cunnilingus",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_face_sitting_7",
+          "name": "Face-sitting",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_edging_8",
+          "name": "Edging",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_teasing_9",
+          "name": "Teasing",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_joi_si_10",
+          "name": "JOI/SI",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_unprotected_sex_w_partner__11",
+          "name": "Unprotected Sex (w/ Partner)",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_unprotected_sex_w_others__12",
+          "name": "Unprotected Sex (w/ Others)",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_ass_play_4",
+      "name": "Ass Play",
+      "properties": [
+        "Giving",
+        "Receiving"
+      ],
+      "entries": [
+        {
+          "id": "entry_anal_toys_0",
+          "name": "Anal toys",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_anal_sex_pegging_1",
+          "name": "Anal sex/pegging",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_rimming_2",
+          "name": "Rimming",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_double_penetration_3",
+          "name": "Double penetration",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_anal_fisting_4",
+          "name": "Anal fisting",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_restrictive_5",
+      "name": "Restrictive",
+      "properties": [
+        "Self",
+        "Partner"
+      ],
+      "entries": [
+        {
+          "id": "entry_gag_0",
+          "name": "Gag",
+          "levels": {
+            "Self": "none",
+            "Partner": "none"
+          }
+        },
+        {
+          "id": "entry_collar_1",
+          "name": "Collar",
+          "levels": {
+            "Self": "none",
+            "Partner": "none"
+          }
+        },
+        {
+          "id": "entry_leash_2",
+          "name": "Leash",
+          "levels": {
+            "Self": "none",
+            "Partner": "none"
+          }
+        },
+        {
+          "id": "entry_chastity_3",
+          "name": "Chastity",
+          "levels": {
+            "Self": "none",
+            "Partner": "none"
+          }
+        },
+        {
+          "id": "entry_bondage_light__4",
+          "name": "Bondage (light)",
+          "levels": {
+            "Self": "none",
+            "Partner": "none"
+          }
+        },
+        {
+          "id": "entry_bondage_heavy__5",
+          "name": "Bondage (heavy)",
+          "levels": {
+            "Self": "none",
+            "Partner": "none"
+          }
+        },
+        {
+          "id": "entry_encasement_6",
+          "name": "Encasement",
+          "levels": {
+            "Self": "none",
+            "Partner": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_domination_6",
+      "name": "Domination",
+      "properties": [
+        "As dominant",
+        "As submissive"
+      ],
+      "entries": [
+        {
+          "id": "entry_dominant_submissive_0",
+          "name": "Dominant/submissive",
+          "levels": {
+            "As dominant": "none",
+            "As submissive": "none"
+          }
+        },
+        {
+          "id": "entry_domestic_servitude_1",
+          "name": "Domestic servitude",
+          "levels": {
+            "As dominant": "none",
+            "As submissive": "none"
+          }
+        },
+        {
+          "id": "entry_slavery_2",
+          "name": "Slavery",
+          "levels": {
+            "As dominant": "none",
+            "As submissive": "none"
+          }
+        },
+        {
+          "id": "entry_pet_play_3",
+          "name": "Pet-play",
+          "levels": {
+            "As dominant": "none",
+            "As submissive": "none"
+          }
+        },
+        {
+          "id": "entry_caregiver_little_4",
+          "name": "Caregiver/little",
+          "levels": {
+            "As dominant": "none",
+            "As submissive": "none"
+          }
+        },
+        {
+          "id": "entry_discipline_5",
+          "name": "Discipline",
+          "levels": {
+            "As dominant": "none",
+            "As submissive": "none"
+          }
+        },
+        {
+          "id": "entry_begging_6",
+          "name": "Begging",
+          "levels": {
+            "As dominant": "none",
+            "As submissive": "none"
+          }
+        },
+        {
+          "id": "entry_forced_orgasm_7",
+          "name": "Forced orgasm",
+          "levels": {
+            "As dominant": "none",
+            "As submissive": "none"
+          }
+        },
+        {
+          "id": "entry_orgasm_control_8",
+          "name": "Orgasm control",
+          "levels": {
+            "As dominant": "none",
+            "As submissive": "none"
+          }
+        },
+        {
+          "id": "entry_orgasm_denial_9",
+          "name": "Orgasm denial",
+          "levels": {
+            "As dominant": "none",
+            "As submissive": "none"
+          }
+        },
+        {
+          "id": "entry_power_exchange_10",
+          "name": "Power-exchange",
+          "levels": {
+            "As dominant": "none",
+            "As submissive": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_consent_play_7",
+      "name": "Consent Play",
+      "properties": [
+        "As aggressor",
+        "As target"
+      ],
+      "entries": [
+        {
+          "id": "entry_consensual_non_consent_0",
+          "name": "Consensual-non-consent",
+          "levels": {
+            "As aggressor": "none",
+            "As target": "none"
+          }
+        },
+        {
+          "id": "entry_blackmail_coercion_1",
+          "name": "Blackmail/coercion",
+          "levels": {
+            "As aggressor": "none",
+            "As target": "none"
+          }
+        },
+        {
+          "id": "entry_kidnapping_abduction_2",
+          "name": "Kidnapping/abduction",
+          "levels": {
+            "As aggressor": "none",
+            "As target": "none"
+          }
+        },
+        {
+          "id": "entry_drugs_3",
+          "name": "Drugs",
+          "levels": {
+            "As aggressor": "none",
+            "As target": "none"
+          }
+        },
+        {
+          "id": "entry_alcohol_4",
+          "name": "Alcohol",
+          "levels": {
+            "As aggressor": "none",
+            "As target": "none"
+          }
+        },
+        {
+          "id": "entry_sleep_play_5",
+          "name": "Sleep-play",
+          "levels": {
+            "As aggressor": "none",
+            "As target": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_taboo_roleplay_8",
+      "name": "Taboo Roleplay",
+      "properties": [
+        "Topic"
+      ],
+      "entries": [
+        {
+          "id": "entry_incest_0",
+          "name": "Incest",
+          "levels": {
+            "Topic": "none"
+          }
+        },
+        {
+          "id": "entry_age_gap_1",
+          "name": "Age-gap",
+          "levels": {
+            "Topic": "none"
+          }
+        },
+        {
+          "id": "entry_raceplay_2",
+          "name": "Raceplay",
+          "levels": {
+            "Topic": "none"
+          }
+        },
+        {
+          "id": "entry_bestiality_3",
+          "name": "Bestiality",
+          "levels": {
+            "Topic": "none"
+          }
+        },
+        {
+          "id": "entry_necrophilia_4",
+          "name": "Necrophilia",
+          "levels": {
+            "Topic": "none"
+          }
+        },
+        {
+          "id": "entry_cheating_5",
+          "name": "Cheating",
+          "levels": {
+            "Topic": "none"
+          }
+        },
+        {
+          "id": "entry_exhibitionism_6",
+          "name": "Exhibitionism",
+          "levels": {
+            "Topic": "none"
+          }
+        },
+        {
+          "id": "entry_voyeurism_7",
+          "name": "Voyeurism",
+          "levels": {
+            "Topic": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_surrealism_roleplay_9",
+      "name": "Surrealism Roleplay",
+      "properties": [
+        "Topic"
+      ],
+      "entries": [
+        {
+          "id": "entry_futanari_0",
+          "name": "Futanari",
+          "levels": {
+            "Topic": "none"
+          }
+        },
+        {
+          "id": "entry_furry_1",
+          "name": "Furry",
+          "levels": {
+            "Topic": "none"
+          }
+        },
+        {
+          "id": "entry_vore_2",
+          "name": "Vore",
+          "levels": {
+            "Topic": "none"
+          }
+        },
+        {
+          "id": "entry_transformation_3",
+          "name": "Transformation",
+          "levels": {
+            "Topic": "none"
+          }
+        },
+        {
+          "id": "entry_tentacles_4",
+          "name": "Tentacles",
+          "levels": {
+            "Topic": "none"
+          }
+        },
+        {
+          "id": "entry_monster_5",
+          "name": "Monster",
+          "levels": {
+            "Topic": "none"
+          }
+        },
+        {
+          "id": "entry_alien_6",
+          "name": "Alien",
+          "levels": {
+            "Topic": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_bodily_fluids_10",
+      "name": "Bodily Fluids",
+      "properties": [
+        "Giving",
+        "Receiving"
+      ],
+      "entries": [
+        {
+          "id": "entry_blood_0",
+          "name": "Blood",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_watersports_1",
+          "name": "Watersports",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_scat_2",
+          "name": "Scat",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_vomit_3",
+          "name": "Vomit",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_lactation_4",
+          "name": "Lactation",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_diapers_5",
+          "name": "Diapers",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_cum_6",
+          "name": "Cum",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_squirt_7",
+          "name": "Squirt",
+          "levels": {
+            "Giving": "none",
+            "Receiving": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_degradation_11",
+      "name": "Degradation",
+      "properties": [
+        "As provider",
+        "As subject"
+      ],
+      "entries": [
+        {
+          "id": "entry_glory_hole_0",
+          "name": "Glory-hole",
+          "levels": {
+            "As provider": "none",
+            "As subject": "none"
+          }
+        },
+        {
+          "id": "entry_name_calling_1",
+          "name": "Name-calling",
+          "levels": {
+            "As provider": "none",
+            "As subject": "none"
+          }
+        },
+        {
+          "id": "entry_humiliation_2",
+          "name": "Humiliation",
+          "levels": {
+            "As provider": "none",
+            "As subject": "none"
+          }
+        },
+        {
+          "id": "entry_objectification_3",
+          "name": "Objectification",
+          "levels": {
+            "As provider": "none",
+            "As subject": "none"
+          }
+        },
+        {
+          "id": "entry_body_writing_4",
+          "name": "Body-writing",
+          "levels": {
+            "As provider": "none",
+            "As subject": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_touch_stimulation_12",
+      "name": "Touch & Stimulation",
+      "properties": [
+        "As provider",
+        "As subject"
+      ],
+      "entries": [
+        {
+          "id": "entry_genital_worship_0",
+          "name": "Genital worship",
+          "levels": {
+            "As provider": "none",
+            "As subject": "none"
+          }
+        },
+        {
+          "id": "entry_ass_worship_1",
+          "name": "Ass worship",
+          "levels": {
+            "As provider": "none",
+            "As subject": "none"
+          }
+        },
+        {
+          "id": "entry_foot_play_2",
+          "name": "Foot-play",
+          "levels": {
+            "As provider": "none",
+            "As subject": "none"
+          }
+        },
+        {
+          "id": "entry_tickling_3",
+          "name": "Tickling",
+          "levels": {
+            "As provider": "none",
+            "As subject": "none"
+          }
+        },
+        {
+          "id": "entry_sensation_play_4",
+          "name": "Sensation play",
+          "levels": {
+            "As provider": "none",
+            "As subject": "none"
+          }
+        },
+        {
+          "id": "entry_electro_stimulation_5",
+          "name": "Electro-stimulation",
+          "levels": {
+            "As provider": "none",
+            "As subject": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_misc_fetish_13",
+      "name": "Misc. Fetish",
+      "properties": [
+        "Providing",
+        "Receiving"
+      ],
+      "entries": [
+        {
+          "id": "entry_fisting_0",
+          "name": "Fisting",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_gangbang_1",
+          "name": "Gangbang",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_breath_play_2",
+          "name": "Breath-play",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_breeding_3",
+          "name": "Breeding",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_pregnancy_4",
+          "name": "Pregnancy",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_feminization_5",
+          "name": "Feminization",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_cuckold_cuckquean_6",
+          "name": "Cuckold/cuckquean",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_photos_filming_7",
+          "name": "Photos/filming",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_pain_14",
+      "name": "Pain",
+      "properties": [
+        "Providing",
+        "Receiving"
+      ],
+      "entries": [
+        {
+          "id": "entry_pain_light__0",
+          "name": "Pain (light)",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_pain_heavy__1",
+          "name": "Pain (heavy)",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_nipple_clamps_2",
+          "name": "Nipple clamps",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_clothes_pins_3",
+          "name": "Clothes pins",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_caning_4",
+          "name": "Caning",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_flogging_5",
+          "name": "Flogging",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_beating_6",
+          "name": "Beating",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_spanking_7",
+          "name": "Spanking",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_genital_slapping_8",
+          "name": "Genital slapping",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_genital_torture_9",
+          "name": "Genital torture",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_hot_wax_10",
+          "name": "Hot wax",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_scratching_11",
+          "name": "Scratching",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_biting_12",
+          "name": "Biting",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        },
+        {
+          "id": "entry_cutting_13",
+          "name": "Cutting",
+          "levels": {
+            "Providing": "none",
+            "Receiving": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_relationships_15",
+      "name": "Relationships",
+      "properties": [
+        "Style"
+      ],
+      "entries": [
+        {
+          "id": "entry_monogamous_0",
+          "name": "Monogamous",
+          "levels": {
+            "Style": "none"
+          }
+        },
+        {
+          "id": "entry_polyamorous_1",
+          "name": "Polyamorous",
+          "levels": {
+            "Style": "none"
+          }
+        },
+        {
+          "id": "entry_open_relationship_2",
+          "name": "Open Relationship",
+          "levels": {
+            "Style": "none"
+          }
+        },
+        {
+          "id": "entry_master_x_slave_3",
+          "name": "Master x Slave",
+          "levels": {
+            "Style": "none"
+          }
+        },
+        {
+          "id": "entry_master_x_pet_4",
+          "name": "Master x Pet",
+          "levels": {
+            "Style": "none"
+          }
+        },
+        {
+          "id": "entry_daddy_x_little_5",
+          "name": "Daddy x little",
+          "levels": {
+            "Style": "none"
+          }
+        }
+      ]
+    }
+  ]
+}
