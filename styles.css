@@ -839,3 +839,27 @@ select.form-input:focus {
 .btn-save:hover {
     background: #2f855a;
 }
+
+/* Footer */
+.app-footer {
+    text-align: center;
+    padding: 15px 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.app-footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.app-footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-separator {
+    margin: 0 10px;
+    opacity: 0.5;
+}
