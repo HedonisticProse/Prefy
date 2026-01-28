@@ -98,9 +98,8 @@ body {
 .levels-legend {
     display: flex;
     align-items: center;
-    gap: 20px;
-    flex-wrap: nowrap;
-    white-space: nowrap;
+    gap: 12px 20px;
+    flex-wrap: wrap;
     font-size: 14px;
     justify-content: center;
 }
