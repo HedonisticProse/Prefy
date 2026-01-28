@@ -92,7 +92,6 @@ body {
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
     margin-bottom: 20px;
-    overflow: hidden;
 }
 
 .levels-legend {
@@ -108,7 +107,6 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    flex-shrink: 0;
 }
 
 .legend-bubble {
@@ -122,7 +120,6 @@ body {
 .legend-name {
     font-weight: 600;
     color: #2d3748;
-    white-space: nowrap;
 }
 
 /* Buttons */
