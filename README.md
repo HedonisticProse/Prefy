@@ -23,6 +23,7 @@ Hosted on GitHub Pages: [https://hedonisticprose.github.io/Prefy/](https://hedon
   - [Data Storage](#data-storage)
   - [Settings](#settings)
     - [Username](#username)
+    - [Export Title](#export-title)
     - [Load Configuration](#load-configuration)
     - [Adding New Configurations](#adding-new-configurations)
   - [Customization](#customization)
