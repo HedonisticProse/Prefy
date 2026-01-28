@@ -24,6 +24,10 @@ let draggedIndex = null;
 let dragType = null; // 'level', 'category', or 'entry'
 let dragCategoryId = null; // For entries
 
+// Settings state
+let availableConfigs = []; // Array of {filename, name} objects
+let pendingConfigLoad = null; // Config filename to load after save prompt
+
 // Initialize App
 document.addEventListener('DOMContentLoaded', async () => {
     initializeEventListeners();
@@ -45,6 +49,7 @@ function initializeEventListeners() {
     });
 
     // Header buttons
+    document.getElementById('settingsBtn').addEventListener('click', openSettingsModal);
     document.getElementById('manageLevelsBtn').addEventListener('click', openLevelsModal);
     document.getElementById('addCategoryBtn').addEventListener('click', () => openCategoryModal());
     document.getElementById('exportImageBtn').addEventListener('click', exportToImage);
@@ -52,6 +57,16 @@ function initializeEventListeners() {
     document.getElementById('loadConfigBtn').addEventListener('click', () => {
         document.getElementById('fileInput').click();
     });
+
+    // Settings Modal
+    document.getElementById('closeSettingsBtn').addEventListener('click', () => {
+        document.getElementById('settingsModal').classList.remove('active');
+    });
+    document.getElementById('configSelect').addEventListener('change', handleConfigSelect);
+
+    // Save Prompt Modal
+    document.getElementById('doNotSaveBtn').addEventListener('click', handleDoNotSave);
+    document.getElementById('saveFirstBtn').addEventListener('click', handleSaveFirst);
 
     // File input
     document.getElementById('fileInput').addEventListener('change', loadConfig);
@@ -1047,7 +1062,7 @@ async function initializeAppData() {
 
 async function loadTemplate() {
     try {
-        const response = await fetch('general_interests.json');
+        const response = await fetch('./configs/general_interests.json');
         if (!response.ok) {
             throw new Error('Failed to fetch template');
         }
@@ -1062,6 +1077,126 @@ async function loadTemplate() {
     } catch (error) {
         console.error('Failed to load template:', error);
         // Keep the hardcoded default if template fails to load
+    }
+}
+
+// ===== SETTINGS MODAL =====
+
+async function openSettingsModal() {
+    const modal = document.getElementById('settingsModal');
+    const usernameInput = document.getElementById('usernameInput');
+    const configSelect = document.getElementById('configSelect');
+
+    // Set current username
+    usernameInput.value = appData.username || '';
+
+    // Load available configs
+    await loadAvailableConfigs();
+
+    // Populate dropdown
+    configSelect.innerHTML = '<option value="">-- Select a configuration --</option>';
+    availableConfigs.forEach(config => {
+        const option = document.createElement('option');
+        option.value = config.filename;
+        option.textContent = config.name || config.filename;
+        configSelect.appendChild(option);
+    });
+
+    modal.classList.add('active');
+}
+
+async function loadAvailableConfigs() {
+    availableConfigs = [];
+
+    // List of known config files in ./configs folder
+    // Since we can't list directories in browser, we'll try to fetch a manifest or known files
+    const configFiles = [
+        'general_interests.json',
+        'kinklistv2_modified.json'
+    ];
+
+    for (const filename of configFiles) {
+        try {
+            const response = await fetch(`./configs/${filename}`);
+            if (response.ok) {
+                const data = await response.json();
+                availableConfigs.push({
+                    filename: filename,
+                    name: data.name || filename.replace('.json', '')
+                });
+            }
+        } catch (error) {
+            console.warn(`Could not load config: ${filename}`, error);
+        }
+    }
+}
+
+function handleConfigSelect(e) {
+    const selectedFile = e.target.value;
+    if (!selectedFile) return;
+
+    // Store the pending config and show save prompt
+    pendingConfigLoad = selectedFile;
+
+    // Reset the select to prevent confusion
+    e.target.value = '';
+
+    // Close settings modal and open save prompt
+    document.getElementById('settingsModal').classList.remove('active');
+    document.getElementById('savePromptModal').classList.add('active');
+}
+
+function handleDoNotSave() {
+    // Close save prompt modal
+    document.getElementById('savePromptModal').classList.remove('active');
+
+    // Load the pending config without saving
+    if (pendingConfigLoad) {
+        loadConfigFromFile(pendingConfigLoad);
+        pendingConfigLoad = null;
+    }
+}
+
+function handleSaveFirst() {
+    // Close save prompt modal
+    document.getElementById('savePromptModal').classList.remove('active');
+
+    // Trigger save config (this downloads the file)
+    saveConfig();
+
+    // Load the pending config after a brief delay to allow save dialog
+    if (pendingConfigLoad) {
+        setTimeout(() => {
+            loadConfigFromFile(pendingConfigLoad);
+            pendingConfigLoad = null;
+        }, 500);
+    }
+}
+
+async function loadConfigFromFile(filename) {
+    try {
+        const response = await fetch(`./configs/${filename}`);
+        if (!response.ok) {
+            throw new Error('Failed to fetch configuration');
+        }
+        const data = await response.json();
+
+        // Validate data structure
+        if (!data.levels || !data.categories) {
+            throw new Error('Invalid configuration file');
+        }
+
+        // Ensure username field exists for backward compatibility
+        if (!data.username) {
+            data.username = '';
+        }
+
+        appData = data;
+        renderCategories();
+        alert('Configuration loaded successfully!');
+    } catch (error) {
+        console.error('Load failed:', error);
+        alert('Failed to load configuration. Please check the file.');
     }
 }
 

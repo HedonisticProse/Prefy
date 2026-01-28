@@ -16,8 +16,9 @@ A customizable, portable web-based tool for curating and sharing your preference
 ## Getting Started
 
 1. Open `index.html` in your web browser
-2. The app will load with a default template
+2. The app will load the default configuration from `./configs/general_interests.json`
 3. Start customizing your preferences!
+4. Click **Settings** to set your username and switch between configurations
 
 ## Using the Template Generator
 
@@ -62,28 +63,59 @@ Social Activities (Interest, Frequency): Movies, Concerts, Museums
 
 ### Using Your Generated Template
 
-1. Generate your template: `python genTemplate.py template.prefy`
-2. Replace `template.json` with your generated file
-3. Clear your browser's localStorage (or use incognito mode)
-4. Reload the page to see your new default configuration
+1. Generate your template: `python genTemplate.py mytemplate.prefy`
+2. Add a `"name"` field to the generated JSON (e.g., `"name": "My Template"`)
+3. Move the JSON file to the `./configs/` folder
+4. Add the filename to the `configFiles` array in `app.js`
+5. The configuration will now appear in **Settings > Load Configuration**
+
+To change the default configuration that loads on startup, edit the fetch path in `app.js` in the `loadTemplate()` function.
 
 ## File Structure
 
 - `index.html` - Main application page
 - `styles.css` - All styling and visual design
 - `app.js` - Application logic and data management
-- `template.json` - Default configuration loaded on first use
+- `configs/` - Configuration files directory
+  - `general_interests.json` - Default configuration (General Interests)
+  - `*.json` - Additional configuration files
 - `genTemplate.py` - Python script to generate templates from `.prefy` files
 - `template.prefy` - Human-readable template source
 - `example.prefy` - Example template with multiple categories
 
 ## Data Storage
 
-Your configuration is automatically saved to browser localStorage. You can:
+The app loads a fresh configuration from `./configs/` on each page load. Your changes are **not** automatically saved - make sure to export your configuration before closing the browser!
 
 - **Export**: Download your configuration as JSON to back up or share
 - **Import**: Load a JSON configuration file to restore or use someone else's setup
-- **Reset**: Clear localStorage and reload to get the default template again
+- **Switch Configs**: Use **Settings > Load Configuration** to switch between configurations in the `./configs/` folder
+
+## Settings
+
+Click the **Settings** button in the header to access:
+
+### Username
+
+Set your username (optional). This is used for naming exported files:
+- Image exports: `Prefy_YourUsername_2026-01-27_12-30-45.png`
+- Config exports: `Prefy_Config_YourUsername_2026-01-27_12-30-45.json`
+
+### Load Configuration
+
+Select from available configurations in the `./configs/` folder. The dropdown displays the configuration's **name** field (not the filename).
+
+When switching configurations, you'll be prompted to save your current work:
+- **SAVE**: Opens the standard save dialog, then loads the new configuration
+- **DO NOT SAVE**: Loads the new configuration without saving
+
+### Adding New Configurations
+
+To add a new configuration to the selector:
+
+1. Place your `.json` file in the `./configs/` folder
+2. Ensure the file has a `"name"` field at the top level (this is what appears in the dropdown)
+3. Add the filename to the `configFiles` array in `app.js` (in the `loadAvailableConfigs` function)
 
 ## Customization
 
@@ -99,12 +131,12 @@ Click "Manage Levels" to:
 
 - Click "+ Add Category" to create new categories
 - Define properties specific to each category
-- Edit categories with the pencil icon
+- Click the category title to edit
 - Reorder by dragging category cards
 
 ### Entries
 
-- Click "+" on any category to add entries
+- Click "Add entry..." at the bottom of any category to add entries
 - Click any entry to edit it
 - Set preference levels for each property
 - Reorder entries within categories by dragging

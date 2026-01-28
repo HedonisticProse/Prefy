@@ -15,9 +15,9 @@
                     <h1>Prefy</h1>
                     <p class="tagline">Your Preferences Organized</p>
                 </div>
-                <input type="text" id="usernameInput" class="username-input" placeholder="Username (optional)" maxlength="30">
             </div>
             <div class="header-actions">
+                <button id="settingsBtn" class="btn btn-secondary" title="Settings">Settings</button>
                 <button id="manageLevelsBtn" class="btn btn-secondary">Manage Levels</button>
                 <button id="addCategoryBtn" class="btn btn-primary">+ Add Category</button>
                 <button id="exportImageBtn" class="btn btn-accent">Export Image</button>
@@ -112,6 +112,48 @@
             <div class="modal-footer">
                 <button id="saveEntryBtn" class="btn btn-success">Save</button>
                 <button id="cancelEntryBtn" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Settings -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content modal-content-small">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="usernameInput">Username:</label>
+                    <input type="text" id="usernameInput" class="form-input" placeholder="Used for naming exported files" maxlength="30">
+                </div>
+                <div class="form-group">
+                    <label for="configSelect">Load Configuration:</label>
+                    <select id="configSelect" class="form-input">
+                        <option value="">-- Select a configuration --</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="closeSettingsBtn" class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Save Prompt (when switching configs) -->
+    <div id="savePromptModal" class="modal">
+        <div class="modal-content modal-content-small">
+            <div class="modal-header">
+                <h2>Save Current Configuration?</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>You are about to load a new configuration. Would you like to save your current configuration first?</p>
+            </div>
+            <div class="modal-footer save-prompt-footer">
+                <button id="doNotSaveBtn" class="btn btn-danger">DO NOT SAVE</button>
+                <button id="saveFirstBtn" class="btn btn-save">SAVE</button>
             </div>
         </div>
     </div>
