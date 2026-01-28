@@ -1047,7 +1047,7 @@ async function initializeAppData() {
 
 async function loadTemplate() {
     try {
-        const response = await fetch('template.json');
+        const response = await fetch('general_interests.json');
         if (!response.ok) {
             throw new Error('Failed to fetch template');
         }
