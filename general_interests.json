@@ -1,0 +1,1765 @@
+{
+  "name": "General Interests",
+  "username": "",
+  "levels": [
+    {
+      "id": "none",
+      "name": "None",
+      "color": "#ffffff"
+    },
+    {
+      "id": "favorite",
+      "name": "Favorite",
+      "color": "#90cdf4"
+    },
+    {
+      "id": "liked",
+      "name": "Liked",
+      "color": "#48bb78"
+    },
+    {
+      "id": "neutral",
+      "name": "Neutral",
+      "color": "#fbd38d"
+    },
+    {
+      "id": "will-try",
+      "name": "Will Try",
+      "color": "#f6ad55"
+    },
+    {
+      "id": "disliked",
+      "name": "Disliked",
+      "color": "#fc8181"
+    },
+    {
+      "id": "hard-limit",
+      "name": "Hard Limit",
+      "color": "#f56565"
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat_movies_0",
+      "name": "Movies",
+      "properties": [
+        "Interest",
+        "Frequency"
+      ],
+      "entries": [
+        {
+          "id": "entry_action_0",
+          "name": "Action",
+          "levels": {
+            "Interest": "none",
+            "Frequency": "none"
+          }
+        },
+        {
+          "id": "entry_comedy_1",
+          "name": "Comedy",
+          "levels": {
+            "Interest": "none",
+            "Frequency": "none"
+          }
+        },
+        {
+          "id": "entry_drama_2",
+          "name": "Drama",
+          "levels": {
+            "Interest": "none",
+            "Frequency": "none"
+          }
+        },
+        {
+          "id": "entry_horror_3",
+          "name": "Horror",
+          "levels": {
+            "Interest": "none",
+            "Frequency": "none"
+          }
+        },
+        {
+          "id": "entry_sci_fi_4",
+          "name": "Sci-Fi",
+          "levels": {
+            "Interest": "none",
+            "Frequency": "none"
+          }
+        },
+        {
+          "id": "entry_romance_5",
+          "name": "Romance",
+          "levels": {
+            "Interest": "none",
+            "Frequency": "none"
+          }
+        },
+        {
+          "id": "entry_documentary_6",
+          "name": "Documentary",
+          "levels": {
+            "Interest": "none",
+            "Frequency": "none"
+          }
+        },
+        {
+          "id": "entry_animation_7",
+          "name": "Animation",
+          "levels": {
+            "Interest": "none",
+            "Frequency": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_music_1",
+      "name": "Music",
+      "properties": [
+        "Enjoyment",
+        "Attendance"
+      ],
+      "entries": [
+        {
+          "id": "entry_rock_0",
+          "name": "Rock",
+          "levels": {
+            "Enjoyment": "none",
+            "Attendance": "none"
+          }
+        },
+        {
+          "id": "entry_pop_1",
+          "name": "Pop",
+          "levels": {
+            "Enjoyment": "none",
+            "Attendance": "none"
+          }
+        },
+        {
+          "id": "entry_jazz_2",
+          "name": "Jazz",
+          "levels": {
+            "Enjoyment": "none",
+            "Attendance": "none"
+          }
+        },
+        {
+          "id": "entry_classical_3",
+          "name": "Classical",
+          "levels": {
+            "Enjoyment": "none",
+            "Attendance": "none"
+          }
+        },
+        {
+          "id": "entry_hip_hop_4",
+          "name": "Hip-Hop",
+          "levels": {
+            "Enjoyment": "none",
+            "Attendance": "none"
+          }
+        },
+        {
+          "id": "entry_electronic_5",
+          "name": "Electronic",
+          "levels": {
+            "Enjoyment": "none",
+            "Attendance": "none"
+          }
+        },
+        {
+          "id": "entry_country_6",
+          "name": "Country",
+          "levels": {
+            "Enjoyment": "none",
+            "Attendance": "none"
+          }
+        },
+        {
+          "id": "entry_metal_7",
+          "name": "Metal",
+          "levels": {
+            "Enjoyment": "none",
+            "Attendance": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_tv_shows_2",
+      "name": "TV Shows",
+      "properties": [
+        "Interest",
+        "Binge-worthy"
+      ],
+      "entries": [
+        {
+          "id": "entry_sitcoms_0",
+          "name": "Sitcoms",
+          "levels": {
+            "Interest": "none",
+            "Binge-worthy": "none"
+          }
+        },
+        {
+          "id": "entry_drama_series_1",
+          "name": "Drama Series",
+          "levels": {
+            "Interest": "none",
+            "Binge-worthy": "none"
+          }
+        },
+        {
+          "id": "entry_reality_tv_2",
+          "name": "Reality TV",
+          "levels": {
+            "Interest": "none",
+            "Binge-worthy": "none"
+          }
+        },
+        {
+          "id": "entry_game_shows_3",
+          "name": "Game Shows",
+          "levels": {
+            "Interest": "none",
+            "Binge-worthy": "none"
+          }
+        },
+        {
+          "id": "entry_talk_shows_4",
+          "name": "Talk Shows",
+          "levels": {
+            "Interest": "none",
+            "Binge-worthy": "none"
+          }
+        },
+        {
+          "id": "entry_documentaries_5",
+          "name": "Documentaries",
+          "levels": {
+            "Interest": "none",
+            "Binge-worthy": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_books_3",
+      "name": "Books",
+      "properties": [
+        "Reading Preference",
+        "Collection"
+      ],
+      "entries": [
+        {
+          "id": "entry_fiction_0",
+          "name": "Fiction",
+          "levels": {
+            "Reading Preference": "none",
+            "Collection": "none"
+          }
+        },
+        {
+          "id": "entry_non_fiction_1",
+          "name": "Non-Fiction",
+          "levels": {
+            "Reading Preference": "none",
+            "Collection": "none"
+          }
+        },
+        {
+          "id": "entry_mystery_2",
+          "name": "Mystery",
+          "levels": {
+            "Reading Preference": "none",
+            "Collection": "none"
+          }
+        },
+        {
+          "id": "entry_fantasy_3",
+          "name": "Fantasy",
+          "levels": {
+            "Reading Preference": "none",
+            "Collection": "none"
+          }
+        },
+        {
+          "id": "entry_biography_4",
+          "name": "Biography",
+          "levels": {
+            "Reading Preference": "none",
+            "Collection": "none"
+          }
+        },
+        {
+          "id": "entry_self_help_5",
+          "name": "Self-Help",
+          "levels": {
+            "Reading Preference": "none",
+            "Collection": "none"
+          }
+        },
+        {
+          "id": "entry_poetry_6",
+          "name": "Poetry",
+          "levels": {
+            "Reading Preference": "none",
+            "Collection": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_cuisine_types_4",
+      "name": "Cuisine Types",
+      "properties": [
+        "Enjoyment",
+        "Cooking"
+      ],
+      "entries": [
+        {
+          "id": "entry_italian_0",
+          "name": "Italian",
+          "levels": {
+            "Enjoyment": "none",
+            "Cooking": "none"
+          }
+        },
+        {
+          "id": "entry_chinese_1",
+          "name": "Chinese",
+          "levels": {
+            "Enjoyment": "none",
+            "Cooking": "none"
+          }
+        },
+        {
+          "id": "entry_japanese_2",
+          "name": "Japanese",
+          "levels": {
+            "Enjoyment": "none",
+            "Cooking": "none"
+          }
+        },
+        {
+          "id": "entry_mexican_3",
+          "name": "Mexican",
+          "levels": {
+            "Enjoyment": "none",
+            "Cooking": "none"
+          }
+        },
+        {
+          "id": "entry_indian_4",
+          "name": "Indian",
+          "levels": {
+            "Enjoyment": "none",
+            "Cooking": "none"
+          }
+        },
+        {
+          "id": "entry_thai_5",
+          "name": "Thai",
+          "levels": {
+            "Enjoyment": "none",
+            "Cooking": "none"
+          }
+        },
+        {
+          "id": "entry_mediterranean_6",
+          "name": "Mediterranean",
+          "levels": {
+            "Enjoyment": "none",
+            "Cooking": "none"
+          }
+        },
+        {
+          "id": "entry_american_7",
+          "name": "American",
+          "levels": {
+            "Enjoyment": "none",
+            "Cooking": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_dining_style_5",
+      "name": "Dining Style",
+      "properties": [
+        "Preference"
+      ],
+      "entries": [
+        {
+          "id": "entry_fine_dining_0",
+          "name": "Fine Dining",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_casual_restaurants_1",
+          "name": "Casual Restaurants",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_fast_food_2",
+          "name": "Fast Food",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_food_trucks_3",
+          "name": "Food Trucks",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_home_cooking_4",
+          "name": "Home Cooking",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_meal_prep_5",
+          "name": "Meal Prep",
+          "levels": {
+            "Preference": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_diet_types_6",
+      "name": "Diet Types",
+      "properties": [
+        "Interest",
+        "Practice"
+      ],
+      "entries": [
+        {
+          "id": "entry_vegetarian_0",
+          "name": "Vegetarian",
+          "levels": {
+            "Interest": "none",
+            "Practice": "none"
+          }
+        },
+        {
+          "id": "entry_vegan_1",
+          "name": "Vegan",
+          "levels": {
+            "Interest": "none",
+            "Practice": "none"
+          }
+        },
+        {
+          "id": "entry_keto_2",
+          "name": "Keto",
+          "levels": {
+            "Interest": "none",
+            "Practice": "none"
+          }
+        },
+        {
+          "id": "entry_paleo_3",
+          "name": "Paleo",
+          "levels": {
+            "Interest": "none",
+            "Practice": "none"
+          }
+        },
+        {
+          "id": "entry_mediterranean_4",
+          "name": "Mediterranean",
+          "levels": {
+            "Interest": "none",
+            "Practice": "none"
+          }
+        },
+        {
+          "id": "entry_gluten_free_5",
+          "name": "Gluten-Free",
+          "levels": {
+            "Interest": "none",
+            "Practice": "none"
+          }
+        },
+        {
+          "id": "entry_pescatarian_6",
+          "name": "Pescatarian",
+          "levels": {
+            "Interest": "none",
+            "Practice": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_beverages_7",
+      "name": "Beverages",
+      "properties": [
+        "Enjoyment"
+      ],
+      "entries": [
+        {
+          "id": "entry_coffee_0",
+          "name": "Coffee",
+          "levels": {
+            "Enjoyment": "none"
+          }
+        },
+        {
+          "id": "entry_tea_1",
+          "name": "Tea",
+          "levels": {
+            "Enjoyment": "none"
+          }
+        },
+        {
+          "id": "entry_juice_2",
+          "name": "Juice",
+          "levels": {
+            "Enjoyment": "none"
+          }
+        },
+        {
+          "id": "entry_smoothies_3",
+          "name": "Smoothies",
+          "levels": {
+            "Enjoyment": "none"
+          }
+        },
+        {
+          "id": "entry_soda_4",
+          "name": "Soda",
+          "levels": {
+            "Enjoyment": "none"
+          }
+        },
+        {
+          "id": "entry_energy_drinks_5",
+          "name": "Energy Drinks",
+          "levels": {
+            "Enjoyment": "none"
+          }
+        },
+        {
+          "id": "entry_cocktails_6",
+          "name": "Cocktails",
+          "levels": {
+            "Enjoyment": "none"
+          }
+        },
+        {
+          "id": "entry_wine_7",
+          "name": "Wine",
+          "levels": {
+            "Enjoyment": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_outdoor_activities_8",
+      "name": "Outdoor Activities",
+      "properties": [
+        "Participation",
+        "Interest"
+      ],
+      "entries": [
+        {
+          "id": "entry_hiking_0",
+          "name": "Hiking",
+          "levels": {
+            "Participation": "none",
+            "Interest": "none"
+          }
+        },
+        {
+          "id": "entry_camping_1",
+          "name": "Camping",
+          "levels": {
+            "Participation": "none",
+            "Interest": "none"
+          }
+        },
+        {
+          "id": "entry_fishing_2",
+          "name": "Fishing",
+          "levels": {
+            "Participation": "none",
+            "Interest": "none"
+          }
+        },
+        {
+          "id": "entry_rock_climbing_3",
+          "name": "Rock Climbing",
+          "levels": {
+            "Participation": "none",
+            "Interest": "none"
+          }
+        },
+        {
+          "id": "entry_kayaking_4",
+          "name": "Kayaking",
+          "levels": {
+            "Participation": "none",
+            "Interest": "none"
+          }
+        },
+        {
+          "id": "entry_bird_watching_5",
+          "name": "Bird Watching",
+          "levels": {
+            "Participation": "none",
+            "Interest": "none"
+          }
+        },
+        {
+          "id": "entry_gardening_6",
+          "name": "Gardening",
+          "levels": {
+            "Participation": "none",
+            "Interest": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_indoor_activities_9",
+      "name": "Indoor Activities",
+      "properties": [
+        "Frequency",
+        "Skill"
+      ],
+      "entries": [
+        {
+          "id": "entry_gaming_0",
+          "name": "Gaming",
+          "levels": {
+            "Frequency": "none",
+            "Skill": "none"
+          }
+        },
+        {
+          "id": "entry_board_games_1",
+          "name": "Board Games",
+          "levels": {
+            "Frequency": "none",
+            "Skill": "none"
+          }
+        },
+        {
+          "id": "entry_puzzles_2",
+          "name": "Puzzles",
+          "levels": {
+            "Frequency": "none",
+            "Skill": "none"
+          }
+        },
+        {
+          "id": "entry_arts_and_crafts_3",
+          "name": "Arts and Crafts",
+          "levels": {
+            "Frequency": "none",
+            "Skill": "none"
+          }
+        },
+        {
+          "id": "entry_model_building_4",
+          "name": "Model Building",
+          "levels": {
+            "Frequency": "none",
+            "Skill": "none"
+          }
+        },
+        {
+          "id": "entry_cooking_5",
+          "name": "Cooking",
+          "levels": {
+            "Frequency": "none",
+            "Skill": "none"
+          }
+        },
+        {
+          "id": "entry_baking_6",
+          "name": "Baking",
+          "levels": {
+            "Frequency": "none",
+            "Skill": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_sports_10",
+      "name": "Sports",
+      "properties": [
+        "Playing",
+        "Watching"
+      ],
+      "entries": [
+        {
+          "id": "entry_soccer_0",
+          "name": "Soccer",
+          "levels": {
+            "Playing": "none",
+            "Watching": "none"
+          }
+        },
+        {
+          "id": "entry_basketball_1",
+          "name": "Basketball",
+          "levels": {
+            "Playing": "none",
+            "Watching": "none"
+          }
+        },
+        {
+          "id": "entry_tennis_2",
+          "name": "Tennis",
+          "levels": {
+            "Playing": "none",
+            "Watching": "none"
+          }
+        },
+        {
+          "id": "entry_swimming_3",
+          "name": "Swimming",
+          "levels": {
+            "Playing": "none",
+            "Watching": "none"
+          }
+        },
+        {
+          "id": "entry_volleyball_4",
+          "name": "Volleyball",
+          "levels": {
+            "Playing": "none",
+            "Watching": "none"
+          }
+        },
+        {
+          "id": "entry_baseball_5",
+          "name": "Baseball",
+          "levels": {
+            "Playing": "none",
+            "Watching": "none"
+          }
+        },
+        {
+          "id": "entry_golf_6",
+          "name": "Golf",
+          "levels": {
+            "Playing": "none",
+            "Watching": "none"
+          }
+        },
+        {
+          "id": "entry_running_7",
+          "name": "Running",
+          "levels": {
+            "Playing": "none",
+            "Watching": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_creative_arts_11",
+      "name": "Creative Arts",
+      "properties": [
+        "Practice",
+        "Appreciation"
+      ],
+      "entries": [
+        {
+          "id": "entry_painting_0",
+          "name": "Painting",
+          "levels": {
+            "Practice": "none",
+            "Appreciation": "none"
+          }
+        },
+        {
+          "id": "entry_drawing_1",
+          "name": "Drawing",
+          "levels": {
+            "Practice": "none",
+            "Appreciation": "none"
+          }
+        },
+        {
+          "id": "entry_photography_2",
+          "name": "Photography",
+          "levels": {
+            "Practice": "none",
+            "Appreciation": "none"
+          }
+        },
+        {
+          "id": "entry_music_3",
+          "name": "Music",
+          "levels": {
+            "Practice": "none",
+            "Appreciation": "none"
+          }
+        },
+        {
+          "id": "entry_writing_4",
+          "name": "Writing",
+          "levels": {
+            "Practice": "none",
+            "Appreciation": "none"
+          }
+        },
+        {
+          "id": "entry_dance_5",
+          "name": "Dance",
+          "levels": {
+            "Practice": "none",
+            "Appreciation": "none"
+          }
+        },
+        {
+          "id": "entry_theater_6",
+          "name": "Theater",
+          "levels": {
+            "Practice": "none",
+            "Appreciation": "none"
+          }
+        },
+        {
+          "id": "entry_film_7",
+          "name": "Film",
+          "levels": {
+            "Practice": "none",
+            "Appreciation": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_social_events_12",
+      "name": "Social Events",
+      "properties": [
+        "Attendance",
+        "Hosting"
+      ],
+      "entries": [
+        {
+          "id": "entry_house_parties_0",
+          "name": "House Parties",
+          "levels": {
+            "Attendance": "none",
+            "Hosting": "none"
+          }
+        },
+        {
+          "id": "entry_dinner_parties_1",
+          "name": "Dinner Parties",
+          "levels": {
+            "Attendance": "none",
+            "Hosting": "none"
+          }
+        },
+        {
+          "id": "entry_game_nights_2",
+          "name": "Game Nights",
+          "levels": {
+            "Attendance": "none",
+            "Hosting": "none"
+          }
+        },
+        {
+          "id": "entry_bbqs_3",
+          "name": "BBQs",
+          "levels": {
+            "Attendance": "none",
+            "Hosting": "none"
+          }
+        },
+        {
+          "id": "entry_potlucks_4",
+          "name": "Potlucks",
+          "levels": {
+            "Attendance": "none",
+            "Hosting": "none"
+          }
+        },
+        {
+          "id": "entry_networking_events_5",
+          "name": "Networking Events",
+          "levels": {
+            "Attendance": "none",
+            "Hosting": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_communication_style_13",
+      "name": "Communication Style",
+      "properties": [
+        "Preference"
+      ],
+      "entries": [
+        {
+          "id": "entry_text_messages_0",
+          "name": "Text Messages",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_phone_calls_1",
+          "name": "Phone Calls",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_video_calls_2",
+          "name": "Video Calls",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_in_person_3",
+          "name": "In-Person",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_email_4",
+          "name": "Email",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_social_media_5",
+          "name": "Social Media",
+          "levels": {
+            "Preference": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_pet_preferences_14",
+      "name": "Pet Preferences",
+      "properties": [
+        "Ownership",
+        "Interaction"
+      ],
+      "entries": [
+        {
+          "id": "entry_dogs_0",
+          "name": "Dogs",
+          "levels": {
+            "Ownership": "none",
+            "Interaction": "none"
+          }
+        },
+        {
+          "id": "entry_cats_1",
+          "name": "Cats",
+          "levels": {
+            "Ownership": "none",
+            "Interaction": "none"
+          }
+        },
+        {
+          "id": "entry_birds_2",
+          "name": "Birds",
+          "levels": {
+            "Ownership": "none",
+            "Interaction": "none"
+          }
+        },
+        {
+          "id": "entry_fish_3",
+          "name": "Fish",
+          "levels": {
+            "Ownership": "none",
+            "Interaction": "none"
+          }
+        },
+        {
+          "id": "entry_reptiles_4",
+          "name": "Reptiles",
+          "levels": {
+            "Ownership": "none",
+            "Interaction": "none"
+          }
+        },
+        {
+          "id": "entry_small_mammals_5",
+          "name": "Small Mammals",
+          "levels": {
+            "Ownership": "none",
+            "Interaction": "none"
+          }
+        },
+        {
+          "id": "entry_horses_6",
+          "name": "Horses",
+          "levels": {
+            "Ownership": "none",
+            "Interaction": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_living_environment_15",
+      "name": "Living Environment",
+      "properties": [
+        "Preference"
+      ],
+      "entries": [
+        {
+          "id": "entry_urban_0",
+          "name": "Urban",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_suburban_1",
+          "name": "Suburban",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_rural_2",
+          "name": "Rural",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_city_center_3",
+          "name": "City Center",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_beach_4",
+          "name": "Beach",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_mountains_5",
+          "name": "Mountains",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_countryside_6",
+          "name": "Countryside",
+          "levels": {
+            "Preference": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_travel_style_16",
+      "name": "Travel Style",
+      "properties": [
+        "Preference",
+        "Frequency"
+      ],
+      "entries": [
+        {
+          "id": "entry_adventure_travel_0",
+          "name": "Adventure Travel",
+          "levels": {
+            "Preference": "none",
+            "Frequency": "none"
+          }
+        },
+        {
+          "id": "entry_luxury_travel_1",
+          "name": "Luxury Travel",
+          "levels": {
+            "Preference": "none",
+            "Frequency": "none"
+          }
+        },
+        {
+          "id": "entry_budget_travel_2",
+          "name": "Budget Travel",
+          "levels": {
+            "Preference": "none",
+            "Frequency": "none"
+          }
+        },
+        {
+          "id": "entry_solo_travel_3",
+          "name": "Solo Travel",
+          "levels": {
+            "Preference": "none",
+            "Frequency": "none"
+          }
+        },
+        {
+          "id": "entry_group_tours_4",
+          "name": "Group Tours",
+          "levels": {
+            "Preference": "none",
+            "Frequency": "none"
+          }
+        },
+        {
+          "id": "entry_road_trips_5",
+          "name": "Road Trips",
+          "levels": {
+            "Preference": "none",
+            "Frequency": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_destinations_17",
+      "name": "Destinations",
+      "properties": [
+        "Interest",
+        "Visited"
+      ],
+      "entries": [
+        {
+          "id": "entry_beach_resorts_0",
+          "name": "Beach Resorts",
+          "levels": {
+            "Interest": "none",
+            "Visited": "none"
+          }
+        },
+        {
+          "id": "entry_mountain_retreats_1",
+          "name": "Mountain Retreats",
+          "levels": {
+            "Interest": "none",
+            "Visited": "none"
+          }
+        },
+        {
+          "id": "entry_historic_cities_2",
+          "name": "Historic Cities",
+          "levels": {
+            "Interest": "none",
+            "Visited": "none"
+          }
+        },
+        {
+          "id": "entry_national_parks_3",
+          "name": "National Parks",
+          "levels": {
+            "Interest": "none",
+            "Visited": "none"
+          }
+        },
+        {
+          "id": "entry_international_cities_4",
+          "name": "International Cities",
+          "levels": {
+            "Interest": "none",
+            "Visited": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_transportation_18",
+      "name": "Transportation",
+      "properties": [
+        "Preference"
+      ],
+      "entries": [
+        {
+          "id": "entry_driving_0",
+          "name": "Driving",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_flying_1",
+          "name": "Flying",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_train_2",
+          "name": "Train",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_bus_3",
+          "name": "Bus",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_cycling_4",
+          "name": "Cycling",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_walking_5",
+          "name": "Walking",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_cruise_ships_6",
+          "name": "Cruise Ships",
+          "levels": {
+            "Preference": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_accommodation_19",
+      "name": "Accommodation",
+      "properties": [
+        "Preference"
+      ],
+      "entries": [
+        {
+          "id": "entry_hotels_0",
+          "name": "Hotels",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_hostels_1",
+          "name": "Hostels",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_airbnb_2",
+          "name": "Airbnb",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_camping_3",
+          "name": "Camping",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_rvs_4",
+          "name": "RVs",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_resorts_5",
+          "name": "Resorts",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_bed_and_breakfast_6",
+          "name": "Bed and Breakfast",
+          "levels": {
+            "Preference": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_devices_20",
+      "name": "Devices",
+      "properties": [
+        "Usage",
+        "Preference"
+      ],
+      "entries": [
+        {
+          "id": "entry_smartphones_0",
+          "name": "Smartphones",
+          "levels": {
+            "Usage": "none",
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_tablets_1",
+          "name": "Tablets",
+          "levels": {
+            "Usage": "none",
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_laptops_2",
+          "name": "Laptops",
+          "levels": {
+            "Usage": "none",
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_desktop_pcs_3",
+          "name": "Desktop PCs",
+          "levels": {
+            "Usage": "none",
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_smart_home_devices_4",
+          "name": "Smart Home Devices",
+          "levels": {
+            "Usage": "none",
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_wearables_5",
+          "name": "Wearables",
+          "levels": {
+            "Usage": "none",
+            "Preference": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_social_media_21",
+      "name": "Social Media",
+      "properties": [
+        "Activity",
+        "Platform"
+      ],
+      "entries": [
+        {
+          "id": "entry_instagram_0",
+          "name": "Instagram",
+          "levels": {
+            "Activity": "none",
+            "Platform": "none"
+          }
+        },
+        {
+          "id": "entry_twitter_1",
+          "name": "Twitter",
+          "levels": {
+            "Activity": "none",
+            "Platform": "none"
+          }
+        },
+        {
+          "id": "entry_facebook_2",
+          "name": "Facebook",
+          "levels": {
+            "Activity": "none",
+            "Platform": "none"
+          }
+        },
+        {
+          "id": "entry_tiktok_3",
+          "name": "TikTok",
+          "levels": {
+            "Activity": "none",
+            "Platform": "none"
+          }
+        },
+        {
+          "id": "entry_linkedin_4",
+          "name": "LinkedIn",
+          "levels": {
+            "Activity": "none",
+            "Platform": "none"
+          }
+        },
+        {
+          "id": "entry_reddit_5",
+          "name": "Reddit",
+          "levels": {
+            "Activity": "none",
+            "Platform": "none"
+          }
+        },
+        {
+          "id": "entry_youtube_6",
+          "name": "YouTube",
+          "levels": {
+            "Activity": "none",
+            "Platform": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_gaming_platforms_22",
+      "name": "Gaming Platforms",
+      "properties": [
+        "Play",
+        "Own"
+      ],
+      "entries": [
+        {
+          "id": "entry_pc_gaming_0",
+          "name": "PC Gaming",
+          "levels": {
+            "Play": "none",
+            "Own": "none"
+          }
+        },
+        {
+          "id": "entry_console_gaming_1",
+          "name": "Console Gaming",
+          "levels": {
+            "Play": "none",
+            "Own": "none"
+          }
+        },
+        {
+          "id": "entry_mobile_gaming_2",
+          "name": "Mobile Gaming",
+          "levels": {
+            "Play": "none",
+            "Own": "none"
+          }
+        },
+        {
+          "id": "entry_vr_gaming_3",
+          "name": "VR Gaming",
+          "levels": {
+            "Play": "none",
+            "Own": "none"
+          }
+        },
+        {
+          "id": "entry_retro_gaming_4",
+          "name": "Retro Gaming",
+          "levels": {
+            "Play": "none",
+            "Own": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_tech_interests_23",
+      "name": "Tech Interests",
+      "properties": [
+        "Knowledge",
+        "Following"
+      ],
+      "entries": [
+        {
+          "id": "entry_ai_0",
+          "name": "AI",
+          "levels": {
+            "Knowledge": "none",
+            "Following": "none"
+          }
+        },
+        {
+          "id": "entry_cybersecurity_1",
+          "name": "Cybersecurity",
+          "levels": {
+            "Knowledge": "none",
+            "Following": "none"
+          }
+        },
+        {
+          "id": "entry_software_development_2",
+          "name": "Software Development",
+          "levels": {
+            "Knowledge": "none",
+            "Following": "none"
+          }
+        },
+        {
+          "id": "entry_hardware_3",
+          "name": "Hardware",
+          "levels": {
+            "Knowledge": "none",
+            "Following": "none"
+          }
+        },
+        {
+          "id": "entry_gadgets_4",
+          "name": "Gadgets",
+          "levels": {
+            "Knowledge": "none",
+            "Following": "none"
+          }
+        },
+        {
+          "id": "entry_apps_5",
+          "name": "Apps",
+          "levels": {
+            "Knowledge": "none",
+            "Following": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_exercise_types_24",
+      "name": "Exercise Types",
+      "properties": [
+        "Participation",
+        "Frequency"
+      ],
+      "entries": [
+        {
+          "id": "entry_cardio_0",
+          "name": "Cardio",
+          "levels": {
+            "Participation": "none",
+            "Frequency": "none"
+          }
+        },
+        {
+          "id": "entry_strength_training_1",
+          "name": "Strength Training",
+          "levels": {
+            "Participation": "none",
+            "Frequency": "none"
+          }
+        },
+        {
+          "id": "entry_yoga_2",
+          "name": "Yoga",
+          "levels": {
+            "Participation": "none",
+            "Frequency": "none"
+          }
+        },
+        {
+          "id": "entry_pilates_3",
+          "name": "Pilates",
+          "levels": {
+            "Participation": "none",
+            "Frequency": "none"
+          }
+        },
+        {
+          "id": "entry_hiit_4",
+          "name": "HIIT",
+          "levels": {
+            "Participation": "none",
+            "Frequency": "none"
+          }
+        },
+        {
+          "id": "entry_swimming_5",
+          "name": "Swimming",
+          "levels": {
+            "Participation": "none",
+            "Frequency": "none"
+          }
+        },
+        {
+          "id": "entry_walking_6",
+          "name": "Walking",
+          "levels": {
+            "Participation": "none",
+            "Frequency": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_mental_wellness_25",
+      "name": "Mental Wellness",
+      "properties": [
+        "Practice",
+        "Interest"
+      ],
+      "entries": [
+        {
+          "id": "entry_meditation_0",
+          "name": "Meditation",
+          "levels": {
+            "Practice": "none",
+            "Interest": "none"
+          }
+        },
+        {
+          "id": "entry_journaling_1",
+          "name": "Journaling",
+          "levels": {
+            "Practice": "none",
+            "Interest": "none"
+          }
+        },
+        {
+          "id": "entry_therapy_2",
+          "name": "Therapy",
+          "levels": {
+            "Practice": "none",
+            "Interest": "none"
+          }
+        },
+        {
+          "id": "entry_mindfulness_3",
+          "name": "Mindfulness",
+          "levels": {
+            "Practice": "none",
+            "Interest": "none"
+          }
+        },
+        {
+          "id": "entry_breathing_exercises_4",
+          "name": "Breathing Exercises",
+          "levels": {
+            "Practice": "none",
+            "Interest": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_sleep_habits_26",
+      "name": "Sleep Habits",
+      "properties": [
+        "Preference"
+      ],
+      "entries": [
+        {
+          "id": "entry_early_riser_0",
+          "name": "Early Riser",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_night_owl_1",
+          "name": "Night Owl",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_power_naps_2",
+          "name": "Power Naps",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_sleep_tracking_3",
+          "name": "Sleep Tracking",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_white_noise_4",
+          "name": "White Noise",
+          "levels": {
+            "Preference": "none"
+          }
+        },
+        {
+          "id": "entry_complete_darkness_5",
+          "name": "Complete Darkness",
+          "levels": {
+            "Preference": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_personal_care_27",
+      "name": "Personal Care",
+      "properties": [
+        "Routine",
+        "Priority"
+      ],
+      "entries": [
+        {
+          "id": "entry_skincare_0",
+          "name": "Skincare",
+          "levels": {
+            "Routine": "none",
+            "Priority": "none"
+          }
+        },
+        {
+          "id": "entry_hair_care_1",
+          "name": "Hair Care",
+          "levels": {
+            "Routine": "none",
+            "Priority": "none"
+          }
+        },
+        {
+          "id": "entry_dental_care_2",
+          "name": "Dental Care",
+          "levels": {
+            "Routine": "none",
+            "Priority": "none"
+          }
+        },
+        {
+          "id": "entry_grooming_3",
+          "name": "Grooming",
+          "levels": {
+            "Routine": "none",
+            "Priority": "none"
+          }
+        },
+        {
+          "id": "entry_spa_treatments_4",
+          "name": "Spa Treatments",
+          "levels": {
+            "Routine": "none",
+            "Priority": "none"
+          }
+        },
+        {
+          "id": "entry_massage_5",
+          "name": "Massage",
+          "levels": {
+            "Routine": "none",
+            "Priority": "none"
+          }
+        }
+      ]
+    }
+  ]
+}
