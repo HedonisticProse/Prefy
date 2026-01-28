@@ -713,6 +713,15 @@ body {
     padding: 4px 8px 4px 12px;
 }
 
+/* Export Levels Legend */
+.export-levels-legend {
+    background: #f7fafc;
+    padding: 15px 25px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border: 1px solid #e2e8f0;
+}
+
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
     width: 8px;

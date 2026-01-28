@@ -951,6 +951,15 @@ async function exportToImage() {
     content.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
     exportContentDiv.style.width = `${baseWidth}px`;
 
+    // Prepare export levels legend
+    const exportLegend = document.getElementById('exportLevelsLegend');
+    exportLegend.innerHTML = appData.levels.map(level => `
+        <div class="legend-item">
+            <div class="legend-bubble" style="background-color: ${level.color}"></div>
+            <span class="legend-name">${escapeHtml(level.name)}</span>
+        </div>
+    `).join('');
+
     // Prepare export content
     content.innerHTML = '';
     appData.categories.forEach(category => {
