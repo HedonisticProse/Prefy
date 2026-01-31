@@ -29,6 +29,8 @@
                                 <option value="">-- Select --</option>
                             </select>
                         </div>
+                        <button id="generateTemplateBtn" class="dropdown-item">Generate Template from .prefy</button>
+                        <button id="downloadExampleBtn" class="dropdown-item">Download Example .prefy</button>
                         <div class="dropdown-divider"></div>
                         <button id="saveConfigBtn" class="dropdown-item">Save Configuration</button>
                         <button id="loadConfigBtn" class="dropdown-item">Load Configuration</button>
@@ -183,6 +185,8 @@
 
     <!-- Hidden file input for loading config -->
     <input type="file" id="fileInput" accept=".json" style="display: none;">
+    <!-- Hidden file input for loading .prefy template -->
+    <input type="file" id="prefyFileInput" accept=".prefy" style="display: none;">
 
     <!-- External Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
