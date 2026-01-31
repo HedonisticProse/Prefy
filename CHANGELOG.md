@@ -2,6 +2,20 @@
 
 All notable changes to Prefy will be documented in this file.
 
+## Version 0.2.0 "In-App Template Generator"
+
+**Change Date**: *January 30th, 2026 (2026-01-30)*
+
+### Added
+
+- **Generate Template** button in Configuration menu to create configurations from `.prefy` files directly in the browser
+- **Download Example** button to download `example.prefy` as a reference for the `.prefy` file format
+- In-app `.prefy` file parsing (no longer requires Python script for basic usage)
+
+### Changed
+
+- Template generation now available both in-app and via Python script (`genTemplate.py`)
+
 ## Version 0.1.1 "UI Cleanup"
 
 **Change Date**: *January 30th, 2026 (2026-01-30)*
