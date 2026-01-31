@@ -69,10 +69,18 @@ function initializeEventListeners() {
     // Configuration Dropdown
     document.getElementById('configMenuBtn').addEventListener('click', toggleConfigDropdown);
     document.getElementById('configSelect').addEventListener('change', handleConfigSelect);
-    document.getElementById('generateTemplateBtn').addEventListener('click', () => {
-        document.getElementById('prefyFileInput').click();
+    document.getElementById('generateTemplateBtn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        document.getElementById('configDropdownMenu').classList.remove('active');
+        // Small delay to ensure dropdown is closed before file dialog opens
+        setTimeout(() => {
+            document.getElementById('prefyFileInput').click();
+        }, 100);
     });
-    document.getElementById('downloadExampleBtn').addEventListener('click', downloadExamplePrefy);
+    document.getElementById('downloadExampleBtn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        downloadExamplePrefy();
+    });
     document.getElementById('prefyFileInput').addEventListener('change', handlePrefyFileSelect);
 
     // Close dropdown when clicking outside
@@ -1412,9 +1420,6 @@ function handlePrefyFileSelect(event) {
     const file = event.target.files[0];
     if (!file) return;
 
-    // Close the dropdown
-    document.getElementById('configDropdownMenu').classList.remove('active');
-
     const reader = new FileReader();
     reader.onload = (e) => {
         try {
@@ -1458,7 +1463,7 @@ async function downloadExamplePrefy() {
     try {
         const response = await fetch('./example.prefy');
         if (!response.ok) {
-            throw new Error('Failed to fetch example file');
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
         const content = await response.text();
 
@@ -1468,10 +1473,12 @@ async function downloadExamplePrefy() {
         const link = document.createElement('a');
         link.download = 'example.prefy';
         link.href = url;
+        document.body.appendChild(link);
         link.click();
+        document.body.removeChild(link);
         URL.revokeObjectURL(url);
     } catch (error) {
         console.error('Failed to download example:', error);
-        alert('Failed to download example file. Please check that example.prefy exists.');
+        alert('Failed to download example file. Error: ' + error.message);
     }
 }
