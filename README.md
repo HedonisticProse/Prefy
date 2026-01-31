@@ -24,7 +24,10 @@ Hosted on GitHub Pages: [https://hedonisticprose.github.io/Prefy/](https://hedon
   - [Settings](#settings)
     - [Username](#username)
     - [Export Title](#export-title)
-    - [Load Configuration](#load-configuration)
+  - [Configuration Menu](#configuration-menu)
+    - [Load Template](#load-template)
+    - [Save Config](#save-config)
+    - [Load Config](#load-config)
     - [Adding New Configurations](#adding-new-configurations)
   - [Customization](#customization)
     - [Levels](#levels)
@@ -44,7 +47,7 @@ The original tool exported configurations using images which meant that you coul
 
 I decided to take my won crack at this exercise and created Prefy.
 
-Prefy is non-sexual by default, can be used for any type of preference communication, and is more publicly usable. However, for those still looking for the kinklistv2 functionality, a kinklistv2 configuration can be loaded through the settings (see the ["Load Configuration"](#load-configuration) section).
+Prefy is non-sexual by default, can be used for any type of preference communication, and is more publicly usable. However, for those still looking for the kinklistv2 functionality, a kinklistv2 configuration can be loaded through the Configuration menu (see the ["Load Template"](#load-template) section).
 
 ## AI Disclosure
 
@@ -139,11 +142,11 @@ The app loads a fresh configuration from `./configs/` on each page load. Your ch
 
 - **Export**: Download your configuration as JSON to back up or share
 - **Import**: Load a JSON configuration file to restore or use someone else's setup
-- **Switch Configs**: Use **Settings > Load Configuration** to switch between configurations in the `./configs/` folder
+- **Switch Configs**: Use **Configuration > Load Template** to switch between configurations in the `./configs/` folder
 
 ## Settings
 
-Click the **Settings** button in the header to access:
+Click the **gear icon** (&#9881;) in the header to access settings:
 
 ### Username
 
@@ -156,17 +159,30 @@ Set your username (optional). This is used for:
 
 Set a custom title for your exported images. This appears at the top of the exported image instead of the default "My Prefy List".
 
-### Load Configuration
+## Configuration Menu
 
-Select from available configurations in the `./configs/` folder. The dropdown displays the configuration's **name** field (not the filename).
+Click the **Configuration** button in the header to access the configuration dropdown menu:
+
+### Load Template
+
+Select from available template configurations in the `./configs/` folder. The dropdown displays the configuration's **name** field (not the filename).
 
 When switching configurations, you'll be prompted to save your current work:
+
 - **SAVE**: Opens the standard save dialog, then loads the new configuration
 - **DO NOT SAVE**: Loads the new configuration without saving
 
+### Save Config
+
+Downloads your current configuration as a JSON file. Use this to back up your work or share with others.
+
+### Load Config
+
+Upload a previously saved JSON configuration file to restore your work or use someone else's configuration.
+
 ### Adding New Configurations
 
-To add a new configuration to the selector:
+To add a new configuration to the template selector:
 
 1. Place your `.json` file in the `./configs/` folder
 2. Ensure the file has a `"name"` field at the top level (this is what appears in the dropdown)
