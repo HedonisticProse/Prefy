@@ -69,18 +69,8 @@ function initializeEventListeners() {
     // Configuration Dropdown
     document.getElementById('configMenuBtn').addEventListener('click', toggleConfigDropdown);
     document.getElementById('configSelect').addEventListener('change', handleConfigSelect);
-    document.getElementById('generateTemplateBtn').addEventListener('click', (e) => {
-        e.stopPropagation();
-        document.getElementById('configDropdownMenu').classList.remove('active');
-        // Small delay to ensure dropdown is closed before file dialog opens
-        setTimeout(() => {
-            document.getElementById('prefyFileInput').click();
-        }, 100);
-    });
-    document.getElementById('downloadExampleBtn').addEventListener('click', (e) => {
-        e.stopPropagation();
-        downloadExamplePrefy();
-    });
+    document.getElementById('generateTemplateBtn').addEventListener('click', handleGenerateTemplateClick);
+    document.getElementById('downloadExampleBtn').addEventListener('click', handleDownloadExampleClick);
     document.getElementById('prefyFileInput').addEventListener('change', handlePrefyFileSelect);
 
     // Close dropdown when clicking outside
@@ -1305,6 +1295,32 @@ function generateId(prefix = 'id') {
 
 // ===== PREFY TEMPLATE GENERATOR =====
 
+// Global click handlers (fallback for inline onclick)
+function handleGenerateTemplateClick(e) {
+    if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    console.log('handleGenerateTemplateClick called');
+    document.getElementById('configDropdownMenu').classList.remove('active');
+    const fileInput = document.getElementById('prefyFileInput');
+    if (fileInput) {
+        fileInput.click();
+    } else {
+        console.error('prefyFileInput not found');
+        alert('Error: File input not found');
+    }
+}
+
+function handleDownloadExampleClick(e) {
+    if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    console.log('handleDownloadExampleClick called');
+    downloadExamplePrefy();
+}
+
 // Default levels configuration (matches genTemplate.py)
 const DEFAULT_PREFY_LEVELS = [
     { id: 'none', name: 'None', color: '#ffffff' },
@@ -1417,8 +1433,13 @@ function parsePrefyContent(content) {
 
 // Handle .prefy file selection
 function handlePrefyFileSelect(event) {
+    console.log('handlePrefyFileSelect called');
     const file = event.target.files[0];
-    if (!file) return;
+    if (!file) {
+        console.log('No file selected');
+        return;
+    }
+    console.log('File selected:', file.name, file.size, 'bytes');
 
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -1457,15 +1478,21 @@ function loadPrefyData(data) {
 
 // Download the example.prefy file
 async function downloadExamplePrefy() {
+    console.log('downloadExamplePrefy called');
+
     // Close the dropdown
     document.getElementById('configDropdownMenu').classList.remove('active');
 
     try {
+        console.log('Fetching example.prefy...');
         const response = await fetch('./example.prefy');
+        console.log('Fetch response:', response.status, response.statusText);
+
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
         const content = await response.text();
+        console.log('Content length:', content.length);
 
         // Create a blob and download
         const blob = new Blob([content], { type: 'text/plain' });
@@ -1474,9 +1501,11 @@ async function downloadExamplePrefy() {
         link.download = 'example.prefy';
         link.href = url;
         document.body.appendChild(link);
+        console.log('Triggering download...');
         link.click();
         document.body.removeChild(link);
         URL.revokeObjectURL(url);
+        console.log('Download complete');
     } catch (error) {
         console.error('Failed to download example:', error);
         alert('Failed to download example file. Error: ' + error.message);
