@@ -1,0 +1,219 @@
+import { appData } from './state.js';
+import { escapeHtml } from './utils.js';
+import {
+    handleCategoryDragStart,
+    handleCategoryDragOver,
+    handleCategoryDragEnter,
+    handleCategoryDragLeave,
+    handleCategoryDrop,
+    handleCategoryDragEnd,
+    handleCategoryBodyDragOver,
+    handleCategoryBodyDragEnter,
+    handleCategoryBodyDragLeave,
+    handleCategoryBodyDrop,
+    handleEntryDragStart,
+    handleEntryDragOver,
+    handleEntryDragEnter,
+    handleEntryDragLeave,
+    handleEntryDrop,
+    handleEntryDragEnd
+} from './dragdrop.js';
+import { openCategoryModal, openEntryModal } from './modals.js';
+
+// Render Levels Legend
+export function renderLevelsLegend() {
+    const legendContainer = document.getElementById('levelsLegend');
+    if (!legendContainer) return;
+
+    legendContainer.innerHTML = '';
+
+    appData.levels.forEach(level => {
+        const legendItem = document.createElement('div');
+        legendItem.className = 'legend-item';
+
+        const bubble = document.createElement('div');
+        bubble.className = 'legend-bubble';
+        bubble.style.backgroundColor = level.color;
+        bubble.style.borderColor = level.color === '#ffffff' ? '#cbd5e0' : level.color;
+
+        const name = document.createElement('span');
+        name.className = 'legend-name';
+        name.textContent = level.name;
+
+        legendItem.appendChild(bubble);
+        legendItem.appendChild(name);
+        legendContainer.appendChild(legendItem);
+    });
+
+    // Auto-scale text to fit on one line
+    scaleLegendText();
+}
+
+// Scale legend text to fit on one line
+export function scaleLegendText() {
+    const legendContainer = document.getElementById('levelsLegend');
+    const parentContainer = legendContainer?.parentElement;
+    if (!legendContainer || !parentContainer) return;
+
+    // Reset to default size
+    legendContainer.style.fontSize = '14px';
+
+    // Check if content overflows
+    const containerWidth = parentContainer.clientWidth;
+    const contentWidth = legendContainer.scrollWidth;
+
+    if (contentWidth > containerWidth) {
+        // Calculate scale factor
+        const scaleFactor = containerWidth / contentWidth;
+        const newFontSize = Math.max(10, 14 * scaleFactor); // Minimum 10px
+        legendContainer.style.fontSize = `${newFontSize}px`;
+    }
+}
+
+// Render Categories
+export function renderCategories(preserveScroll = false) {
+    // Save scroll position if requested
+    const scrollY = preserveScroll ? window.scrollY : 0;
+
+    const container = document.getElementById('categoriesContainer');
+    container.innerHTML = '';
+
+    // Update username input if it exists
+    const usernameInput = document.getElementById('usernameInput');
+    if (usernameInput && appData.username !== undefined) {
+        usernameInput.value = appData.username || '';
+    }
+
+    // Render levels legend
+    renderLevelsLegend();
+
+    if (appData.categories.length === 0) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <h2>No Categories Yet</h2>
+                <p>Click "Add Category" to get started!</p>
+            </div>
+        `;
+        return;
+    }
+
+    appData.categories.forEach((category, index) => {
+        const categoryCard = createCategoryCard(category, index);
+        container.appendChild(categoryCard);
+    });
+
+    // Restore scroll position if requested
+    if (preserveScroll && scrollY > 0) {
+        requestAnimationFrame(() => {
+            window.scrollTo(0, scrollY);
+        });
+    }
+}
+
+// Create Category Card
+export function createCategoryCard(category, index) {
+    const card = document.createElement('div');
+    card.className = 'category-card';
+    card.draggable = true;
+    card.dataset.categoryId = category.id;
+    card.dataset.categoryIndex = index;
+
+    // Create property headers
+    const propertyHeadersHTML = category.properties.map(prop =>
+        `<span class="property-header">${escapeHtml(prop)}</span>`
+    ).join('');
+
+    card.innerHTML = `
+        <div class="category-header drag-handle">
+            <div class="category-title-row">
+                <div class="category-title" data-category-id="${category.id}">
+                    <span class="drag-indicator">⋮⋮</span>
+                    ${escapeHtml(category.name)}
+                </div>
+            </div>
+            <div class="property-headers">${propertyHeadersHTML}</div>
+        </div>
+        <div class="category-body">
+            ${category.entries.map((entry, entryIndex) => createEntryHTML(entry, category, entryIndex)).join('')}
+            <div class="add-entry-item" data-category-id="${category.id}">
+                <span class="add-entry-text">Add entry...</span>
+            </div>
+        </div>
+    `;
+
+    // Add drag and drop event listeners for category
+    card.addEventListener('dragstart', handleCategoryDragStart);
+    card.addEventListener('dragover', handleCategoryDragOver);
+    card.addEventListener('dragenter', handleCategoryDragEnter);
+    card.addEventListener('dragleave', handleCategoryDragLeave);
+    card.addEventListener('drop', handleCategoryDrop);
+    card.addEventListener('dragend', handleCategoryDragEnd);
+
+    // Allow dropping entries on category body (for cross-category moves)
+    const categoryBody = card.querySelector('.category-body');
+    categoryBody.addEventListener('dragover', (e) => handleCategoryBodyDragOver(e, category.id));
+    categoryBody.addEventListener('dragenter', (e) => handleCategoryBodyDragEnter(e, category.id));
+    categoryBody.addEventListener('dragleave', handleCategoryBodyDragLeave);
+    categoryBody.addEventListener('drop', (e) => handleCategoryBodyDrop(e, category.id));
+
+    // Add event listeners
+    // Click category title to edit
+    card.querySelector('.category-title').addEventListener('click', (e) => {
+        // Don't trigger if clicking drag indicator
+        if (!e.target.classList.contains('drag-indicator')) {
+            openCategoryModal(category.id);
+        }
+    });
+
+    // Add entry item at bottom
+    card.querySelector('.add-entry-item').addEventListener('click', () => {
+        openEntryModal(category.id);
+    });
+
+    // Entry drag and drop handlers
+    card.querySelectorAll('.entry-item').forEach(entryEl => {
+        // Drag handlers
+        entryEl.addEventListener('dragstart', (e) => handleEntryDragStart(e, category.id));
+        entryEl.addEventListener('dragover', handleEntryDragOver);
+        entryEl.addEventListener('dragenter', handleEntryDragEnter);
+        entryEl.addEventListener('dragleave', handleEntryDragLeave);
+        entryEl.addEventListener('drop', (e) => handleEntryDrop(e, category.id));
+        entryEl.addEventListener('dragend', handleEntryDragEnd);
+
+        // Click handler
+        entryEl.addEventListener('click', () => {
+            const entryId = entryEl.dataset.entryId;
+            openEntryModal(category.id, entryId);
+        });
+    });
+
+    return card;
+}
+
+// Create Entry HTML
+export function createEntryHTML(entry, category, entryIndex) {
+    const bubblesHTML = category.properties.map(prop => {
+        const levelId = entry.levels[prop] || 'none';
+        const level = appData.levels.find(l => l.id === levelId) || appData.levels[0];
+        return `<div class="level-bubble" style="background-color: ${level.color}; border-color: ${level.color === '#ffffff' ? '#cbd5e0' : level.color}" title="${escapeHtml(prop)}: ${escapeHtml(level.name)}"></div>`;
+    }).join('');
+
+    const commentHTML = entry.comment ? `
+        <div class="entry-comment">💬 Note: ${escapeHtml(entry.comment)}</div>
+    ` : '';
+
+    return `
+        <div class="entry-wrapper">
+            <div class="entry-item" draggable="true" data-entry-id="${entry.id}" data-entry-index="${entryIndex}">
+                <div class="entry-name">
+                    <span class="drag-indicator">⋮⋮</span>
+                    ${escapeHtml(entry.name)}
+                </div>
+                <div class="entry-bubbles">
+                    ${bubblesHTML}
+                </div>
+            </div>
+            ${commentHTML}
+        </div>
+    `;
+}
