@@ -65,11 +65,22 @@ function initializeEventListeners() {
         document.getElementById('fileInput').click();
     });
 
+    // Configuration Dropdown
+    document.getElementById('configMenuBtn').addEventListener('click', toggleConfigDropdown);
+    document.getElementById('configSelect').addEventListener('change', handleConfigSelect);
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        const dropdown = document.querySelector('.dropdown');
+        if (!dropdown.contains(e.target)) {
+            document.getElementById('configDropdownMenu').classList.remove('active');
+        }
+    });
+
     // Settings Modal
     document.getElementById('closeSettingsBtn').addEventListener('click', () => {
         document.getElementById('settingsModal').classList.remove('active');
     });
-    document.getElementById('configSelect').addEventListener('change', handleConfigSelect);
 
     // Save Prompt Modal
     document.getElementById('doNotSaveBtn').addEventListener('click', handleDoNotSave);
@@ -1119,29 +1130,39 @@ async function loadTemplate() {
 
 // ===== SETTINGS MODAL =====
 
-async function openSettingsModal() {
+function openSettingsModal() {
     const modal = document.getElementById('settingsModal');
     const usernameInput = document.getElementById('usernameInput');
     const exportTitleInput = document.getElementById('exportTitleInput');
-    const configSelect = document.getElementById('configSelect');
 
     // Set current values
     usernameInput.value = appData.username || '';
     exportTitleInput.value = appData.exportTitle || 'My Prefy List';
 
-    // Load available configs
-    await loadAvailableConfigs();
-
-    // Populate dropdown
-    configSelect.innerHTML = '<option value="">-- Select a configuration --</option>';
-    availableConfigs.forEach(config => {
-        const option = document.createElement('option');
-        option.value = config.filename;
-        option.textContent = config.name || config.filename;
-        configSelect.appendChild(option);
-    });
-
     modal.classList.add('active');
+}
+
+// ===== CONFIGURATION DROPDOWN =====
+
+async function toggleConfigDropdown() {
+    const dropdownMenu = document.getElementById('configDropdownMenu');
+    const isActive = dropdownMenu.classList.contains('active');
+
+    if (isActive) {
+        dropdownMenu.classList.remove('active');
+    } else {
+        // Load configs and populate dropdown
+        await loadAvailableConfigs();
+        const configSelect = document.getElementById('configSelect');
+        configSelect.innerHTML = '<option value="">-- Select --</option>';
+        availableConfigs.forEach(config => {
+            const option = document.createElement('option');
+            option.value = config.filename;
+            option.textContent = config.name || config.filename;
+            configSelect.appendChild(option);
+        });
+        dropdownMenu.classList.add('active');
+    }
 }
 
 async function loadAvailableConfigs() {
@@ -1180,8 +1201,8 @@ function handleConfigSelect(e) {
     // Reset the select to prevent confusion
     e.target.value = '';
 
-    // Close settings modal and open save prompt
-    document.getElementById('settingsModal').classList.remove('active');
+    // Close dropdown and open save prompt
+    document.getElementById('configDropdownMenu').classList.remove('active');
     document.getElementById('savePromptModal').classList.add('active');
 }
 
