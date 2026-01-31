@@ -2,6 +2,21 @@
 
 All notable changes to Prefy will be documented in this file.
 
+## Version 0.2.1 "Modularization of the JS"
+
+**Change Date**: *January 31st, 2026 (2026-01-31)*
+
+### Added
+
+- Created new `./js/` folder which houses all the JS modules
+- Entry point is still `./js/app.js`
+- All other modules are now within the JS folder and get called and pulled in as-needed
+
+### Changed
+
+- `app.js` is not longer in root folder `./` and is now in `./js/`
+- Logic that used to be all in `app.js` is now broken up across the JS files in `./js/`
+
 ## Version 0.2.0 "In-App Template Generator"
 
 **Change Date**: *January 30th, 2026 (2026-01-30)*

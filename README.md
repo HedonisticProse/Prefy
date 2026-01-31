@@ -138,8 +138,17 @@ To change the default configuration that loads on startup, edit the fetch path i
 
 - `index.html` - Main application page
 - `styles.css` - All styling and visual design
-- `app.js` - Application logic and data management
-- `configs/` - Configuration files directory
+- `./js/` - Application logic and data management
+  - `app.js` - Application logic entry point
+  - `config.js` - Application configuration
+  - `dragdrop.js` - Drag-and-drop logic
+  - `export.js` - Image export logic
+  - `modals.js` - Modal logic
+  - `render.js` - Rendering logic
+  - `prefy.js` - Handling of `*.prefy` files
+  - `state.js` - State handling
+  - `utils.js` - Utilities relevant to the application
+- `./configs/` - Configuration files directory
   - `general_interests.json` - Default configuration (General Interests)
   - `*.json` - Additional configuration files
 - `genTemplate.py` - Python script to generate templates from `.prefy` files
