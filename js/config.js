@@ -64,7 +64,6 @@ export function loadConfig(event) {
                 if (renderCategoriesCallback) {
                     renderCategoriesCallback();
                 }
-                alert('Configuration loaded successfully!');
             }
         } catch (error) {
             console.error('Load failed:', error);
@@ -209,7 +208,6 @@ export async function loadConfigFromFile(filename) {
         if (renderCategoriesCallback) {
             renderCategoriesCallback();
         }
-        alert('Configuration loaded successfully!');
     } catch (error) {
         console.error('Load failed:', error);
         alert('Failed to load configuration. Please check the file.');
