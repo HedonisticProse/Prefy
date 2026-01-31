@@ -16,9 +16,9 @@ Hosted on GitHub Pages: [https://hedonisticprose.github.io/Prefy/](https://hedon
   - [Using the Template Generator](#using-the-template-generator)
     - [Format](#format)
     - [Example](#example)
-    - [Generate JSON Template](#generate-json-template)
     - [Comments](#comments)
-    - [Using Your Generated Template](#using-your-generated-template)
+    - [Generate Template (In-App)](#generate-template-in-app)
+    - [Generate Template (Python Script)](#generate-template-python-script)
   - [File Structure](#file-structure)
   - [Data Storage](#data-storage)
   - [Settings](#settings)
@@ -26,6 +26,8 @@ Hosted on GitHub Pages: [https://hedonisticprose.github.io/Prefy/](https://hedon
     - [Export Title](#export-title)
   - [Configuration Menu](#configuration-menu)
     - [Load Template](#load-template)
+    - [Generate Template](#generate-template)
+    - [Download Example](#download-example)
     - [Save Config](#save-config)
     - [Load Config](#load-config)
     - [Adding New Configurations](#adding-new-configurations)
@@ -75,7 +77,7 @@ If you have any strong personal feelings about AI generated content and tools, p
 
 ## Using the Template Generator
 
-The template generator allows you to quickly create default configurations without manually editing JSON.
+The template generator allows you to quickly create configurations from human-readable `.prefy` files without manually editing JSON.
 
 ### Format
 
@@ -95,9 +97,28 @@ Food Preferences (Like, Dislike): Italian, Japanese, Mexican, Thai
 Hobbies (Skill Level, Interest): Photography, Cooking, Gaming, Reading
 ```
 
-### Generate JSON Template
+### Comments
 
-Run the Python script:
+Lines starting with `#` are treated as comments:
+
+```text
+# This is a comment
+Social Activities (Interest, Frequency): Movies, Concerts, Museums
+```
+
+### Generate Template (In-App)
+
+The easiest way to use `.prefy` files:
+
+1. Click **Configuration** in the header
+2. Click **Download Example** to get a sample `.prefy` file for reference
+3. Create your own `.prefy` file following the format above
+4. Click **Generate Template** and select your `.prefy` file
+5. Your configuration will be loaded immediately
+
+### Generate Template (Python Script)
+
+Alternatively, use the Python script for offline generation:
 
 ```bash
 python genTemplate.py mylist.prefy
@@ -105,22 +126,11 @@ python genTemplate.py mylist.prefy
 
 This will create `mylist.json` with the proper structure.
 
-### Comments
+To add the generated template to the Load Template dropdown:
 
-Lines starting with `#` are treated as comments:
-
-```
-# This is a comment
-Social Activities (Interest, Frequency): Movies, Concerts, Museums
-```
-
-### Using Your Generated Template
-
-1. Generate your template: `python genTemplate.py mytemplate.prefy`
-2. Add a `"name"` field to the generated JSON (e.g., `"name": "My Template"`)
-3. Move the JSON file to the `./configs/` folder
-4. Add the filename to the `configFiles` array in `app.js`
-5. The configuration will now appear in **Settings > Load Configuration**
+1. Add a `"name"` field to the generated JSON (e.g., `"name": "My Template"`)
+2. Move the JSON file to the `./configs/` folder
+3. Add the filename to the `configFiles` array in `app.js`
 
 To change the default configuration that loads on startup, edit the fetch path in `app.js` in the `loadTemplate()` function.
 
@@ -171,6 +181,14 @@ When switching configurations, you'll be prompted to save your current work:
 
 - **SAVE**: Opens the standard save dialog, then loads the new configuration
 - **DO NOT SAVE**: Loads the new configuration without saving
+
+### Generate Template
+
+Opens a file dialog to select a `.prefy` file. The file is parsed and loaded as a new configuration. See [Using the Template Generator](#using-the-template-generator) for the `.prefy` file format.
+
+### Download Example
+
+Downloads `example.prefy` as a reference file showing the correct format for `.prefy` template files.
 
 ### Save Config
 
