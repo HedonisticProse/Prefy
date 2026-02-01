@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 714 264" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g id="Artboard1" transform="matrix(1.009686,0,0,1.030616,-162.333613,-405.131172)">
+        <rect x="160.776" y="393.096" width="706.78" height="255.491" style="fill:none;"/>
+        <g id="Outer-Rectangle" serif:id="Outer Rectangle" transform="matrix(0.984708,0,0,0.977241,4.595,18.182289)">
+            <path d="M400.765,465.631L400.765,615.289C400.765,622.48 394.85,628.319 387.565,628.319L191.272,628.319C183.987,628.319 178.072,622.48 178.072,615.289L178.072,426.602C178.072,419.41 183.987,413.571 191.272,413.571L387.565,413.571C391.268,413.571 394.618,415.08 397.016,417.508C387.229,423.987 377.779,431.111 368.795,438.506L202.043,438.506L202.043,604.147L375.763,604.147L375.763,493.715C384.42,483.596 392.795,474.231 400.765,465.631Z" style="fill:#667eea;"/>
+        </g>
+        <g id="Check" transform="matrix(0.990406,0,0,0.970293,2.311226,20.309514)">
+            <path d="M228.319,513.253C228.319,513.253 223.28,508.214 227.689,501.182C232.097,494.149 234.197,493.834 234.197,493.834C234.197,493.834 239.235,487.011 251.411,493.309C263.587,499.607 290.143,525.324 292.557,528.368C294.972,531.412 378.225,412.828 466.635,393.096C466.635,393.096 386.938,455.624 307.24,572.48C307.24,572.48 301.486,577.765 300.562,578.856C299.639,579.948 291.158,584.231 283.348,575.666C275.539,567.1 240.824,523.602 228.319,513.253Z" style="fill:#667eea;stroke:#667eea;stroke-width:1px;"/>
+        </g>
+        <g transform="matrix(13.592758,0,0,13.316718,-6276.266059,-3290.130358)">
+            <g transform="matrix(12,0,0,12,524.325115,290.593952)">
+            </g>
+            <text x="493.341px" y="290.594px" style="font-family:'Rubik-Regular', 'Rubik';font-size:12px;fill:#667eea;">P<tspan x="501.201px 505.917px 512.781px 517.641px " y="290.594px 290.594px 290.594px 290.594px ">refy</tspan></text>
+        </g>
+    </g>
+</svg>

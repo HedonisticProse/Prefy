@@ -31,16 +31,15 @@ body {
     gap: 15px;
 }
 
-.app-header h1 {
-    color: #333;
-    font-size: 28px;
-    margin: 0;
-}
-
 .header-branding {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
+}
+
+.header-logo {
+    height: 38px;
+    width: auto;
 }
 
 .tagline {
