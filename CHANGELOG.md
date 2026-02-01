@@ -2,6 +2,23 @@
 
 All notable changes to Prefy will be documented in this file.
 
+## Version 0.2.2 "Basic Level Filtering"
+
+**Change Date**: *January 31st, 2026 (2026-01-31)*
+
+### Added
+
+- **Level Filtering**: Click any level in the legend to filter and show only entries with that level
+- New `./js/filter.js` module for centralized filtering logic
+- Visual feedback showing which level filter is active (highlighted in legend)
+- "Clear" button in legend when a filter is active
+- Empty state with GIF when no entries match the filter
+
+### Changed
+
+- Legend items are now clickable for filtering
+- Filtering automatically clears when loading a new configuration
+
 ## Version 0.2.1 "Modularization of the JS"
 
 **Change Date**: *January 31st, 2026 (2026-01-31)*

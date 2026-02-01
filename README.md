@@ -35,6 +35,8 @@ Hosted on GitHub Pages: [https://hedonisticprose.github.io/Prefy/](https://hedon
     - [Levels](#levels)
     - [Categories](#categories)
     - [Entries](#entries)
+  - [Filtering](#filtering)
+    - [Level Filtering](#level-filtering)
   - [Export Options](#export-options)
     - [Image Export](#image-export)
     - [JSON Export/Import](#json-exportimport)
@@ -62,6 +64,7 @@ If you have any strong personal feelings about AI generated content and tools, p
 - **Customizable Levels**: Define your own preference levels with custom names and colors
 - **Flexible Categories**: Create unlimited categories with custom properties
 - **Visual Interface**: Color-coded bubbles for quick visual reference
+- **Level Filtering**: Click any level in the legend to filter and show only matching entries
 - **Drag & Drop**: Reorder levels, categories, and entries
 - **Export Options**:
   - Export as PNG/JPEG image for easy sharing
@@ -143,6 +146,7 @@ To change the default configuration that loads on startup, edit the fetch path i
   - `config.js` - Application configuration
   - `dragdrop.js` - Drag-and-drop logic
   - `export.js` - Image export logic
+  - `filter.js` - Filtering logic (level filter, future search)
   - `modals.js` - Modal logic
   - `render.js` - Rendering logic
   - `prefy.js` - Handling of `*.prefy` files
@@ -238,6 +242,20 @@ Click "Manage Levels" to:
 - Click any entry to edit it
 - Set preference levels for each property
 - Reorder entries within categories by dragging
+
+## Filtering
+
+### Level Filtering
+
+Click any level in the **Levels Legend** (the colored bubbles at the top of the page) to filter your view:
+
+- **Click a level**: Shows only categories and entries that have that level assigned to any property
+- **Click the same level again**: Clears the filter and shows all entries
+- **"Clear" button**: Appears when a filter is active; click to remove the filter
+
+This is useful for quickly finding all entries with a specific preference level (e.g., "show me all my Favorites" or "show me all Hard Limits").
+
+**Note**: Filtering only affects the display - your data is not modified. The filter is automatically cleared when loading a new configuration.
 
 ## Export Options
 
