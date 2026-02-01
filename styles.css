@@ -107,6 +107,26 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.legend-item:hover {
+    background-color: #edf2f7;
+}
+
+.legend-item-active {
+    background-color: #4a5568;
+}
+
+.legend-item-active .legend-name {
+    color: #ffffff;
+}
+
+.legend-item-active .legend-bubble {
+    box-shadow: 0 0 0 2px white;
 }
 
 .legend-bubble {
@@ -120,6 +140,16 @@ body {
 .legend-name {
     font-weight: 600;
     color: #2d3748;
+}
+
+/* Clear Filter Button in Legend */
+.legend-clear-filter {
+    background-color: #e2e8f0;
+    margin-left: 8px;
+}
+
+.legend-clear-filter:hover {
+    background-color: #cbd5e0;
 }
 
 /* Buttons */
@@ -893,6 +923,13 @@ body {
 
 .empty-state p {
     font-size: 16px;
+}
+
+.empty-state-img {
+    max-width: 200px;
+    max-height: 200px;
+    margin-bottom: 20px;
+    border-radius: 8px;
 }
 
 /* Settings Modal - Smaller variant */

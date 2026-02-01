@@ -1,5 +1,6 @@
 import { appData } from './state.js';
 import { escapeHtml } from './utils.js';
+import { activeLevelFilter, setActiveLevelFilter, applyFilters, clearAllFilters } from './filter.js';
 import {
     handleCategoryDragStart,
     handleCategoryDragOver,
@@ -30,6 +31,12 @@ export function renderLevelsLegend() {
     appData.levels.forEach(level => {
         const legendItem = document.createElement('div');
         legendItem.className = 'legend-item';
+        legendItem.dataset.levelId = level.id;
+
+        // Add active class if this level is the current filter
+        if (activeLevelFilter === level.id) {
+            legendItem.classList.add('legend-item-active');
+        }
 
         const bubble = document.createElement('div');
         bubble.className = 'legend-bubble';
@@ -43,10 +50,37 @@ export function renderLevelsLegend() {
         legendItem.appendChild(bubble);
         legendItem.appendChild(name);
         legendContainer.appendChild(legendItem);
+
+        // Add click handler for filtering
+        legendItem.addEventListener('click', () => {
+            handleLevelFilterClick(level.id);
+        });
     });
+
+    // Add clear filter button if filter is active
+    if (activeLevelFilter) {
+        const clearBtn = document.createElement('div');
+        clearBtn.className = 'legend-item legend-clear-filter';
+        clearBtn.innerHTML = '<span class="legend-name">✕ Clear</span>';
+        clearBtn.addEventListener('click', () => {
+            handleLevelFilterClick(null);
+        });
+        legendContainer.appendChild(clearBtn);
+    }
 
     // Auto-scale text to fit on one line
     scaleLegendText();
+}
+
+// Handle level filter click - toggle filter on/off
+function handleLevelFilterClick(levelId) {
+    if (activeLevelFilter === levelId || levelId === null) {
+        // Clicking same level or clear button clears the filter
+        setActiveLevelFilter(null);
+    } else {
+        setActiveLevelFilter(levelId);
+    }
+    renderCategories(true); // Preserve scroll position
 }
 
 // Scale legend text to fit on one line
@@ -87,18 +121,41 @@ export function renderCategories(preserveScroll = false) {
     // Render levels legend
     renderLevelsLegend();
 
-    if (appData.categories.length === 0) {
-        container.innerHTML = `
-            <div class="empty-state">
-                <h2>No Categories Yet</h2>
-                <p>Click "Add Category" to get started!</p>
-            </div>
-        `;
+    // Apply filters to categories
+    const categoriesToRender = applyFilters(appData.categories);
+    const isFiltered = activeLevelFilter !== null;
+
+    if (categoriesToRender.length === 0) {
+        if (isFiltered) {
+            // No entries match the filter
+            container.innerHTML = `
+                <div class="empty-state">
+                    <img src="img/nothing_found.gif" alt="Nothing found" class="empty-state-img">
+                    <h2>Nothing to show here...</h2>
+                    <p>No entries match the selected level filter.</p>
+                    <button class="btn btn-secondary" id="clearFilterBtn" style="margin-top: 15px;">Clear Filter</button>
+                </div>
+            `;
+            document.getElementById('clearFilterBtn')?.addEventListener('click', () => {
+                clearAllFilters();
+                renderCategories(true);
+            });
+        } else {
+            // No categories exist
+            container.innerHTML = `
+                <div class="empty-state">
+                    <h2>No Categories Yet</h2>
+                    <p>Click "Add Category" to get started!</p>
+                </div>
+            `;
+        }
         return;
     }
 
-    appData.categories.forEach((category, index) => {
-        const categoryCard = createCategoryCard(category, index);
+    categoriesToRender.forEach((category) => {
+        // Find original index for proper data binding (editing, drag-drop)
+        const originalIndex = appData.categories.findIndex(c => c.id === category.id);
+        const categoryCard = createCategoryCard(category, originalIndex);
         container.appendChild(categoryCard);
     });
 

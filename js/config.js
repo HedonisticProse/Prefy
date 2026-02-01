@@ -9,6 +9,7 @@ import {
     setPendingPrefyData
 } from './state.js';
 import { generateFilename } from './utils.js';
+import { clearAllFilters } from './filter.js';
 
 // We'll set this via a setter to avoid circular import issues
 let renderCategoriesCallback = null;
@@ -60,6 +61,7 @@ export function loadConfig(event) {
             }
 
             if (confirm('Load this configuration? This will replace your current data.')) {
+                clearAllFilters();
                 setAppData(data);
                 if (renderCategoriesCallback) {
                     renderCategoriesCallback();
@@ -204,6 +206,7 @@ export async function loadConfigFromFile(filename) {
             data.exportTitle = 'My Prefy List';
         }
 
+        clearAllFilters();
         setAppData(data);
         if (renderCategoriesCallback) {
             renderCategoriesCallback();
@@ -216,6 +219,7 @@ export async function loadConfigFromFile(filename) {
 
 // Load prefy data (used by save prompt handlers)
 export function loadPrefyData(data) {
+    clearAllFilters();
     setAppData(data);
     if (renderCategoriesCallback) {
         renderCategoriesCallback();
@@ -248,6 +252,7 @@ export async function loadTemplate() {
             templateData.exportTitle = 'My Prefy List';
         }
 
+        clearAllFilters();
         setAppData(templateData);
     } catch (error) {
         console.error('Failed to load template:', error);
