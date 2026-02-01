@@ -133,7 +133,7 @@ export function renderCategories(preserveScroll = false) {
                     <img src="img/nothing_found.gif" alt="Nothing found" class="empty-state-img">
                     <h2>Nothing to show here...</h2>
                     <p>No entries match the selected level filter.</p>
-                    <button class="btn btn-secondary" id="clearFilterBtn">Clear Filter</button>
+                    <button class="btn btn-secondary" id="clearFilterBtn" style="margin-top: 15px;">Clear Filter</button>
                 </div>
             `;
             document.getElementById('clearFilterBtn')?.addEventListener('click', () => {
