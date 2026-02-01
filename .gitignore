@@ -1,11 +1,5 @@
-# Exports folder
-Exports/
-
 # User Files
 User/
-
-# Reference Imags (only for Claude Code)
-Reference_Images/
 
 # OS generated files
 .DS_Store
