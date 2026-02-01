@@ -130,7 +130,8 @@ export function renderCategories(preserveScroll = false) {
             // No entries match the filter
             container.innerHTML = `
                 <div class="empty-state">
-                    <h2>No Entries Found</h2>
+                    <img src="img/nothing_found.gif" alt="Nothing found" class="empty-state-img">
+                    <h2>Nothing to show here...</h2>
                     <p>No entries match the selected level filter.</p>
                     <button class="btn btn-secondary" id="clearFilterBtn">Clear Filter</button>
                 </div>
