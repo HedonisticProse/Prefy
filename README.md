@@ -37,6 +37,7 @@ Hosted on GitHub Pages: [https://hedonisticprose.github.io/Prefy/](https://hedon
     - [Entries](#entries)
   - [Filtering](#filtering)
     - [Level Filtering](#level-filtering)
+    - [Search](#search)
   - [Export Options](#export-options)
     - [Image Export](#image-export)
     - [JSON Export/Import](#json-exportimport)
@@ -65,6 +66,7 @@ If you have any strong personal feelings about AI generated content and tools, p
 - **Flexible Categories**: Create unlimited categories with custom properties
 - **Visual Interface**: Color-coded bubbles for quick visual reference
 - **Level Filtering**: Click any level in the legend to filter and show only matching entries
+- **Search**: Find categories and entries by name with optional exact match mode
 - **Drag & Drop**: Reorder levels, categories, and entries
 - **Export Options**:
   - Export as PNG/JPEG image for easy sharing
@@ -256,6 +258,18 @@ Click any level in the **Levels Legend** (the colored bubbles at the top of the 
 This is useful for quickly finding all entries with a specific preference level (e.g., "show me all my Favorites" or "show me all Hard Limits").
 
 **Note**: Filtering only affects the display - your data is not modified. The filter is automatically cleared when loading a new configuration.
+
+### Search
+
+Click the **magnifying glass button** (🔍) in the header to toggle the search bar. The search bar appears between the header and the levels legend.
+
+- **Live search**: Results filter as you type
+- **Category match**: If a category name matches, the entire category is shown with all entries
+- **Entry match**: If entry names match, only matching entries are shown and highlighted in yellow
+- **Exact match**: Check the "Exact match" checkbox to search for exact matches only (instead of partial/contains matches)
+- **Clear**: Click the "Clear" button to reset the search and show all entries
+
+**Combining Filters**: Search works alongside level filtering. When both are active, an entry must match both the level filter AND the search term to appear.
 
 ## Export Options
 

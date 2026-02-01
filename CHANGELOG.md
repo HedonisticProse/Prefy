@@ -2,6 +2,27 @@
 
 All notable changes to Prefy will be documented in this file.
 
+## Version 0.2.3 "Simple Search"
+
+**Change Date**: *February 1st, 2026 (2026-02-01)*
+
+### Added
+
+- **Search Feature**: Click the magnifying glass (🔍) button in the header to toggle a search bar
+- Search input field with live filtering as you type
+- "Exact match" checkbox to toggle between contains/exact matching
+- Search matches against both category names and entry names
+- Category name match shows entire category; entry match shows category with only matching entries highlighted
+- Yellow highlighting for matched entries when searching by entry name
+- "Clear" button to reset search and show all entries
+
+### Changed
+
+- Extended `./js/filter.js` module with search state (`searchTerm`, `exactMatch`) and `filterBySearch()` function
+- Updated `./js/render.js` to support entry highlighting via `isSearchMatch` parameter
+- Search and level filters work together (both must pass for entry to appear)
+- Empty state message now covers both level filter and search scenarios
+
 ## Version 0.2.2 "Basic Level Filtering"
 
 **Change Date**: *January 31st, 2026 (2026-01-31)*
