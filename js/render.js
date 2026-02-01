@@ -1,6 +1,6 @@
 import { appData } from './state.js';
 import { escapeHtml } from './utils.js';
-import { activeLevelFilter, setActiveLevelFilter, applyFilters, clearAllFilters } from './filter.js';
+import { activeLevelFilter, setActiveLevelFilter, applyFilters, clearAllFilters, isAnyFilterActive } from './filter.js';
 import {
     handleCategoryDragStart,
     handleCategoryDragOver,
@@ -123,7 +123,7 @@ export function renderCategories(preserveScroll = false) {
 
     // Apply filters to categories
     const categoriesToRender = applyFilters(appData.categories);
-    const isFiltered = activeLevelFilter !== null;
+    const isFiltered = isAnyFilterActive();
 
     if (categoriesToRender.length === 0) {
         if (isFiltered) {
@@ -132,12 +132,17 @@ export function renderCategories(preserveScroll = false) {
                 <div class="empty-state">
                     <img src="img/nothing_found.gif" alt="Nothing found" class="empty-state-img">
                     <h2>Nothing to show here...</h2>
-                    <p>No entries match the selected level filter.</p>
-                    <button class="btn btn-secondary" id="clearFilterBtn" style="margin-top: 15px;">Clear Filter</button>
+                    <p>No categories or entries match your filter.</p>
+                    <button class="btn btn-secondary" id="clearFilterBtn" style="margin-top: 15px;">Clear Filters</button>
                 </div>
             `;
             document.getElementById('clearFilterBtn')?.addEventListener('click', () => {
                 clearAllFilters();
+                // Clear search UI inputs if they exist
+                const searchInput = document.getElementById('searchInput');
+                const exactMatchCheckbox = document.getElementById('exactMatchCheckbox');
+                if (searchInput) searchInput.value = '';
+                if (exactMatchCheckbox) exactMatchCheckbox.checked = false;
                 renderCategories(true);
             });
         } else {
@@ -191,7 +196,10 @@ export function createCategoryCard(category, index) {
             <div class="property-headers">${propertyHeadersHTML}</div>
         </div>
         <div class="category-body">
-            ${category.entries.map((entry, entryIndex) => createEntryHTML(entry, category, entryIndex)).join('')}
+            ${category.entries.map((entry, entryIndex) => {
+                const isSearchMatch = category._matchedEntryIds?.includes(entry.id) || false;
+                return createEntryHTML(entry, category, entryIndex, isSearchMatch);
+            }).join('')}
             <div class="add-entry-item" data-category-id="${category.id}">
                 <span class="add-entry-text">Add entry...</span>
             </div>
@@ -248,7 +256,7 @@ export function createCategoryCard(category, index) {
 }
 
 // Create Entry HTML
-export function createEntryHTML(entry, category, entryIndex) {
+export function createEntryHTML(entry, category, entryIndex, isSearchMatch = false) {
     const bubblesHTML = category.properties.map(prop => {
         const levelId = entry.levels[prop] || 'none';
         const level = appData.levels.find(l => l.id === levelId) || appData.levels[0];
@@ -259,9 +267,11 @@ export function createEntryHTML(entry, category, entryIndex) {
         <div class="entry-comment">💬 Note: ${escapeHtml(entry.comment)}</div>
     ` : '';
 
+    const highlightClass = isSearchMatch ? ' entry-search-match' : '';
+
     return `
         <div class="entry-wrapper">
-            <div class="entry-item" draggable="true" data-entry-id="${entry.id}" data-entry-index="${entryIndex}">
+            <div class="entry-item${highlightClass}" draggable="true" data-entry-id="${entry.id}" data-entry-index="${entryIndex}">
                 <div class="entry-name">
                     <span class="drag-indicator">⋮⋮</span>
                     ${escapeHtml(entry.name)}

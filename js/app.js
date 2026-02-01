@@ -31,6 +31,7 @@ import {
     handleDownloadExampleClick,
     handlePrefyFileSelect
 } from './prefy.js';
+import { setSearchTerm, setExactMatch } from './filter.js';
 
 // Set up render callbacks to avoid circular dependencies
 setModalsRenderCallback(renderCategories);
@@ -71,6 +72,35 @@ function initializeEventListeners() {
     document.getElementById('saveConfigBtn').addEventListener('click', saveConfig);
     document.getElementById('loadConfigBtn').addEventListener('click', () => {
         document.getElementById('fileInput').click();
+    });
+
+    // Search functionality
+    document.getElementById('searchBtn').addEventListener('click', () => {
+        const container = document.getElementById('searchContainer');
+        const isVisible = container.style.display !== 'none';
+        container.style.display = isVisible ? 'none' : 'flex';
+
+        if (!isVisible) {
+            document.getElementById('searchInput').focus();
+        }
+    });
+
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+        setSearchTerm(e.target.value);
+        renderCategories(true);
+    });
+
+    document.getElementById('exactMatchCheckbox').addEventListener('change', (e) => {
+        setExactMatch(e.target.checked);
+        renderCategories(true);
+    });
+
+    document.getElementById('clearSearchBtn').addEventListener('click', () => {
+        document.getElementById('searchInput').value = '';
+        document.getElementById('exactMatchCheckbox').checked = false;
+        setSearchTerm(null);
+        setExactMatch(false);
+        renderCategories(true);
     });
 
     // Configuration Dropdown

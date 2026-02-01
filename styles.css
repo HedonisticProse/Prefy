@@ -84,6 +84,62 @@ body {
     flex-wrap: wrap;
 }
 
+/* Search Container */
+.search-container {
+    background: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.search-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #2d3748;
+    background: #f7fafc;
+    transition: all 0.2s ease;
+    max-width: 400px;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+}
+
+.search-input::placeholder {
+    color: #a0aec0;
+}
+
+.search-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #4a5568;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.search-checkbox-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
 /* Levels Legend */
 .levels-legend-container {
     background: white;
@@ -382,6 +438,16 @@ body {
 
 .entry-item:hover {
     background: #edf2f7;
+}
+
+/* Search Match Highlighting */
+.entry-search-match {
+    background: #fefcbf !important;
+    border-left-color: #d69e2e !important;
+}
+
+.entry-search-match:hover {
+    background: #faf089 !important;
 }
 
 .entry-comment {
@@ -894,6 +960,16 @@ body {
 
     .header-actions {
         width: 100%;
+    }
+
+    .search-input-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .search-input {
+        max-width: none;
     }
 
     .categories-container {

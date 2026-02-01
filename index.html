@@ -17,6 +17,7 @@
                 </div>
             </div>
             <div class="header-actions">
+                <button id="searchBtn" class="btn btn-icon btn-secondary" title="Search">&#128269;</button>
                 <button id="manageLevelsBtn" class="btn btn-secondary">Manage Levels</button>
                 <button id="addCategoryBtn" class="btn btn-primary">+ Add Category</button>
                 <button id="exportImageBtn" class="btn btn-accent">Export Image</button>
@@ -39,6 +40,18 @@
                 <button id="settingsBtn" class="btn btn-icon btn-secondary" title="Settings">&#9881;</button>
             </div>
         </header>
+
+        <!-- Search Container (hidden by default) -->
+        <div id="searchContainer" class="search-container" style="display: none;">
+            <div class="search-input-wrapper">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search categories and entries...">
+                <label class="search-checkbox-label">
+                    <input type="checkbox" id="exactMatchCheckbox">
+                    <span>Exact match</span>
+                </label>
+                <button id="clearSearchBtn" class="btn btn-small btn-secondary">Clear</button>
+            </div>
+        </div>
 
         <!-- Levels Legend -->
         <div class="levels-legend-container">
@@ -64,7 +77,7 @@
         </div>
         <!-- Footer -->
         <footer class="app-footer">
-            <span>Prefy is in Open Beta (Ver. 0.2.2)</span>
+            <span>Prefy is in Open Beta (Ver. 0.2.3)</span>
             <span class="footer-separator">|</span>
             <a href="https://github.com/HedonisticProse/Prefy" target="_blank" rel="noopener">GitHub</a>
             <span class="footer-separator">|</span>
