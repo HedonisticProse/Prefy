@@ -1,6 +1,6 @@
 {
-  "name": "KinkList V2 Modified",
   "username": "",
+  "exportTitle": "My Prefy List",
   "levels": [
     {
       "id": "none",
@@ -23,8 +23,8 @@
       "color": "#fbd38d"
     },
     {
-      "id": "might-try",
-      "name": "Might Try",
+      "id": "will-try",
+      "name": "May Try",
       "color": "#f6ad55"
     },
     {
@@ -94,63 +94,88 @@
       "id": "cat_clothing_1",
       "name": "Clothing",
       "properties": [
-        "Preference"
+        "Self",
+        "Partner"
       ],
       "entries": [
         {
           "id": "entry_clothed_sex_0",
           "name": "Clothed sex",
           "levels": {
-            "Preference": "none"
+            "Self": "none",
+            "Partner": "none"
           }
         },
         {
           "id": "entry_lingerie_1",
           "name": "Lingerie",
           "levels": {
-            "Preference": "none"
+            "Self": "none",
+            "Partner": "none"
           }
         },
         {
           "id": "entry_stockings_2",
           "name": "Stockings",
           "levels": {
-            "Preference": "none"
+            "Self": "none",
+            "Partner": "none"
           }
         },
         {
           "id": "entry_heels_3",
           "name": "Heels",
           "levels": {
-            "Preference": "none"
+            "Self": "none",
+            "Partner": "none"
           }
         },
         {
-          "id": "entry_leather_4",
+          "id": "entry_boots_4",
+          "name": "Boots",
+          "levels": {
+            "Self": "none",
+            "Partner": "none"
+          }
+        },
+        {
+          "id": "entry_leather_5",
           "name": "Leather",
           "levels": {
-            "Preference": "none"
+            "Self": "none",
+            "Partner": "none"
           }
         },
         {
-          "id": "entry_latex_5",
+          "id": "entry_latex_6",
           "name": "Latex",
           "levels": {
-            "Preference": "none"
+            "Self": "none",
+            "Partner": "none"
           }
         },
         {
-          "id": "entry_uniform_costume_6",
+          "id": "entry_uniform_costume_7",
           "name": "Uniform/costume",
           "levels": {
-            "Preference": "none"
+            "Self": "none",
+            "Partner": "none"
           }
         },
         {
-          "id": "entry_cross_dressing_7",
+          "id": "entry_cross_dressing_8",
           "name": "Cross-dressing",
           "levels": {
-            "Preference": "none"
+            "Self": "none",
+            "Partner": "none"
+          }
+        },
+        {
+          "id": "entry_diapers_9",
+          "name": "Diapers",
+          "levels": {
+            "Self": "none",
+            "Partner": "none"
           }
         }
       ]
@@ -437,7 +462,49 @@
       ]
     },
     {
-      "id": "cat_domination_6",
+      "id": "cat_toys_6",
+      "name": "Toys",
+      "properties": [
+        "Self",
+        "Partner"
+      ],
+      "entries": [
+        {
+          "id": "entry_dildos_0",
+          "name": "Dildos",
+          "levels": {
+            "Self": "none",
+            "Partner": "none"
+          }
+        },
+        {
+          "id": "entry_plugs_1",
+          "name": "Plugs",
+          "levels": {
+            "Self": "none",
+            "Partner": "none"
+          }
+        },
+        {
+          "id": "entry_vibrators_2",
+          "name": "Vibrators",
+          "levels": {
+            "Self": "none",
+            "Partner": "none"
+          }
+        },
+        {
+          "id": "entry_sounding_3",
+          "name": "Sounding",
+          "levels": {
+            "Self": "none",
+            "Partner": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat_domination_7",
       "name": "Domination",
       "properties": [
         "As dominant",
@@ -535,7 +602,7 @@
       ]
     },
     {
-      "id": "cat_consent_play_7",
+      "id": "cat_consent_play_8",
       "name": "Consent Play",
       "properties": [
         "As aggressor",
@@ -593,7 +660,7 @@
       ]
     },
     {
-      "id": "cat_taboo_roleplay_8",
+      "id": "cat_taboo_roleplay_9",
       "name": "Taboo Roleplay",
       "properties": [
         "Topic"
@@ -658,7 +725,7 @@
       ]
     },
     {
-      "id": "cat_surrealism_roleplay_9",
+      "id": "cat_surrealism_roleplay_10",
       "name": "Surrealism Roleplay",
       "properties": [
         "Topic"
@@ -716,7 +783,7 @@
       ]
     },
     {
-      "id": "cat_bodily_fluids_10",
+      "id": "cat_bodily_fluids_11",
       "name": "Bodily Fluids",
       "properties": [
         "Giving",
@@ -764,15 +831,7 @@
           }
         },
         {
-          "id": "entry_diapers_5",
-          "name": "Diapers",
-          "levels": {
-            "Giving": "none",
-            "Receiving": "none"
-          }
-        },
-        {
-          "id": "entry_cum_6",
+          "id": "entry_cum_5",
           "name": "Cum",
           "levels": {
             "Giving": "none",
@@ -780,7 +839,7 @@
           }
         },
         {
-          "id": "entry_squirt_7",
+          "id": "entry_squirt_6",
           "name": "Squirt",
           "levels": {
             "Giving": "none",
@@ -790,7 +849,7 @@
       ]
     },
     {
-      "id": "cat_degradation_11",
+      "id": "cat_degradation_12",
       "name": "Degradation",
       "properties": [
         "As provider",
@@ -840,7 +899,7 @@
       ]
     },
     {
-      "id": "cat_touch_stimulation_12",
+      "id": "cat_touch_stimulation_13",
       "name": "Touch & Stimulation",
       "properties": [
         "As provider",
@@ -898,7 +957,7 @@
       ]
     },
     {
-      "id": "cat_misc_fetish_13",
+      "id": "cat_misc_fetish_14",
       "name": "Misc. Fetish",
       "properties": [
         "Providing",
@@ -972,7 +1031,7 @@
       ]
     },
     {
-      "id": "cat_pain_14",
+      "id": "cat_pain_15",
       "name": "Pain",
       "properties": [
         "Providing",
@@ -1094,7 +1153,7 @@
       ]
     },
     {
-      "id": "cat_relationships_15",
+      "id": "cat_relationships_16",
       "name": "Relationships",
       "properties": [
         "Style"
