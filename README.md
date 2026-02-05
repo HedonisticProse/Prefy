@@ -65,6 +65,7 @@ If you have any strong personal feelings about AI generated content and tools, p
 - **Customizable Levels**: Define your own preference levels with custom names and colors
 - **Flexible Categories**: Create unlimited categories with custom properties
 - **Visual Interface**: Color-coded bubbles for quick visual reference
+- **Quick-Select Level Picker**: Click any level bubble on an entry to quickly change its level without opening the edit dialog
 - **Level Filtering**: Click any level in the legend to filter and show only matching entries
 - **Search**: Find categories and entries by name with optional exact match mode
 - **Drag & Drop**: Reorder levels, categories, and entries
@@ -148,7 +149,8 @@ To change the default configuration that loads on startup, edit the fetch path i
   - `config.js` - Application configuration
   - `dragdrop.js` - Drag-and-drop logic
   - `export.js` - Image export logic
-  - `filter.js` - Filtering logic (level filter, future search)
+  - `fastselect.js` - Quick-select level picker popup
+  - `filter.js` - Filtering logic (level filter, search)
   - `modals.js` - Modal logic
   - `render.js` - Rendering logic
   - `prefy.js` - Handling of `*.prefy` files
@@ -244,6 +246,7 @@ Click "Manage Levels" to:
 - Click any entry to edit it
 - Set preference levels for each property
 - Reorder entries within categories by dragging
+- **Quick-Select**: Click directly on a level bubble to change that property's level without opening the full edit dialog. A small popup appears with all available levels for quick selection.
 
 ## Filtering
 
