@@ -32,15 +32,18 @@ import {
     handlePrefyFileSelect
 } from './prefy.js';
 import { setSearchTerm, setExactMatch } from './filter.js';
+import { initFastSelect, setRenderCallback as setFastSelectRenderCallback } from './fastselect.js';
 
 // Set up render callbacks to avoid circular dependencies
 setModalsRenderCallback(renderCategories);
 setDragDropRenderCallback(renderCategories);
 setConfigRenderCallback(renderCategories);
+setFastSelectRenderCallback(renderCategories);
 
 // Initialize App
 document.addEventListener('DOMContentLoaded', async () => {
     initializeEventListeners();
+    initFastSelect();
     await initializeAppData();
     renderCategories();
 

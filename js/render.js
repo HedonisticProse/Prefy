@@ -20,6 +20,7 @@ import {
     handleEntryDragEnd
 } from './dragdrop.js';
 import { openCategoryModal, openEntryModal } from './modals.js';
+import { handleBubbleClick, closeFastSelectPopup } from './fastselect.js';
 
 // Render Levels Legend
 export function renderLevelsLegend() {
@@ -106,6 +107,9 @@ export function scaleLegendText() {
 
 // Render Categories
 export function renderCategories(preserveScroll = false) {
+    // Close any open fast select popup
+    closeFastSelectPopup();
+
     // Save scroll position if requested
     const scrollY = preserveScroll ? window.scrollY : 0;
 
@@ -250,6 +254,16 @@ export function createCategoryCard(category, index) {
             const entryId = entryEl.dataset.entryId;
             openEntryModal(category.id, entryId);
         });
+
+        // Add click handlers for level bubbles (fast select)
+        entryEl.querySelectorAll('.level-bubble').forEach(bubbleEl => {
+            bubbleEl.addEventListener('click', (e) => {
+                const entryId = entryEl.dataset.entryId;
+                const property = bubbleEl.dataset.property;
+                const currentLevelId = bubbleEl.dataset.levelId;
+                handleBubbleClick(e, category.id, entryId, property, currentLevelId);
+            });
+        });
     });
 
     return card;
@@ -260,7 +274,7 @@ export function createEntryHTML(entry, category, entryIndex, isSearchMatch = fal
     const bubblesHTML = category.properties.map(prop => {
         const levelId = entry.levels[prop] || 'none';
         const level = appData.levels.find(l => l.id === levelId) || appData.levels[0];
-        return `<div class="level-bubble" style="background-color: ${level.color}; border-color: ${level.color === '#ffffff' ? '#cbd5e0' : level.color}" title="${escapeHtml(prop)}: ${escapeHtml(level.name)}"></div>`;
+        return `<div class="level-bubble" style="background-color: ${level.color}; border-color: ${level.color === '#ffffff' ? '#cbd5e0' : level.color}" title="${escapeHtml(prop)}: ${escapeHtml(level.name)}" data-property="${escapeHtml(prop)}" data-level-id="${levelId}"></div>`;
     }).join('');
 
     const commentHTML = entry.comment ? `
