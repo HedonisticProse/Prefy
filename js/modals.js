@@ -245,10 +245,14 @@ export function openEntryModal(categoryId, entryId = null) {
     const nameInput = document.getElementById('entryName');
     const commentInput = document.getElementById('entryComment');
     const levelsContainer = document.getElementById('entryLevelsContainer');
+    const deleteBtn = document.getElementById('deleteEntryBtn');
 
     const category = appData.categories.find(c => c.id === categoryId);
     setCurrentCategoryForEntry(categoryId);
     setCurrentEditingEntry(entryId);
+
+    // Show delete button only when editing existing entry
+    deleteBtn.style.display = entryId ? 'block' : 'none';
 
     if (entryId) {
         const entry = category.entries.find(e => e.id === entryId);
@@ -359,4 +363,28 @@ export function saveEntry() {
 // Export getCurrentEditingCategory for use in delete handler
 export function getCurrentEditingCategory() {
     return currentEditingCategory;
+}
+
+// Export getCurrentEditingEntry for use in delete handler
+export function getCurrentEditingEntry() {
+    return currentEditingEntry;
+}
+
+// Export currentCategoryForEntry getter
+export function getCurrentCategoryForEntry() {
+    return currentCategoryForEntry;
+}
+
+export function deleteEntry(categoryId, entryId) {
+    const category = appData.categories.find(c => c.id === categoryId);
+    if (!category) return;
+
+    const entryIndex = category.entries.findIndex(e => e.id === entryId);
+    if (entryIndex === -1) return;
+
+    category.entries.splice(entryIndex, 1);
+
+    if (renderCategoriesCallback) {
+        renderCategoriesCallback(true);
+    }
 }

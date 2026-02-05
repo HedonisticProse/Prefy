@@ -14,7 +14,10 @@ import {
     saveCategory,
     deleteCategory,
     saveEntry,
-    getCurrentEditingCategory
+    deleteEntry,
+    getCurrentEditingCategory,
+    getCurrentEditingEntry,
+    getCurrentCategoryForEntry
 } from './modals.js';
 import { exportToImage } from './export.js';
 import {
@@ -174,5 +177,17 @@ function initializeEventListeners() {
     document.getElementById('saveEntryBtn').addEventListener('click', saveEntry);
     document.getElementById('cancelEntryBtn').addEventListener('click', () => {
         document.getElementById('entryModal').classList.remove('active');
+    });
+    document.getElementById('deleteEntryBtn').addEventListener('click', () => {
+        const entryId = getCurrentEditingEntry();
+        const categoryId = getCurrentCategoryForEntry();
+        if (entryId && categoryId) {
+            const category = appData.categories.find(c => c.id === categoryId);
+            const entry = category?.entries.find(e => e.id === entryId);
+            if (entry && confirm(`Delete entry "${entry.name}"?`)) {
+                deleteEntry(categoryId, entryId);
+                document.getElementById('entryModal').classList.remove('active');
+            }
+        }
     });
 }
