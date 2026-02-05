@@ -247,6 +247,7 @@ Click "Manage Levels" to:
 - Set preference levels for each property
 - Reorder entries within categories by dragging
 - **Quick-Select**: Click directly on a level bubble to change that property's level without opening the full edit dialog. A small popup appears with all available levels for quick selection.
+- **Delete**: Click the red "Delete" button in the entry edit modal to remove an entry (with confirmation)
 
 ## Filtering
 
