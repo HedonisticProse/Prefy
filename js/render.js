@@ -110,8 +110,18 @@ export function renderCategories(preserveScroll = false) {
     // Close any open fast select popup
     closeFastSelectPopup();
 
-    // Save scroll position if requested
+    // Save scroll positions if requested
     const scrollY = preserveScroll ? window.scrollY : 0;
+    const categoryScrollPositions = new Map();
+    if (preserveScroll) {
+        document.querySelectorAll('.category-card').forEach((card) => {
+            const categoryId = card.dataset.categoryId;
+            const body = card.querySelector('.category-body');
+            if (categoryId && body) {
+                categoryScrollPositions.set(categoryId, body.scrollTop);
+            }
+        });
+    }
 
     const container = document.getElementById('categoriesContainer');
     container.innerHTML = '';
@@ -168,10 +178,23 @@ export function renderCategories(preserveScroll = false) {
         container.appendChild(categoryCard);
     });
 
-    // Restore scroll position if requested
+    // Restore scroll positions if requested
     if (preserveScroll && scrollY > 0) {
         requestAnimationFrame(() => {
             window.scrollTo(0, scrollY);
+        });
+    }
+    if (preserveScroll && categoryScrollPositions.size > 0) {
+        requestAnimationFrame(() => {
+            document.querySelectorAll('.category-card').forEach((card) => {
+                const categoryId = card.dataset.categoryId;
+                const body = card.querySelector('.category-body');
+                if (!categoryId || !body) return;
+                const savedScrollTop = categoryScrollPositions.get(categoryId);
+                if (typeof savedScrollTop === 'number') {
+                    body.scrollTop = savedScrollTop;
+                }
+            });
         });
     }
 }
