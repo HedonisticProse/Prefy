@@ -558,6 +558,11 @@ body.view-quick-edit .entry-item.quick-edit-entry-row {
     font-size: 15px;
 }
 
+.entry-name-text,
+.quick-edit-entry-name-text {
+    cursor: pointer;
+}
+
 .entry-bubbles {
     display: flex;
     gap: 8px;

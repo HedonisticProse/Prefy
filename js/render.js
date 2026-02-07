@@ -277,11 +277,14 @@ export function createCategoryCard(category, index) {
         entryEl.addEventListener('drop', (e) => handleEntryDrop(e, category.id));
         entryEl.addEventListener('dragend', handleEntryDragEnd);
 
-        // Click handler
-        entryEl.addEventListener('click', () => {
-            const entryId = entryEl.dataset.entryId;
-            openEntryModal(category.id, entryId);
-        });
+        // Click handler (entry name only)
+        const entryNameEl = entryEl.querySelector('.entry-name-text');
+        if (entryNameEl) {
+            entryNameEl.addEventListener('click', () => {
+                const entryId = entryEl.dataset.entryId;
+                openEntryModal(category.id, entryId);
+            });
+        }
 
         // Add click handlers for level bubbles (fast select)
         entryEl.querySelectorAll('.level-bubble').forEach(bubbleEl => {
@@ -377,10 +380,13 @@ export function createCategoryCardQuickEdit(category, index) {
         entryEl.addEventListener('drop', (e) => handleEntryDrop(e, category.id));
         entryEl.addEventListener('dragend', handleEntryDragEnd);
 
-        entryEl.addEventListener('click', () => {
-            const entryId = entryEl.dataset.entryId;
-            openEntryModal(category.id, entryId);
-        });
+        const entryNameEl = entryEl.querySelector('.quick-edit-entry-name-text');
+        if (entryNameEl) {
+            entryNameEl.addEventListener('click', () => {
+                const entryId = entryEl.dataset.entryId;
+                openEntryModal(category.id, entryId);
+            });
+        }
 
         // Add click handlers for level bubbles (fast select-like direct set)
         entryEl.querySelectorAll('.quick-edit-level').forEach(bubbleEl => {
@@ -420,7 +426,7 @@ export function createEntryHTML(entry, category, entryIndex, isSearchMatch = fal
             <div class="entry-item${highlightClass}" draggable="true" data-entry-id="${entry.id}" data-entry-index="${entryIndex}">
                 <div class="entry-name">
                     <span class="drag-indicator">⋮⋮</span>
-                    ${escapeHtml(entry.name)}
+                    <span class="entry-name-text">${escapeHtml(entry.name)}</span>
                 </div>
                 <div class="entry-bubbles">
                     ${bubblesHTML}
@@ -467,7 +473,7 @@ export function createEntryHTMLQuickEdit(entry, category, entryIndex, isSearchMa
             <div class="entry-item quick-edit-entry-row${highlightClass}" draggable="true" data-entry-id="${entry.id}" data-entry-index="${entryIndex}"${gridStyle}>
                 <div class="quick-edit-entry-name">
                     <span class="drag-indicator">⋮⋮</span>
-                    ${escapeHtml(entry.name)}
+                    <span class="quick-edit-entry-name-text">${escapeHtml(entry.name)}</span>
                 </div>
                 ${levelOptionsHTML}
             </div>
@@ -475,3 +481,4 @@ export function createEntryHTMLQuickEdit(entry, category, entryIndex, isSearchMa
         </div>
     `;
 }
+
