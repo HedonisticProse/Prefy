@@ -283,6 +283,7 @@ body {
     right: 0;
     background: white;
     min-width: 200px;
+    max-width: calc(100vw - 40px);
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     z-index: 1000;
@@ -1073,6 +1074,43 @@ body.view-quick-edit .entry-item.quick-edit-entry-row {
 
     .modal-content {
         width: 95%;
+    }
+
+    .dropdown-menu {
+        left: 0;
+        right: 0;
+    }
+
+    body.view-quick-edit .quick-edit-header-row {
+        display: none;
+    }
+
+    body.view-quick-edit .entry-item.quick-edit-entry-row {
+        display: block;
+    }
+
+    body.view-quick-edit .quick-edit-property-block {
+        margin-top: 8px;
+    }
+
+    body.view-quick-edit .quick-edit-property-label {
+        font-size: 12px;
+        font-weight: 600;
+        color: #4a5568;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+    }
+
+    body.view-quick-edit .quick-edit-levels {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    body.view-quick-edit .quick-edit-level {
+        width: 20px;
+        height: 20px;
     }
 }
 

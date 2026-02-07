@@ -455,8 +455,11 @@ export function createEntryHTMLQuickEdit(entry, category, entryIndex, isSearchMa
         }).join('');
 
         return `
-            <div class="quick-edit-levels">
-                ${levelsHTML}
+            <div class="quick-edit-property-block">
+                <div class="quick-edit-property-label">${escapeHtml(prop)}</div>
+                <div class="quick-edit-levels">
+                    ${levelsHTML}
+                </div>
             </div>
         `;
     }).join('');
