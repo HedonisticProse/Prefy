@@ -14,6 +14,9 @@ export let appData = {
     categories: []
 };
 
+// View mode state
+export let viewMode = 'grid'; // 'grid' | 'quick-edit'
+
 // Current editing state
 export let currentEditingCategory = null;
 export let currentEditingEntry = null;
@@ -33,6 +36,10 @@ export let pendingPrefyData = null; // Parsed prefy data to load after save prom
 // State setters (needed because we can't reassign imported bindings)
 export function setAppData(data) {
     appData = data;
+}
+
+export function setViewMode(mode) {
+    viewMode = mode;
 }
 
 export function setCurrentEditingCategory(id) {

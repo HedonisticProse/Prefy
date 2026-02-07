@@ -352,6 +352,25 @@ body {
     margin-bottom: 20px;
 }
 
+/* View Mode: Quick Edit */
+body.view-quick-edit .categories-container {
+    display: block;
+}
+
+body.view-quick-edit .category-card {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+body.view-quick-edit .category-body {
+    max-height: none;
+    overflow: visible;
+}
+
+body.view-quick-edit .property-headers {
+    display: none;
+}
+
 /* Category Card */
 .category-card {
     background: white;
@@ -391,6 +410,70 @@ body {
     padding: 15px;
     max-height: 500px;
     overflow-y: auto;
+}
+
+.quick-edit-header-row {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding: 0 12px 8px 12px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #718096;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.quick-edit-header-cell {
+    text-align: center;
+}
+
+.quick-edit-header-name {
+    text-align: left;
+}
+
+.quick-edit-entry-row {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+}
+
+.quick-edit-entry-name {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    color: #2d3748;
+    justify-self: start;
+}
+
+.quick-edit-levels {
+    display: flex;
+    gap: 6px;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.quick-edit-level {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #cbd5e0;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.quick-edit-level:hover {
+    transform: scale(1.05);
+}
+
+.quick-edit-level.current {
+    box-shadow: 0 0 0 2px #2d3748;
 }
 
 /* Property Headers */
@@ -433,6 +516,13 @@ body {
     border-left: 4px solid #667eea;
     cursor: pointer;
     transition: background 0.2s ease;
+    gap: 10px;
+}
+
+body.view-quick-edit .entry-item.quick-edit-entry-row {
+    display: grid;
+    align-items: center;
+    justify-content: initial;
     gap: 10px;
 }
 

@@ -1,5 +1,5 @@
 // Main App Entry Point
-import { appData, currentEditingCategory } from './state.js';
+import { appData, viewMode, setViewMode } from './state.js';
 import { renderCategories, scaleLegendText } from './render.js';
 import { setRenderCallback as setModalsRenderCallback } from './modals.js';
 import { setRenderCallback as setDragDropRenderCallback } from './dragdrop.js';
@@ -115,6 +115,14 @@ function initializeEventListeners() {
     document.getElementById('generateTemplateBtn').addEventListener('click', handleGenerateTemplateClick);
     document.getElementById('downloadExampleBtn').addEventListener('click', handleDownloadExampleClick);
     document.getElementById('prefyFileInput').addEventListener('change', handlePrefyFileSelect);
+    const viewModeSelect = document.getElementById('viewModeSelect');
+    if (viewModeSelect) {
+        viewModeSelect.value = viewMode;
+        viewModeSelect.addEventListener('change', (e) => {
+            setViewMode(e.target.value);
+            renderCategories(true);
+        });
+    }
 
     // Close dropdown when clicking outside
     document.addEventListener('click', (e) => {
