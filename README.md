@@ -25,6 +25,7 @@ Hosted on GitHub Pages: [https://hedonisticprose.github.io/Prefy/](https://hedon
     - [Username](#username)
     - [Export Title](#export-title)
   - [Configuration Menu](#configuration-menu)
+    - [View Mode](#view-mode)
     - [Load Template](#load-template)
     - [Generate Template](#generate-template)
     - [Download Example](#download-example)
@@ -66,6 +67,7 @@ If you have any strong personal feelings about AI generated content and tools, p
 - **Flexible Categories**: Create unlimited categories with custom properties
 - **Visual Interface**: Color-coded bubbles for quick visual reference
 - **Quick-Select Level Picker**: Click any level bubble on an entry to quickly change its level without opening the edit dialog
+- **View Modes**: Switch between Grid View and Quick Edit for faster level changes
 - **Level Filtering**: Click any level in the legend to filter and show only matching entries
 - **Search**: Find categories and entries by name with optional exact match mode
 - **Drag & Drop**: Reorder levels, categories, and entries
@@ -189,6 +191,13 @@ Set a custom title for your exported images. This appears at the top of the expo
 ## Configuration Menu
 
 Click the **Configuration** button in the header to access the configuration dropdown menu:
+
+### View Mode
+
+Switch between available layouts:
+
+- **Grid View** (default): The classic multi-column card layout
+- **Quick Edit**: Full-width categories with inline level bubbles under each property for faster selection
 
 ### Load Template
 

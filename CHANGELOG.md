@@ -2,6 +2,21 @@
 
 All notable changes to Prefy will be documented in this file.
 
+## Version 0.2.4 "View Modes + Quick Edit"
+
+**Change Date**: *February 7th, 2026 (2026-02-07)*
+
+### Added
+
+- **View Mode Selector**: New View Mode dropdown under Configuration
+- **Quick Edit View**: Full-width, single-column category layout with inline level bubbles for each property
+- **Inline Level Selection**: Click any level bubble to set a property instantly in Quick Edit
+
+### Changed
+
+- Preserved per-category scroll position when re-rendering (including quick-select updates)
+- Removed category-card hover lift to reduce visual jumpiness
+
 ## Version 0.2.3 "Simple Search"
 
 **Change Date**: *February 1st, 2026 (2026-02-01)*
