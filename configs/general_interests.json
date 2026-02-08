@@ -43,8 +43,8 @@
       "id": "cat_movies_0",
       "name": "Movies",
       "properties": [
-        "Interest",
-        "Frequency"
+        { "name": "Interest", "type": "level" },
+        { "name": "Frequency", "type": "scale" }
       ],
       "entries": [
         {
@@ -52,7 +52,7 @@
           "name": "Action",
           "levels": {
             "Interest": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         },
         {
@@ -60,7 +60,7 @@
           "name": "Comedy",
           "levels": {
             "Interest": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         },
         {
@@ -68,7 +68,7 @@
           "name": "Drama",
           "levels": {
             "Interest": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         },
         {
@@ -76,7 +76,7 @@
           "name": "Horror",
           "levels": {
             "Interest": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         },
         {
@@ -84,7 +84,7 @@
           "name": "Sci-Fi",
           "levels": {
             "Interest": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         },
         {
@@ -92,7 +92,7 @@
           "name": "Romance",
           "levels": {
             "Interest": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         },
         {
@@ -100,7 +100,7 @@
           "name": "Documentary",
           "levels": {
             "Interest": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         },
         {
@@ -108,7 +108,7 @@
           "name": "Animation",
           "levels": {
             "Interest": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         }
       ]
@@ -191,8 +191,8 @@
       "id": "cat_tv_shows_2",
       "name": "TV Shows",
       "properties": [
-        "Interest",
-        "Binge-worthy"
+        { "name": "Interest", "type": "level" },
+        { "name": "Binge-worthy", "type": "binary" }
       ],
       "entries": [
         {
@@ -200,7 +200,7 @@
           "name": "Sitcoms",
           "levels": {
             "Interest": "none",
-            "Binge-worthy": "none"
+            "Binge-worthy": false
           }
         },
         {
@@ -208,7 +208,7 @@
           "name": "Drama Series",
           "levels": {
             "Interest": "none",
-            "Binge-worthy": "none"
+            "Binge-worthy": false
           }
         },
         {
@@ -216,7 +216,7 @@
           "name": "Reality TV",
           "levels": {
             "Interest": "none",
-            "Binge-worthy": "none"
+            "Binge-worthy": false
           }
         },
         {
@@ -224,7 +224,7 @@
           "name": "Game Shows",
           "levels": {
             "Interest": "none",
-            "Binge-worthy": "none"
+            "Binge-worthy": false
           }
         },
         {
@@ -232,7 +232,7 @@
           "name": "Talk Shows",
           "levels": {
             "Interest": "none",
-            "Binge-worthy": "none"
+            "Binge-worthy": false
           }
         },
         {
@@ -240,7 +240,7 @@
           "name": "Documentaries",
           "levels": {
             "Interest": "none",
-            "Binge-worthy": "none"
+            "Binge-worthy": false
           }
         }
       ]
@@ -249,7 +249,7 @@
       "id": "cat_books_3",
       "name": "Books",
       "properties": [
-        "Reading Preference",
+        "Preference",
         "Collection"
       ],
       "entries": [
@@ -440,8 +440,8 @@
       "id": "cat_diet_types_6",
       "name": "Diet Types",
       "properties": [
-        "Interest",
-        "Practice"
+        { "name": "Interest", "type": "level" },
+        { "name": "Practice", "type": "binary" }
       ],
       "entries": [
         {
@@ -449,7 +449,7 @@
           "name": "Vegetarian",
           "levels": {
             "Interest": "none",
-            "Practice": "none"
+            "Practice": false
           }
         },
         {
@@ -457,7 +457,7 @@
           "name": "Vegan",
           "levels": {
             "Interest": "none",
-            "Practice": "none"
+            "Practice": false
           }
         },
         {
@@ -465,7 +465,7 @@
           "name": "Keto",
           "levels": {
             "Interest": "none",
-            "Practice": "none"
+            "Practice": false
           }
         },
         {
@@ -473,7 +473,7 @@
           "name": "Paleo",
           "levels": {
             "Interest": "none",
-            "Practice": "none"
+            "Practice": false
           }
         },
         {
@@ -481,7 +481,7 @@
           "name": "Mediterranean",
           "levels": {
             "Interest": "none",
-            "Practice": "none"
+            "Practice": false
           }
         },
         {
@@ -489,7 +489,7 @@
           "name": "Gluten-Free",
           "levels": {
             "Interest": "none",
-            "Practice": "none"
+            "Practice": false
           }
         },
         {
@@ -497,7 +497,7 @@
           "name": "Pescatarian",
           "levels": {
             "Interest": "none",
-            "Practice": "none"
+            "Practice": false
           }
         }
       ]
@@ -637,64 +637,64 @@
       "id": "cat_indoor_activities_9",
       "name": "Indoor Activities",
       "properties": [
-        "Frequency",
-        "Skill"
+        { "name": "Frequency", "type": "scale" },
+        { "name": "Skill", "type": "scale" }
       ],
       "entries": [
         {
           "id": "entry_gaming_0",
           "name": "Gaming",
           "levels": {
-            "Frequency": "none",
-            "Skill": "none"
+            "Frequency": 0,
+            "Skill": 0
           }
         },
         {
           "id": "entry_board_games_1",
           "name": "Board Games",
           "levels": {
-            "Frequency": "none",
-            "Skill": "none"
+            "Frequency": 0,
+            "Skill": 0
           }
         },
         {
           "id": "entry_puzzles_2",
           "name": "Puzzles",
           "levels": {
-            "Frequency": "none",
-            "Skill": "none"
+            "Frequency": 0,
+            "Skill": 0
           }
         },
         {
           "id": "entry_arts_and_crafts_3",
           "name": "Arts and Crafts",
           "levels": {
-            "Frequency": "none",
-            "Skill": "none"
+            "Frequency": 0,
+            "Skill": 0
           }
         },
         {
           "id": "entry_model_building_4",
           "name": "Model Building",
           "levels": {
-            "Frequency": "none",
-            "Skill": "none"
+            "Frequency": 0,
+            "Skill": 0
           }
         },
         {
           "id": "entry_cooking_5",
           "name": "Cooking",
           "levels": {
-            "Frequency": "none",
-            "Skill": "none"
+            "Frequency": 0,
+            "Skill": 0
           }
         },
         {
           "id": "entry_baking_6",
           "name": "Baking",
           "levels": {
-            "Frequency": "none",
-            "Skill": "none"
+            "Frequency": 0,
+            "Skill": 0
           }
         }
       ]
@@ -851,8 +851,8 @@
       "id": "cat_social_events_12",
       "name": "Social Events",
       "properties": [
-        "Attendance",
-        "Hosting"
+        { "name": "Attendance", "type": "level" },
+        { "name": "Hosting", "type": "binary" }
       ],
       "entries": [
         {
@@ -860,7 +860,7 @@
           "name": "House Parties",
           "levels": {
             "Attendance": "none",
-            "Hosting": "none"
+            "Hosting": false
           }
         },
         {
@@ -868,7 +868,7 @@
           "name": "Dinner Parties",
           "levels": {
             "Attendance": "none",
-            "Hosting": "none"
+            "Hosting": false
           }
         },
         {
@@ -876,7 +876,7 @@
           "name": "Game Nights",
           "levels": {
             "Attendance": "none",
-            "Hosting": "none"
+            "Hosting": false
           }
         },
         {
@@ -884,7 +884,7 @@
           "name": "BBQs",
           "levels": {
             "Attendance": "none",
-            "Hosting": "none"
+            "Hosting": false
           }
         },
         {
@@ -892,7 +892,7 @@
           "name": "Potlucks",
           "levels": {
             "Attendance": "none",
-            "Hosting": "none"
+            "Hosting": false
           }
         },
         {
@@ -900,7 +900,7 @@
           "name": "Networking Events",
           "levels": {
             "Attendance": "none",
-            "Hosting": "none"
+            "Hosting": false
           }
         }
       ]
@@ -960,15 +960,15 @@
       "id": "cat_pet_preferences_14",
       "name": "Pet Preferences",
       "properties": [
-        "Ownership",
-        "Interaction"
+        { "name": "Ownership", "type": "binary" },
+        { "name": "Interaction", "type": "level" }
       ],
       "entries": [
         {
           "id": "entry_dogs_0",
           "name": "Dogs",
           "levels": {
-            "Ownership": "none",
+            "Ownership": false,
             "Interaction": "none"
           }
         },
@@ -976,7 +976,7 @@
           "id": "entry_cats_1",
           "name": "Cats",
           "levels": {
-            "Ownership": "none",
+            "Ownership": false,
             "Interaction": "none"
           }
         },
@@ -984,7 +984,7 @@
           "id": "entry_birds_2",
           "name": "Birds",
           "levels": {
-            "Ownership": "none",
+            "Ownership": false,
             "Interaction": "none"
           }
         },
@@ -992,7 +992,7 @@
           "id": "entry_fish_3",
           "name": "Fish",
           "levels": {
-            "Ownership": "none",
+            "Ownership": false,
             "Interaction": "none"
           }
         },
@@ -1000,7 +1000,7 @@
           "id": "entry_reptiles_4",
           "name": "Reptiles",
           "levels": {
-            "Ownership": "none",
+            "Ownership": false,
             "Interaction": "none"
           }
         },
@@ -1008,7 +1008,7 @@
           "id": "entry_small_mammals_5",
           "name": "Small Mammals",
           "levels": {
-            "Ownership": "none",
+            "Ownership": false,
             "Interaction": "none"
           }
         },
@@ -1016,7 +1016,7 @@
           "id": "entry_horses_6",
           "name": "Horses",
           "levels": {
-            "Ownership": "none",
+            "Ownership": false,
             "Interaction": "none"
           }
         }
@@ -1084,8 +1084,8 @@
       "id": "cat_travel_style_16",
       "name": "Travel Style",
       "properties": [
-        "Preference",
-        "Frequency"
+        { "name": "Preference", "type": "level" },
+        { "name": "Frequency", "type": "scale" }
       ],
       "entries": [
         {
@@ -1093,7 +1093,7 @@
           "name": "Adventure Travel",
           "levels": {
             "Preference": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         },
         {
@@ -1101,7 +1101,7 @@
           "name": "Luxury Travel",
           "levels": {
             "Preference": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         },
         {
@@ -1109,7 +1109,7 @@
           "name": "Budget Travel",
           "levels": {
             "Preference": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         },
         {
@@ -1117,7 +1117,7 @@
           "name": "Solo Travel",
           "levels": {
             "Preference": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         },
         {
@@ -1125,7 +1125,7 @@
           "name": "Group Tours",
           "levels": {
             "Preference": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         },
         {
@@ -1133,7 +1133,7 @@
           "name": "Road Trips",
           "levels": {
             "Preference": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         }
       ]
@@ -1142,8 +1142,8 @@
       "id": "cat_destinations_17",
       "name": "Destinations",
       "properties": [
-        "Interest",
-        "Visited"
+        { "name": "Interest", "type": "level" },
+        { "name": "Visited", "type": "binary" }
       ],
       "entries": [
         {
@@ -1151,7 +1151,7 @@
           "name": "Beach Resorts",
           "levels": {
             "Interest": "none",
-            "Visited": "none"
+            "Visited": false
           }
         },
         {
@@ -1159,7 +1159,7 @@
           "name": "Mountain Retreats",
           "levels": {
             "Interest": "none",
-            "Visited": "none"
+            "Visited": false
           }
         },
         {
@@ -1167,7 +1167,7 @@
           "name": "Historic Cities",
           "levels": {
             "Interest": "none",
-            "Visited": "none"
+            "Visited": false
           }
         },
         {
@@ -1175,7 +1175,7 @@
           "name": "National Parks",
           "levels": {
             "Interest": "none",
-            "Visited": "none"
+            "Visited": false
           }
         },
         {
@@ -1183,7 +1183,7 @@
           "name": "International Cities",
           "levels": {
             "Interest": "none",
-            "Visited": "none"
+            "Visited": false
           }
         }
       ]
@@ -1432,8 +1432,8 @@
       "id": "cat_gaming_platforms_22",
       "name": "Gaming Platforms",
       "properties": [
-        "Play",
-        "Own"
+        { "name": "Play", "type": "level" },
+        { "name": "Own", "type": "binary" }
       ],
       "entries": [
         {
@@ -1441,7 +1441,7 @@
           "name": "PC Gaming",
           "levels": {
             "Play": "none",
-            "Own": "none"
+            "Own": false
           }
         },
         {
@@ -1449,7 +1449,7 @@
           "name": "Console Gaming",
           "levels": {
             "Play": "none",
-            "Own": "none"
+            "Own": false
           }
         },
         {
@@ -1457,7 +1457,7 @@
           "name": "Mobile Gaming",
           "levels": {
             "Play": "none",
-            "Own": "none"
+            "Own": false
           }
         },
         {
@@ -1465,7 +1465,7 @@
           "name": "VR Gaming",
           "levels": {
             "Play": "none",
-            "Own": "none"
+            "Own": false
           }
         },
         {
@@ -1473,7 +1473,7 @@
           "name": "Retro Gaming",
           "levels": {
             "Play": "none",
-            "Own": "none"
+            "Own": false
           }
         }
       ]
@@ -1482,15 +1482,15 @@
       "id": "cat_tech_interests_23",
       "name": "Tech Interests",
       "properties": [
-        "Knowledge",
-        "Following"
+        { "name": "Knowledge", "type": "scale" },
+        { "name": "Following", "type": "level" }
       ],
       "entries": [
         {
           "id": "entry_ai_0",
           "name": "AI",
           "levels": {
-            "Knowledge": "none",
+            "Knowledge": 0,
             "Following": "none"
           }
         },
@@ -1498,7 +1498,7 @@
           "id": "entry_cybersecurity_1",
           "name": "Cybersecurity",
           "levels": {
-            "Knowledge": "none",
+            "Knowledge": 0,
             "Following": "none"
           }
         },
@@ -1506,7 +1506,7 @@
           "id": "entry_software_development_2",
           "name": "Software Development",
           "levels": {
-            "Knowledge": "none",
+            "Knowledge": 0,
             "Following": "none"
           }
         },
@@ -1514,7 +1514,7 @@
           "id": "entry_hardware_3",
           "name": "Hardware",
           "levels": {
-            "Knowledge": "none",
+            "Knowledge": 0,
             "Following": "none"
           }
         },
@@ -1522,7 +1522,7 @@
           "id": "entry_gadgets_4",
           "name": "Gadgets",
           "levels": {
-            "Knowledge": "none",
+            "Knowledge": 0,
             "Following": "none"
           }
         },
@@ -1530,7 +1530,7 @@
           "id": "entry_apps_5",
           "name": "Apps",
           "levels": {
-            "Knowledge": "none",
+            "Knowledge": 0,
             "Following": "none"
           }
         }
@@ -1540,8 +1540,8 @@
       "id": "cat_exercise_types_24",
       "name": "Exercise Types",
       "properties": [
-        "Participation",
-        "Frequency"
+        { "name": "Participation", "type": "level" },
+        { "name": "Frequency", "type": "scale" }
       ],
       "entries": [
         {
@@ -1549,7 +1549,7 @@
           "name": "Cardio",
           "levels": {
             "Participation": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         },
         {
@@ -1557,7 +1557,7 @@
           "name": "Strength Training",
           "levels": {
             "Participation": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         },
         {
@@ -1565,7 +1565,7 @@
           "name": "Yoga",
           "levels": {
             "Participation": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         },
         {
@@ -1573,7 +1573,7 @@
           "name": "Pilates",
           "levels": {
             "Participation": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         },
         {
@@ -1581,7 +1581,7 @@
           "name": "HIIT",
           "levels": {
             "Participation": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         },
         {
@@ -1589,7 +1589,7 @@
           "name": "Swimming",
           "levels": {
             "Participation": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         },
         {
@@ -1597,7 +1597,7 @@
           "name": "Walking",
           "levels": {
             "Participation": "none",
-            "Frequency": "none"
+            "Frequency": 0
           }
         }
       ]
