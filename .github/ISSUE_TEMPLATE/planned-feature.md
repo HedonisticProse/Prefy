@@ -7,13 +7,15 @@ assignees: HedonisticProse
 
 ---
 
+# Area(s) Affected
+
+## Area 
+- Impact 1
+- Impact 2
+
 # Feature Notes
 - Note 1 about feature
 - Note 2 about feature
-
-# Area(s) Affected
-- Area 1 (impacts)
-- Area 2 (impacts)
 
 # Implementation Ideas
 - Idea 1 for implementation
