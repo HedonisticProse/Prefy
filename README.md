@@ -65,6 +65,10 @@ If you have any strong personal feelings about AI generated content and tools, p
 
 - **Customizable Levels**: Define your own preference levels with custom names and colors
 - **Flexible Categories**: Create unlimited categories with custom properties
+- **Property Types**: Three ways to quantify entries:
+  - **Level**: Color-coded circles from your levels palette
+  - **0-10 Scale**: Numeric rating displayed as a purple badge
+  - **Yes/No**: Boolean toggle displayed as checkmark or X
 - **Visual Interface**: Color-coded bubbles for quick visual reference
 - **Quick-Select Level Picker**: Click any level bubble on an entry to quickly change its level without opening the edit dialog
 - **View Modes**: Switch between Grid View and Quick Edit for faster level changes
@@ -246,6 +250,10 @@ Click "Manage Levels" to:
 
 - Click "+ Add Category" to create new categories
 - Define properties specific to each category
+- Choose a property type for each property:
+  - **Level**: Uses your custom levels (color circles)
+  - **0-10 Scale**: Numeric rating (0-10)
+  - **Yes/No**: Simple binary toggle
 - Click the category title to edit
 - Reorder by dragging category cards
 
@@ -253,9 +261,12 @@ Click "Manage Levels" to:
 
 - Click "Add entry..." at the bottom of any category to add entries
 - Click any entry to edit it
-- Set preference levels for each property
+- Set values for each property based on its type:
+  - **Level**: Select from color-coded circles
+  - **Scale**: Use the slider (0-10)
+  - **Yes/No**: Toggle between Yes and No
 - Reorder entries within categories by dragging
-- **Quick-Select**: Click directly on a level bubble to change that property's level without opening the full edit dialog. A small popup appears with all available levels for quick selection.
+- **Quick-Select**: Click directly on any property value to change it without opening the full edit dialog. A popup appears with all available options.
 - **Delete**: Click the red "Delete" button in the entry edit modal to remove an entry (with confirmation)
 
 ## Filtering
