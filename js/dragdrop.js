@@ -10,6 +10,7 @@ import {
     setDragCategoryId
 } from './state.js';
 import { openLevelsModal } from './modals.js';
+import { getPropertyInfo, getDefaultValue } from './utils.js';
 
 // We'll set this via a setter to avoid circular import issues
 let renderCategoriesCallback = null;
@@ -209,8 +210,14 @@ export function handleCategoryBodyDrop(e, targetCategoryId) {
     // Map levels to target category properties
     const newLevels = {};
     targetCategory.properties.forEach(prop => {
-        // If the property exists in the source, keep its level
-        newLevels[prop] = draggedEntry.levels[prop] || 'none';
+        const { name: propName, type: propType } = getPropertyInfo(prop);
+        // If the property exists in the source, keep its value
+        const existingValue = draggedEntry.levels[propName];
+        if (existingValue !== undefined) {
+            newLevels[propName] = existingValue;
+        } else {
+            newLevels[propName] = getDefaultValue(propType);
+        }
     });
     draggedEntry.levels = newLevels;
 

@@ -6,6 +6,7 @@ import { escapeHtml } from './utils.js';
 let activeEntryId = null;
 let activeCategoryId = null;
 let activeProperty = null;
+let activePropertyType = 'level';
 
 // Callback for re-rendering after changes
 let renderCallback = null;
@@ -39,21 +40,24 @@ function handleDocumentClick(e) {
     // Check if click is inside popup
     if (popup.contains(e.target)) return;
 
-    // Check if click is on a level bubble (let the bubble handler manage it)
-    if (e.target.classList.contains('level-bubble')) return;
+    // Check if click is on a property display element (let the handler manage it)
+    if (e.target.classList.contains('level-bubble') ||
+        e.target.classList.contains('scale-display') ||
+        e.target.classList.contains('binary-display')) return;
 
     closeFastSelectPopup();
 }
 
 /**
- * Open the fast select popup for a specific bubble
- * @param {HTMLElement} bubbleEl - The clicked bubble element
+ * Open the fast select popup for a specific property display
+ * @param {HTMLElement} bubbleEl - The clicked element
  * @param {string} categoryId - The category ID
  * @param {string} entryId - The entry ID
  * @param {string} property - The property name
- * @param {string} currentLevelId - The current level ID
+ * @param {*} currentValue - The current value
+ * @param {string} propertyType - The property type ('level', 'scale', or 'binary')
  */
-export function openFastSelectPopup(bubbleEl, categoryId, entryId, property, currentLevelId) {
+export function openFastSelectPopup(bubbleEl, categoryId, entryId, property, currentValue, propertyType = 'level') {
     const popup = document.getElementById('fastSelectPopup');
     const optionsContainer = document.getElementById('fastSelectOptions');
 
@@ -61,25 +65,56 @@ export function openFastSelectPopup(bubbleEl, categoryId, entryId, property, cur
     activeEntryId = entryId;
     activeCategoryId = categoryId;
     activeProperty = property;
+    activePropertyType = propertyType;
 
-    // Build level options HTML
-    optionsContainer.innerHTML = appData.levels.map(level => {
-        const isCurrent = level.id === currentLevelId;
-        return `
-            <div class="fast-select-option ${isCurrent ? 'current' : ''}"
-                 style="background-color: ${level.color}; border-color: ${level.color === '#ffffff' ? '#cbd5e0' : level.color}"
-                 data-level-id="${level.id}"
-                 title="${escapeHtml(level.name)}">
-            </div>
-        `;
-    }).join('');
+    // Build options HTML based on type
+    let optionsHTML = '';
+
+    switch (propertyType) {
+        case 'scale':
+            const scaleVal = typeof currentValue === 'number' ? currentValue : 0;
+            optionsHTML = Array.from({ length: 11 }, (_, i) =>
+                `<div class="fast-select-option fast-select-scale ${i === scaleVal ? 'current' : ''}"
+                      data-value="${i}">${i}</div>`
+            ).join('');
+            break;
+
+        case 'binary':
+            const binaryVal = currentValue === true;
+            optionsHTML = `
+                <div class="fast-select-option fast-select-binary yes ${binaryVal ? 'current' : ''}"
+                     data-value="true">&#10003;</div>
+                <div class="fast-select-option fast-select-binary no ${!binaryVal ? 'current' : ''}"
+                     data-value="false">&#10007;</div>
+            `;
+            break;
+
+        default: // 'level'
+            optionsHTML = appData.levels.map(level => {
+                const isCurrent = level.id === currentValue;
+                return `
+                    <div class="fast-select-option fast-select-level ${isCurrent ? 'current' : ''}"
+                         style="background-color: ${level.color}; border-color: ${level.color === '#ffffff' ? '#cbd5e0' : level.color}"
+                         data-level-id="${level.id}"
+                         title="${escapeHtml(level.name)}">
+                    </div>
+                `;
+            }).join('');
+    }
+
+    optionsContainer.innerHTML = optionsHTML;
 
     // Add click handlers to options
     optionsContainer.querySelectorAll('.fast-select-option').forEach(option => {
         option.addEventListener('click', (e) => {
             e.stopPropagation();
-            const levelId = option.dataset.levelId;
-            selectLevel(levelId);
+            if (propertyType === 'scale') {
+                selectValue(parseInt(option.dataset.value, 10));
+            } else if (propertyType === 'binary') {
+                selectValue(option.dataset.value === 'true');
+            } else {
+                selectValue(option.dataset.levelId);
+            }
         });
     });
 
@@ -144,12 +179,13 @@ export function closeFastSelectPopup() {
     activeEntryId = null;
     activeCategoryId = null;
     activeProperty = null;
+    activePropertyType = 'level';
 }
 
 /**
- * Handle level selection
+ * Handle value selection (works for all property types)
  */
-function selectLevel(levelId) {
+function selectValue(value) {
     if (!activeCategoryId || !activeEntryId || !activeProperty) {
         closeFastSelectPopup();
         return;
@@ -168,8 +204,8 @@ function selectLevel(levelId) {
         return;
     }
 
-    // Update the level
-    entry.levels[activeProperty] = levelId;
+    // Update the value (works for all types)
+    entry.levels[activeProperty] = value;
 
     // Close popup
     closeFastSelectPopup();
@@ -181,23 +217,24 @@ function selectLevel(levelId) {
 }
 
 /**
- * Handle bubble click - to be attached to level bubbles
+ * Handle property display click - to be attached to level bubbles, scale/binary displays
  * @param {Event} e - Click event
  * @param {string} categoryId - The category ID
  * @param {string} entryId - The entry ID
  * @param {string} property - The property name
- * @param {string} currentLevelId - The current level ID
+ * @param {*} currentValue - The current value
+ * @param {string} propertyType - The property type ('level', 'scale', or 'binary')
  */
-export function handleBubbleClick(e, categoryId, entryId, property, currentLevelId) {
+export function handleBubbleClick(e, categoryId, entryId, property, currentValue, propertyType = 'level') {
     e.stopPropagation(); // Prevent entry click handler from firing
 
     const bubbleEl = e.currentTarget;
 
-    // If clicking the same bubble while popup is open, toggle it closed
+    // If clicking the same element while popup is open, toggle it closed
     if (activeEntryId === entryId && activeProperty === property) {
         closeFastSelectPopup();
         return;
     }
 
-    openFastSelectPopup(bubbleEl, categoryId, entryId, property, currentLevelId);
+    openFastSelectPopup(bubbleEl, categoryId, entryId, property, currentValue, propertyType);
 }

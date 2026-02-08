@@ -1,12 +1,26 @@
 import { appData } from './state.js';
-import { escapeHtml, generateFilename } from './utils.js';
+import { escapeHtml, generateFilename, getPropertyInfo } from './utils.js';
 
 // Create Entry HTML for Export (compact format)
 export function createExportEntryHTML(entry, category) {
     const bubblesHTML = category.properties.map(prop => {
-        const levelId = entry.levels[prop] || 'none';
-        const level = appData.levels.find(l => l.id === levelId) || appData.levels[0];
-        return `<div class="level-bubble" style="background-color: ${level.color}; border-color: ${level.color === '#ffffff' ? '#cbd5e0' : level.color}" title="${escapeHtml(prop)}: ${escapeHtml(level.name)}"></div>`;
+        const { name: propName, type: propType } = getPropertyInfo(prop);
+        const value = entry.levels[propName];
+
+        switch (propType) {
+            case 'scale':
+                const scaleVal = typeof value === 'number' ? value : 0;
+                return `<div class="scale-display export-scale" title="${escapeHtml(propName)}: ${scaleVal}/10">${scaleVal}</div>`;
+
+            case 'binary':
+                const binaryVal = value === true;
+                return `<div class="binary-display export-binary ${binaryVal ? 'yes' : 'no'}" title="${escapeHtml(propName)}: ${binaryVal ? 'Yes' : 'No'}">${binaryVal ? '&#10003;' : '&#10007;'}</div>`;
+
+            default: // 'level'
+                const levelId = value || 'none';
+                const level = appData.levels.find(l => l.id === levelId) || appData.levels[0];
+                return `<div class="level-bubble" style="background-color: ${level.color}; border-color: ${level.color === '#ffffff' ? '#cbd5e0' : level.color}" title="${escapeHtml(propName)}: ${escapeHtml(level.name)}"></div>`;
+        }
     }).join('');
 
     const commentHTML = entry.comment ? `
@@ -87,9 +101,10 @@ export async function exportToImage() {
         categoryDiv.className = 'category-card export-category';
 
         // Create property headers
-        const propertyHeadersHTML = category.properties.map(prop =>
-            `<span class="property-header">${escapeHtml(prop)}</span>`
-        ).join('');
+        const propertyHeadersHTML = category.properties.map(prop => {
+            const { name: propName } = getPropertyInfo(prop);
+            return `<span class="property-header">${escapeHtml(propName)}</span>`;
+        }).join('');
 
         categoryDiv.innerHTML = `
             <div class="category-header">
