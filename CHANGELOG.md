@@ -2,6 +2,28 @@
 
 All notable changes to Prefy will be documented in this file.
 
+## Version 0.2.5 "Property Types"
+
+**Change Date**: *February 7th, 2026 (2026-02-07)*
+
+### Added
+
+- **Property Types**: Each property can now be one of three types:
+  - **Level** (default): Color-coded circles from your levels palette
+  - **0-10 Scale**: Numeric rating displayed as a purple badge
+  - **Yes/No (Binary)**: Boolean toggle displayed as green checkmark or red X
+- Property type selector in Category Modal when adding/editing properties
+- Type-specific inputs in Entry Modal (slider for scale, toggle for binary)
+- Type-specific displays in Grid View and Quick Edit
+- Fast-select popup support for all property types
+- Export support for all property types
+
+### Changed
+
+- Properties now stored as objects with `name` and `type` fields
+- Entry values stored as appropriate types (string for level, number for scale, Boolean for binary)
+- Backwards compatibility: Old configs with string properties auto-migrate to `{name, type: 'level'}`
+
 ## Version 0.2.4 "View Modes + Quick Edit"
 
 **Change Date**: *February 7th, 2026 (2026-02-07)*

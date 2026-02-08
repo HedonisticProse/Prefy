@@ -1281,3 +1281,330 @@ select.form-input:focus {
     border-bottom-color: transparent;
     border-top-color: white;
 }
+
+/* ===== PROPERTY TYPE STYLES ===== */
+
+/* Property Type Select in Category Modal */
+.property-type-select {
+    padding: 6px 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 13px;
+    background: white;
+    min-width: 100px;
+    cursor: pointer;
+}
+
+.property-type-select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* Scale Display (Grid View) */
+.scale-display {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: #667eea;
+    color: white;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.scale-display:hover {
+    transform: scale(1.1);
+}
+
+/* Binary Display (Grid View) */
+.binary-display {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.binary-display:hover {
+    transform: scale(1.1);
+}
+
+.binary-display.yes {
+    background: #48bb78;
+    color: white;
+}
+
+.binary-display.no {
+    background: #fc8181;
+    color: white;
+}
+
+/* Scale Input (Entry Modal) */
+.scale-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.scale-slider {
+    flex: 1;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #e2e8f0;
+    border-radius: 3px;
+    outline: none;
+}
+
+.scale-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #667eea;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.scale-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+.scale-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #667eea;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.scale-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #667eea;
+    min-width: 24px;
+    text-align: center;
+}
+
+/* Binary Toggle (Entry Modal) */
+.binary-input-wrapper {
+    flex: 1;
+}
+
+.binary-toggle {
+    display: inline-flex;
+    background: #e2e8f0;
+    border: none;
+    border-radius: 20px;
+    padding: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.binary-toggle span {
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 13px;
+    transition: all 0.2s ease;
+    color: #718096;
+}
+
+.binary-toggle .binary-yes.selected {
+    background: #48bb78;
+    color: white;
+}
+
+.binary-toggle .binary-no.selected {
+    background: #fc8181;
+    color: white;
+}
+
+/* Quick Edit Scale Numbers */
+.quick-edit-scale {
+    display: flex;
+    gap: 3px;
+    flex-wrap: wrap;
+}
+
+.quick-edit-scale-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    color: #4a5568;
+}
+
+.quick-edit-scale-num:hover {
+    background: #667eea;
+    color: white;
+    transform: scale(1.1);
+}
+
+.quick-edit-scale-num.current {
+    background: #667eea;
+    color: white;
+    box-shadow: 0 0 0 2px #2d3748;
+}
+
+/* Quick Edit Binary */
+.quick-edit-binary {
+    display: flex;
+    gap: 4px;
+}
+
+.quick-edit-binary-option {
+    padding: 4px 12px;
+    background: #e2e8f0;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    color: #4a5568;
+}
+
+.quick-edit-binary-option:hover {
+    transform: scale(1.05);
+}
+
+.quick-edit-binary-option[data-value="true"].current {
+    background: #48bb78;
+    color: white;
+}
+
+.quick-edit-binary-option[data-value="false"].current {
+    background: #fc8181;
+    color: white;
+}
+
+/* Fast Select Scale/Binary Styles */
+.fast-select-scale {
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 13px;
+    background: #f0f0f5;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    color: #4a5568;
+}
+
+.fast-select-binary {
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    background: #e2e8f0;
+    transition: all 0.15s ease;
+    color: #4a5568;
+}
+
+.fast-select-scale:hover {
+    background: #667eea;
+    color: white;
+    transform: scale(1.05);
+}
+
+.fast-select-scale.current {
+    background: #667eea;
+    color: white;
+}
+
+/* Binary yes/no base colors */
+.fast-select-binary.yes {
+    background: #c6f6d5;
+    color: #276749;
+}
+
+.fast-select-binary.no {
+    background: #fed7d7;
+    color: #c53030;
+}
+
+.fast-select-binary.yes:hover {
+    background: #48bb78;
+    color: white;
+    transform: scale(1.05);
+}
+
+.fast-select-binary.no:hover {
+    background: #fc8181;
+    color: white;
+    transform: scale(1.05);
+}
+
+.fast-select-binary.yes.current {
+    background: #48bb78;
+    color: white;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #276749;
+}
+
+.fast-select-binary.no.current {
+    background: #fc8181;
+    color: white;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #c53030;
+}
+
+/* Fast Select Level (existing circles, add class for consistency) */
+.fast-select-level {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.fast-select-level:hover {
+    transform: scale(1.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.fast-select-level.current {
+    border-color: #2d3748;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #2d3748;
+}
+
+/* Export Styles for Scale/Binary */
+.export-scale {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+}
+
+.export-binary {
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+}

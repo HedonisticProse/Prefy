@@ -12,6 +12,23 @@ export function generateId(prefix = 'id') {
     return `${prefix}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 }
 
+// Get property name and type from property definition (handles both string and object formats)
+export function getPropertyInfo(prop) {
+    if (typeof prop === 'object' && prop !== null) {
+        return { name: prop.name, type: prop.type || 'level' };
+    }
+    return { name: prop, type: 'level' };
+}
+
+// Get default value for a property type
+export function getDefaultValue(propType) {
+    switch (propType) {
+        case 'scale': return 0;
+        case 'binary': return false;
+        default: return 'none';
+    }
+}
+
 // Generate filename with timestamp
 export function generateFilename(prefix, extension) {
     const now = new Date();

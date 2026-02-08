@@ -1,5 +1,5 @@
 import { appData, viewMode } from './state.js';
-import { escapeHtml } from './utils.js';
+import { escapeHtml, getPropertyInfo } from './utils.js';
 import { activeLevelFilter, setActiveLevelFilter, applyFilters, clearAllFilters, isAnyFilterActive } from './filter.js';
 import {
     handleCategoryDragStart,
@@ -213,9 +213,10 @@ export function createCategoryCard(category, index) {
     card.dataset.categoryIndex = index;
 
     // Create property headers
-    const propertyHeadersHTML = category.properties.map(prop =>
-        `<span class="property-header">${escapeHtml(prop)}</span>`
-    ).join('');
+    const propertyHeadersHTML = category.properties.map(prop => {
+        const { name: propName } = getPropertyInfo(prop);
+        return `<span class="property-header">${escapeHtml(propName)}</span>`;
+    }).join('');
 
     card.innerHTML = `
         <div class="category-header drag-handle">
@@ -292,7 +293,27 @@ export function createCategoryCard(category, index) {
                 const entryId = entryEl.dataset.entryId;
                 const property = bubbleEl.dataset.property;
                 const currentLevelId = bubbleEl.dataset.levelId;
-                handleBubbleClick(e, category.id, entryId, property, currentLevelId);
+                handleBubbleClick(e, category.id, entryId, property, currentLevelId, 'level');
+            });
+        });
+
+        // Add click handlers for scale displays (fast select)
+        entryEl.querySelectorAll('.scale-display').forEach(displayEl => {
+            displayEl.addEventListener('click', (e) => {
+                const entryId = entryEl.dataset.entryId;
+                const property = displayEl.dataset.property;
+                const currentValue = parseInt(displayEl.dataset.value, 10);
+                handleBubbleClick(e, category.id, entryId, property, currentValue, 'scale');
+            });
+        });
+
+        // Add click handlers for binary displays (fast select)
+        entryEl.querySelectorAll('.binary-display').forEach(displayEl => {
+            displayEl.addEventListener('click', (e) => {
+                const entryId = entryEl.dataset.entryId;
+                const property = displayEl.dataset.property;
+                const currentValue = displayEl.dataset.value === 'true';
+                handleBubbleClick(e, category.id, entryId, property, currentValue, 'binary');
             });
         });
     });
@@ -308,17 +329,19 @@ export function createCategoryCardQuickEdit(category, index) {
     card.dataset.categoryId = category.id;
     card.dataset.categoryIndex = index;
 
-    const propertyHeadersHTML = category.properties.map(prop =>
-        `<span class="property-header">${escapeHtml(prop)}</span>`
-    ).join('');
+    const propertyHeadersHTML = category.properties.map(prop => {
+        const { name: propName } = getPropertyInfo(prop);
+        return `<span class="property-header">${escapeHtml(propName)}</span>`;
+    }).join('');
 
     const gridColumns = `minmax(200px, 1fr) repeat(${category.properties.length}, minmax(160px, 1fr))`;
     const propertyHeaderRow = `
         <div class="quick-edit-header-row" style="grid-template-columns: ${gridColumns};">
             <div class="quick-edit-header-cell quick-edit-header-name"></div>
-            ${category.properties.map(prop =>
-                `<div class="quick-edit-header-cell">${escapeHtml(prop)}</div>`
-            ).join('')}
+            ${category.properties.map(prop => {
+                const { name: propName } = getPropertyInfo(prop);
+                return `<div class="quick-edit-header-cell">${escapeHtml(propName)}</div>`;
+            }).join('')}
         </div>
     `;
 
@@ -402,6 +425,36 @@ export function createCategoryCardQuickEdit(category, index) {
                 renderCategories(true);
             });
         });
+
+        // Add click handlers for scale numbers
+        entryEl.querySelectorAll('.quick-edit-scale-num').forEach(numEl => {
+            numEl.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const entryId = entryEl.dataset.entryId;
+                const property = numEl.dataset.property;
+                const value = parseInt(numEl.dataset.value, 10);
+                const categoryRef = appData.categories.find(c => c.id === category.id);
+                const entryRef = categoryRef?.entries.find(en => en.id === entryId);
+                if (!entryRef) return;
+                entryRef.levels[property] = value;
+                renderCategories(true);
+            });
+        });
+
+        // Add click handlers for binary options
+        entryEl.querySelectorAll('.quick-edit-binary-option').forEach(optEl => {
+            optEl.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const entryId = entryEl.dataset.entryId;
+                const property = optEl.dataset.property;
+                const value = optEl.dataset.value === 'true';
+                const categoryRef = appData.categories.find(c => c.id === category.id);
+                const entryRef = categoryRef?.entries.find(en => en.id === entryId);
+                if (!entryRef) return;
+                entryRef.levels[property] = value;
+                renderCategories(true);
+            });
+        });
     });
 
     return card;
@@ -410,9 +463,23 @@ export function createCategoryCardQuickEdit(category, index) {
 // Create Entry HTML
 export function createEntryHTML(entry, category, entryIndex, isSearchMatch = false) {
     const bubblesHTML = category.properties.map(prop => {
-        const levelId = entry.levels[prop] || 'none';
-        const level = appData.levels.find(l => l.id === levelId) || appData.levels[0];
-        return `<div class="level-bubble" style="background-color: ${level.color}; border-color: ${level.color === '#ffffff' ? '#cbd5e0' : level.color}" title="${escapeHtml(prop)}: ${escapeHtml(level.name)}" data-property="${escapeHtml(prop)}" data-level-id="${levelId}"></div>`;
+        const { name: propName, type: propType } = getPropertyInfo(prop);
+        const value = entry.levels[propName];
+
+        switch (propType) {
+            case 'scale':
+                const scaleVal = typeof value === 'number' ? value : 0;
+                return `<div class="scale-display" data-property="${escapeHtml(propName)}" data-property-type="scale" data-value="${scaleVal}" title="${escapeHtml(propName)}: ${scaleVal}/10">${scaleVal}</div>`;
+
+            case 'binary':
+                const binaryVal = value === true;
+                return `<div class="binary-display ${binaryVal ? 'yes' : 'no'}" data-property="${escapeHtml(propName)}" data-property-type="binary" data-value="${binaryVal}" title="${escapeHtml(propName)}: ${binaryVal ? 'Yes' : 'No'}">${binaryVal ? '&#10003;' : '&#10007;'}</div>`;
+
+            default: // 'level'
+                const levelId = value || 'none';
+                const level = appData.levels.find(l => l.id === levelId) || appData.levels[0];
+                return `<div class="level-bubble" style="background-color: ${level.color}; border-color: ${level.color === '#ffffff' ? '#cbd5e0' : level.color}" title="${escapeHtml(propName)}: ${escapeHtml(level.name)}" data-property="${escapeHtml(propName)}" data-property-type="level" data-level-id="${levelId}"></div>`;
+        }
     }).join('');
 
     const commentHTML = entry.comment ? `
@@ -439,27 +506,58 @@ export function createEntryHTML(entry, category, entryIndex, isSearchMatch = fal
 
 // Create Entry HTML (Quick Edit)
 export function createEntryHTMLQuickEdit(entry, category, entryIndex, isSearchMatch = false, gridColumns = '') {
-    const levelOptionsHTML = category.properties.map(prop => {
-        const currentLevelId = entry.levels[prop] || 'none';
-        const levelsHTML = appData.levels.map(level => {
-            const isCurrent = level.id === currentLevelId;
-            const borderColor = level.color === '#ffffff' ? '#cbd5e0' : level.color;
-            return `
-                <div class="quick-edit-level ${isCurrent ? 'current' : ''}"
-                     style="background-color: ${level.color}; border-color: ${borderColor}"
-                     data-property="${escapeHtml(prop)}"
-                     data-level-id="${level.id}"
-                     title="${escapeHtml(prop)}: ${escapeHtml(level.name)}">
-                </div>
-            `;
-        }).join('');
+    const propertyOptionsHTML = category.properties.map(prop => {
+        const { name: propName, type: propType } = getPropertyInfo(prop);
+        const currentValue = entry.levels[propName];
+
+        let controlsHTML = '';
+
+        switch (propType) {
+            case 'scale':
+                const scaleVal = typeof currentValue === 'number' ? currentValue : 0;
+                const numbersHTML = Array.from({ length: 11 }, (_, i) =>
+                    `<span class="quick-edit-scale-num ${i === scaleVal ? 'current' : ''}"
+                           data-property="${escapeHtml(propName)}"
+                           data-value="${i}">${i}</span>`
+                ).join('');
+                controlsHTML = `<div class="quick-edit-scale">${numbersHTML}</div>`;
+                break;
+
+            case 'binary':
+                const binaryVal = currentValue === true;
+                controlsHTML = `
+                    <div class="quick-edit-binary">
+                        <span class="quick-edit-binary-option ${binaryVal ? 'current' : ''}"
+                              data-property="${escapeHtml(propName)}"
+                              data-value="true">Yes</span>
+                        <span class="quick-edit-binary-option ${!binaryVal ? 'current' : ''}"
+                              data-property="${escapeHtml(propName)}"
+                              data-value="false">No</span>
+                    </div>
+                `;
+                break;
+
+            default: // 'level'
+                const currentLevelId = currentValue || 'none';
+                const levelsHTML = appData.levels.map(level => {
+                    const isCurrent = level.id === currentLevelId;
+                    const borderColor = level.color === '#ffffff' ? '#cbd5e0' : level.color;
+                    return `
+                        <div class="quick-edit-level ${isCurrent ? 'current' : ''}"
+                             style="background-color: ${level.color}; border-color: ${borderColor}"
+                             data-property="${escapeHtml(propName)}"
+                             data-level-id="${level.id}"
+                             title="${escapeHtml(propName)}: ${escapeHtml(level.name)}">
+                        </div>
+                    `;
+                }).join('');
+                controlsHTML = `<div class="quick-edit-levels">${levelsHTML}</div>`;
+        }
 
         return `
-            <div class="quick-edit-property-block">
-                <div class="quick-edit-property-label">${escapeHtml(prop)}</div>
-                <div class="quick-edit-levels">
-                    ${levelsHTML}
-                </div>
+            <div class="quick-edit-property-block" data-property-type="${propType}">
+                <div class="quick-edit-property-label">${escapeHtml(propName)}</div>
+                ${controlsHTML}
             </div>
         `;
     }).join('');
@@ -478,7 +576,7 @@ export function createEntryHTMLQuickEdit(entry, category, entryIndex, isSearchMa
                     <span class="drag-indicator">⋮⋮</span>
                     <span class="quick-edit-entry-name-text">${escapeHtml(entry.name)}</span>
                 </div>
-                ${levelOptionsHTML}
+                ${propertyOptionsHTML}
             </div>
             ${commentHTML}
         </div>

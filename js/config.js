@@ -11,6 +11,27 @@ import {
 import { generateFilename } from './utils.js';
 import { clearAllFilters } from './filter.js';
 
+// Migrate property structure from string array to object array for backwards compatibility
+function migratePropertyStructure(data) {
+    if (!data.categories) return data;
+
+    data.categories.forEach(category => {
+        if (!category.properties) return;
+
+        category.properties = category.properties.map(prop => {
+            // If it's already an object, ensure it has a type
+            if (typeof prop === 'object' && prop !== null) {
+                if (!prop.type) prop.type = 'level';
+                return prop;
+            }
+            // Convert string to object with default 'level' type
+            return { name: prop, type: 'level' };
+        });
+    });
+
+    return data;
+}
+
 // We'll set this via a setter to avoid circular import issues
 let renderCategoriesCallback = null;
 
@@ -59,6 +80,9 @@ export function loadConfig(event) {
             if (!data.exportTitle) {
                 data.exportTitle = 'My Prefy List';
             }
+
+            // Migrate property structure for backwards compatibility
+            migratePropertyStructure(data);
 
             if (confirm('Load this configuration? This will replace your current data.')) {
                 clearAllFilters();
@@ -206,6 +230,9 @@ export async function loadConfigFromFile(filename) {
             data.exportTitle = 'My Prefy List';
         }
 
+        // Migrate property structure for backwards compatibility
+        migratePropertyStructure(data);
+
         clearAllFilters();
         setAppData(data);
         if (renderCategoriesCallback) {
@@ -219,6 +246,9 @@ export async function loadConfigFromFile(filename) {
 
 // Load prefy data (used by save prompt handlers)
 export function loadPrefyData(data) {
+    // Migrate property structure for backwards compatibility
+    migratePropertyStructure(data);
+
     clearAllFilters();
     setAppData(data);
     if (renderCategoriesCallback) {
@@ -251,6 +281,9 @@ export async function loadTemplate() {
         if (!templateData.exportTitle) {
             templateData.exportTitle = 'My Prefy List';
         }
+
+        // Migrate property structure for backwards compatibility
+        migratePropertyStructure(templateData);
 
         clearAllFilters();
         setAppData(templateData);

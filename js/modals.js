@@ -7,7 +7,7 @@ import {
     setCurrentEditingEntry,
     setCurrentCategoryForEntry
 } from './state.js';
-import { escapeHtml } from './utils.js';
+import { escapeHtml, getPropertyInfo, getDefaultValue } from './utils.js';
 import {
     handleLevelDragStart,
     handleLevelDragOver,
@@ -155,11 +155,19 @@ export function openCategoryModal(categoryId = null) {
     modal.classList.add('active');
 }
 
-export function createPropertyRow(value = '') {
+export function createPropertyRow(property = null) {
+    // Handle both old string format and new object format
+    const { name: propName, type: propType } = property ? getPropertyInfo(property) : { name: '', type: 'level' };
+
     const row = document.createElement('div');
     row.className = 'property-item';
     row.innerHTML = `
-        <input type="text" value="${escapeHtml(value)}" placeholder="Property name (e.g., Self, Partner, Giving, Receiving)">
+        <input type="text" value="${escapeHtml(propName)}" placeholder="Property name (e.g., Self, Partner, Rating)">
+        <select class="property-type-select">
+            <option value="level" ${propType === 'level' ? 'selected' : ''}>Level</option>
+            <option value="scale" ${propType === 'scale' ? 'selected' : ''}>0-10 Scale</option>
+            <option value="binary" ${propType === 'binary' ? 'selected' : ''}>Yes/No</option>
+        </select>
         <button class="delete-property-btn">Delete</button>
     `;
 
@@ -186,10 +194,20 @@ export function saveCategory() {
         return;
     }
 
-    const propertyInputs = propertiesContainer.querySelectorAll('input[type="text"]');
-    const properties = Array.from(propertyInputs)
-        .map(input => input.value.trim())
-        .filter(prop => prop !== '');
+    // Collect property objects with name and type
+    const propertyRows = propertiesContainer.querySelectorAll('.property-item');
+    const properties = Array.from(propertyRows)
+        .map(row => {
+            const nameInput = row.querySelector('input[type="text"]');
+            const typeSelect = row.querySelector('.property-type-select');
+            const propName = nameInput.value.trim();
+            if (!propName) return null;
+            return {
+                name: propName,
+                type: typeSelect ? typeSelect.value : 'level'
+            };
+        })
+        .filter(Boolean);
 
     if (properties.length === 0) {
         alert('Please add at least one property');
@@ -200,16 +218,22 @@ export function saveCategory() {
         // Edit existing
         const category = appData.categories.find(c => c.id === currentEditingCategory);
         category.name = name;
-        category.properties = properties;
 
-        // Update entries to match new properties
+        // Update entries to match new properties with type-appropriate defaults
         category.entries.forEach(entry => {
             const newLevels = {};
             properties.forEach(prop => {
-                newLevels[prop] = entry.levels[prop] || 'none';
+                const existingValue = entry.levels[prop.name];
+                if (existingValue !== undefined) {
+                    newLevels[prop.name] = existingValue;
+                } else {
+                    newLevels[prop.name] = getDefaultValue(prop.type);
+                }
             });
             entry.levels = newLevels;
         });
+
+        category.properties = properties;
     } else {
         // Create new
         const newCategory = {
@@ -262,7 +286,11 @@ export function openEntryModal(categoryId, entryId = null) {
 
         levelsContainer.innerHTML = '';
         category.properties.forEach(prop => {
-            const row = createEntryLevelRow(prop, entry.levels[prop] || 'none');
+            const { name: propName, type: propType } = getPropertyInfo(prop);
+            const currentValue = entry.levels[propName] !== undefined
+                ? entry.levels[propName]
+                : getDefaultValue(propType);
+            const row = createEntryPropertyRow(prop, currentValue);
             levelsContainer.appendChild(row);
         });
     } else {
@@ -272,7 +300,8 @@ export function openEntryModal(categoryId, entryId = null) {
 
         levelsContainer.innerHTML = '';
         category.properties.forEach(prop => {
-            const row = createEntryLevelRow(prop, 'none');
+            const { type: propType } = getPropertyInfo(prop);
+            const row = createEntryPropertyRow(prop, getDefaultValue(propType));
             levelsContainer.appendChild(row);
         });
     }
@@ -280,37 +309,87 @@ export function openEntryModal(categoryId, entryId = null) {
     modal.classList.add('active');
 }
 
-export function createEntryLevelRow(propertyName, selectedLevelId) {
+export function createEntryPropertyRow(property, currentValue) {
+    const { name: propName, type: propType } = getPropertyInfo(property);
+
     const row = document.createElement('div');
     row.className = 'entry-level-row';
+    row.dataset.propertyType = propType;
 
-    const levelsHTML = appData.levels.map(level => {
-        const isSelected = level.id === selectedLevelId;
-        return `
-            <div class="level-option ${isSelected ? 'selected' : ''}"
-                 style="background-color: ${level.color}; border-color: ${level.color === '#ffffff' ? '#cbd5e0' : level.color}"
-                 data-level-id="${level.id}"
-                 title="${escapeHtml(level.name)}">
-            </div>
-        `;
-    }).join('');
+    let inputHTML = '';
+
+    switch (propType) {
+        case 'scale':
+            const scaleValue = typeof currentValue === 'number' ? currentValue : 0;
+            inputHTML = `
+                <div class="scale-input-wrapper" data-property="${escapeHtml(propName)}">
+                    <input type="range" min="0" max="10" value="${scaleValue}" class="scale-slider">
+                    <span class="scale-value">${scaleValue}</span>
+                </div>
+            `;
+            break;
+
+        case 'binary':
+            const binaryValue = currentValue === true;
+            inputHTML = `
+                <div class="binary-input-wrapper" data-property="${escapeHtml(propName)}">
+                    <button type="button" class="binary-toggle ${binaryValue ? 'active' : ''}" data-value="${binaryValue}">
+                        <span class="binary-yes ${binaryValue ? 'selected' : ''}">Yes</span>
+                        <span class="binary-no ${!binaryValue ? 'selected' : ''}">No</span>
+                    </button>
+                </div>
+            `;
+            break;
+
+        default: // 'level'
+            const levelId = currentValue || 'none';
+            const levelsHTML = appData.levels.map(level => {
+                const isSelected = level.id === levelId;
+                return `
+                    <div class="level-option ${isSelected ? 'selected' : ''}"
+                         style="background-color: ${level.color}; border-color: ${level.color === '#ffffff' ? '#cbd5e0' : level.color}"
+                         data-level-id="${level.id}"
+                         title="${escapeHtml(level.name)}">
+                    </div>
+                `;
+            }).join('');
+            inputHTML = `
+                <div class="level-options" data-property="${escapeHtml(propName)}">
+                    ${levelsHTML}
+                </div>
+            `;
+    }
 
     row.innerHTML = `
-        <label>${escapeHtml(propertyName)}:</label>
-        <div class="level-options" data-property="${escapeHtml(propertyName)}">
-            ${levelsHTML}
-        </div>
+        <label>${escapeHtml(propName)}:</label>
+        ${inputHTML}
     `;
 
-    // Add click handlers
-    row.querySelectorAll('.level-option').forEach(option => {
-        option.addEventListener('click', (e) => {
-            // Remove selected from siblings
-            row.querySelectorAll('.level-option').forEach(opt => opt.classList.remove('selected'));
-            // Add selected to clicked
-            e.currentTarget.classList.add('selected');
+    // Add event handlers based on type
+    if (propType === 'scale') {
+        const slider = row.querySelector('.scale-slider');
+        const valueDisplay = row.querySelector('.scale-value');
+        slider.addEventListener('input', (e) => {
+            valueDisplay.textContent = e.target.value;
         });
-    });
+    } else if (propType === 'binary') {
+        const toggle = row.querySelector('.binary-toggle');
+        toggle.addEventListener('click', () => {
+            const newValue = toggle.dataset.value !== 'true';
+            toggle.dataset.value = newValue;
+            toggle.classList.toggle('active', newValue);
+            toggle.querySelector('.binary-yes').classList.toggle('selected', newValue);
+            toggle.querySelector('.binary-no').classList.toggle('selected', !newValue);
+        });
+    } else {
+        // Level bubble click handlers
+        row.querySelectorAll('.level-option').forEach(option => {
+            option.addEventListener('click', (e) => {
+                row.querySelectorAll('.level-option').forEach(opt => opt.classList.remove('selected'));
+                e.currentTarget.classList.add('selected');
+            });
+        });
+    }
 
     return row;
 }
@@ -327,15 +406,30 @@ export function saveEntry() {
     }
 
     const comment = commentInput.value.trim();
-
-    const levels = {};
-    levelsContainer.querySelectorAll('.level-options').forEach(optionsContainer => {
-        const property = optionsContainer.dataset.property;
-        const selected = optionsContainer.querySelector('.level-option.selected');
-        levels[property] = selected ? selected.dataset.levelId : 'none';
-    });
-
     const category = appData.categories.find(c => c.id === currentCategoryForEntry);
+
+    // Collect values for all property types
+    const levels = {};
+    category.properties.forEach(prop => {
+        const { name: propName, type: propType } = getPropertyInfo(prop);
+
+        switch (propType) {
+            case 'scale':
+                const scaleWrapper = levelsContainer.querySelector(`.scale-input-wrapper[data-property="${propName}"]`);
+                levels[propName] = parseInt(scaleWrapper?.querySelector('.scale-slider')?.value || 0, 10);
+                break;
+
+            case 'binary':
+                const binaryWrapper = levelsContainer.querySelector(`.binary-input-wrapper[data-property="${propName}"]`);
+                levels[propName] = binaryWrapper?.querySelector('.binary-toggle')?.dataset.value === 'true';
+                break;
+
+            default: // 'level'
+                const levelWrapper = levelsContainer.querySelector(`.level-options[data-property="${propName}"]`);
+                const selected = levelWrapper?.querySelector('.level-option.selected');
+                levels[propName] = selected ? selected.dataset.levelId : 'none';
+        }
+    });
 
     if (currentEditingEntry) {
         // Edit existing
